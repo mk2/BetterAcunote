@@ -1,0 +1,6653 @@
+/* Copyright (c) 2006-2007 Pluron, Inc. */
+
+body, p, table, td, ul, ol, textarea { font: 12px Arial, Helvetica, Geneva, sans-serif;}
+
+div.breadcrumbs h1, 
+div.breadcrumbs h2 { 
+        font: bold 14px "Trebuchet MS", Arial, sans-serif;
+    }
+    div.breadcrumbs h1 span { font-size: 14px;}
+    div.breadcrumbs h1 small { font-size: 10px; font-weight: normal;}
+    div.breadcrumbs h1 .toolset { font: bold 10px Verdana, Arial, sans-serif; }
+    
+h2 { font-size: 15px; }
+h3 { font: bold 12px Arial, sans-serif; }
+
+/* === Footer === */
+#footer { font: 10px Verdana, Helvetica, sans-serif; }
+
+/* === Notice === */
+.flash .spinner_message {
+ font-family: Verdana, Arial, sans-serif;
+ font-weight: bold;
+}
+
+/* === Popups === */
+#new_task_dialog table tr td { font-size: 12px; line-height: 1.4 }
+#shortcuts_help_dialog #shortcuts_list { line-height: 100%; }
+#shortcuts_help_dialog #shortcuts_list .shortcut { font-weight: bold; }
+#shortcuts_help_dialog #shortcuts_list .accesskey_shortcut { font-weight: bold; }
+#shortcuts_help_dialog #shortcuts_list div.accesskey_shortcut small { color: gray; }
+.popup_dialog label { font-weight:bold;}
+.popup_dialog h3 { font-size:12px;}
+
+.welcome { font-family: Tahoma, Arial,sans-serif;  }
+    .welcome h3 {font: bold 15px "Trebuchet MS", Arial, sans-serif;} 
+    
+/* === Errors === */    
+#errorExplanation { font-family: Verdana, Arial, sans-serif; }
+    #errorExplanation h2 {
+        font-weight: bold;
+        font-size: 12px;
+        }
+    #errorExplanation ul li {
+        font-size: 12px;
+    }
+
+/* === Listing === */
+table.listing p { font-size: 11px; }    
+    
+/* === Big plain test === */
+.blurb { font-family: Verdana, Arial, sans-serif; }  
+
+/* ===================== */
+/*       Forms           
+/* ===================== */
+
+fieldset legend {
+    font-size: 12px;
+    font-weight: bold;
+}
+input[type=text], input[type=password], .inp {  font: 14px "Courier New", monospace; }
+input.small_btn{ font: 11px Tahoma, sans-serif; }
+
+/* ===================== */
+/*       Diff            
+/* ===================== */
+
+table.diffs td { font-family: monospace; }
+.diff_tip_content, .diffs .log { font-family: Arial, Helvetica, sans-serif; }
+
+.diff_tip_content .buttons { font-size: 11px; }
+    .diff_tip_content .buttons a { font-weight: bold; }
+    .diff_editor h3 { font-weight: bold; }
+
+#status_info, #initializing { font-weight: bold; }
+
+/* ===================== */
+/*       Task List
+/* ===================== */
+
+.sidebar select { font-size: 11px; }
+#tasklist-toolbox select { font: 11px Tahoma,sans-serif; }
+
+#prediction table.prediction td, 
+#prediction table.prediction th { 
+    font-size: 11px; 
+}
+table.analyze .est { font-size: 10px; }
+
+/* ===================== */
+/*    Timeline
+/* ===================== */
+#timeline-filter input {font: 11px Tahoma, Arial, sans-serif; }
+#timeline-filter #changeset_loader { font: 10px Tahoma, Arial, sans-serif; }
+
+.event .title { font: 11px Verdana, Arial, sans-serif; }
+    .event .title em {
+        font-style:normal;
+        font-weight:bold;
+        font-family: Tahoma, Arial, sans;
+    }
+.event .details { font: 11px Verdana, Arial, sans-serif; }
+hf.timeline { font-size: 14px; }
+
+/* ===================== */
+/*    Misc
+/* ===================== */
+.modal_flash .content { font: bold 12px Verdana, Arial, sans-serif; }
+#shortcut_status { font-weight: bold; }
+#root_notice {  font-weight: bold;  }
+
+div#issuelist_toolbox select, select#more_actions, select#sprint_selector, select#taskwiki_template, select#next_sprint {
+    font: 11px Tahoma,sans-serif;
+}
+
+#bookmarklet_notice {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    width: 340px;
+    font: normal 10px Tahoma, Arial, sans-serif;
+    color: #f00;
+}
+
+.smallFonts td, .smallFonts th {
+    font-size: 90%;
+}
+
+.mentoring_org {
+    color: #888888;
+    font-style: italic;
+}
+
+.comment span.time { font: normal 90% Verdana, Arial, sans-serif }
+.comment span.creator { font: normal 90% Verdana, Arial, sans-serif }
+.comment span.small { font: normal 90% Verdana, Arial, sans-serif }
+
+div.account div.stat-label {font: 12px Arial, Helvetica, Geneva, sans-serif;}
+div.account div.stat {font: 12px Arial, Helvetica, Geneva, sans-serif !important;}
+
+
+.wiki pre .task_wiki  { font: 12px Arial, Helvetica, Geneva, sans-serif; }
+.wiki_revision_warning {color: #f00; }
+.wiki_deleted_notice { color: #f00; font-weight: bold; }
+
+td.revision { font: 11px Verdana, Arial, sans-serif; }
+    td.revision a {text-decoration: none;}
+
+/* ===================== */
+/*    TaskPad
+/* ===================== */
+textarea#taskpad_data { 
+    font: normal 12px/1.25 "Courier New", "Courier", monospace; 
+} 
+
+.wiki .plus_minus {
+    font: 14px "Courier New", monospace;
+}
+
+
+
+
+/* ===================================*/
+/* Copyright (c) 2006-2007 Pluron, Inc.
+/* Acunote
+/* Main stylesheet
+/* ===================================*/
+
+/**************************************/
+/*    Common Rules
+/**************************************/
+
+body, h1, h2, h3, p, ul, ol, li, dl, dt, dd, form, img { margin: 0;    border: 0; padding: 0; }
+
+/* adding persistent scrollbar for Gleb's joy */
+html {
+    overflow-x: auto;
+    overflow-y: scroll;
+}
+
+body {
+    background-color: #FFF;
+    color: #333;
+    min-width: 940px;
+}
+
+a, a:link, a:visited { color: #06c; }
+
+/* Force background and text color for text inputs and textareas
+ * to prevent desktop themes (on Linux) redefining them.
+ * Note, we can't set only foreground color because if your desktop
+ * uses dark theme, text will become unreadable on a dark background.
+*/
+input[type=text], input[type=password], textarea {
+    background-color: #fff;
+    color: #333;
+}
+
+h2 { padding: 0 0 0.4em; }
+h3 { padding: 0.8em 0 0.2em; }
+
+p {
+    line-height: 1.3;
+    padding: 0.2em 0 0.6em;
+    }
+
+ul, ol {list-style: none;}
+
+.clear { clear: both; display: block; font-size: 0;}
+br.clear { height: 0; }
+
+.hidden { display: none; }
+.displayed_block { display: block !important; }
+.displayed_inline { display: inline !important; }
+
+
+/*------------------------------------*/
+/*    Header
+/*------------------------------------*/
+
+#header {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 60px;
+    background-color: #5c6c7e;
+    color: #FFF;
+    }
+    #header a { color: #FFF; }
+    #header a:hover { color: #D9EFFF; }
+
+body.no-title #header { border-bottom: 10px solid #4998d0; }
+body.no-title #main {padding-top: 14px;}
+
+#logo_link {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    width: 112px;
+    height: 22px;
+    text-indent: -32768px;
+    outline: none;
+    overflow: hidden;
+}
+
+/*------------------------------------*/
+/*    Small Top Right Navigation
+/*------------------------------------*/
+ul.projectnav, ul.rightnav {
+    position: absolute;
+}
+    ul.projectnav li, ul.rightnav li {
+        float: left;
+        padding: 0 5px;
+        border-left: 1px solid #98A5B3;
+        line-height: 1.4;
+    }
+    ul.projectnav li.first, ul.rightnav li.first {
+        border-left: 0;
+    }
+    ul li.upgrade  {
+        border-right: 1px solid #98A5B3;
+    }
+    /*for rightmost advanced links navigation*/
+    ul.rightnav {
+        right: 10px;
+        top: 5px;
+        height: 15px;
+    }
+    #metanav li.prominent a, #metanav a.prominent { color: #ebeb00; font-weight: bold; }
+
+    /*for leftmost project navigation*/
+    ul.projectnav {
+        left: 10px;
+        top: 30px;
+        height: 30px;
+        padding-top: 2px;
+        }
+        ul.projectnav li {
+            line-height: 2.0;
+        }
+        ul.projectnav li.selector_container {
+            margin-left: -5px;
+        }
+        ul.projectnav li div#project_selector_form {
+            margin-top:2px;
+        }
+        ul.projectnav li select {
+            width: 100px;
+        }
+        ul.projectnav li a#project_selector_link {
+            display: block;
+            white-space: nowrap;
+            width: 95px;
+            height: 2em;
+            overflow: hidden;
+        }
+
+form.project_select_form {
+    display: inline;
+}
+
+/*------------------------------------*/
+/*    Main Tabbed Navigation
+/*------------------------------------*/
+
+#mainnav {
+    clear: right;
+    float: left;
+    height: 31px;
+    margin-top: 30px;
+    margin-left: 250px;
+    }
+    #mainnav strong a {
+        background: none;
+    }
+    #mainnav li {
+        float: left;
+        height: 31px;
+        margin: 0 1px;
+        background-color: #3A7FB2;
+    }
+        #mainnav li.active {
+            background-color: #3695D9;
+        }
+    #mainnav a,
+    #mainnav strong {
+        float: left;
+        height: 23px;
+        padding: 7px 15px 0;
+        font-weight: normal;
+    }
+    #mainnav a {
+        text-decoration: none;
+    }
+    #mainnav strong a {
+        float: none;
+        height: auto;
+        padding: 0;
+    }
+
+/*------------------------------------*/
+/*    Breadcrumbs / Toolbar
+/*------------------------------------*/
+
+div.breadcrumbs {
+    position: relative;
+    margin: 0 -15px 15px;
+    padding: 1px 17px;
+    height: 23px;
+    line-height: 23px; /* vertical centering for inline children */
+    background: #4998d0;
+    color: #FFF;
+    }
+    div.breadcrumbs h1 {
+        font-family: "Trebuchet MS", sans-serif;
+        line-height: 23px;
+    }
+    div.breadcrumbs small {
+        padding-left: 5px;
+        font-family: Arial, sans-serif;
+    }
+    div.breadcrumbs .toolset {
+            font-family:Verdana,Arial,sans-serif;
+            font-size: 10px;
+            font-weight: bold;
+            position: absolute;
+            top: 0; 
+            right: 0;
+        }
+        div.breadcrumbs .toolset a,  
+        div.breadcrumbs .toolset strong {
+            display: block; float: left;
+            height: 23px;
+            color: #FFF;
+            padding: 0 10px;
+        }
+        div.breadcrumbs .toolset a:hover { background-color: #68a5d0; }
+        div.breadcrumbs .toolset a:visited {color: #FFF;}
+        div.breadcrumbs .toolset strong { color: #ddd; text-decoration: underline;}
+    /* Prev/Next Task */
+    div.breadcrumbs a img {position: relative; top: 1px;}
+    div.breadcrumbs a { color: #FFF !important; }
+    div.breadcrumbs span.next {color: #ddd}
+    div.breadcrumbs div {
+        margin-right: 5px;
+    }
+    div.breadcrumbs a.arrow {
+        width: 9px;
+        height: 13px;
+        text-decoration: none;
+        margin-top: 1px;
+        display: inline-block;
+        * vertical-align: top; /* IE9 valign fix*/
+        font-size: 0; /* IE */
+    }
+    div.breadcrumbs span.alpha {
+        color: #ff0;
+    }
+    div.breadcrumbs .chain {
+        }
+        div.breadcrumbs .chain .sprite-left-arrow-grey {
+            display: inline-block;
+            font-size: 0;
+            vertical-align: baseline;
+            width: 7px;
+            height: 11px;
+            margin-right: .25em;
+        }
+
+/*------------------------------------*/
+/*    You are Root or Admin
+/*------------------------------------*/
+
+#root_notice {
+    color: #FFF;
+    background: red;
+    margin-right: 5px;
+    }
+    #root_notice a { color: #ff0; }
+
+/*------------------------------------*/
+/*    Footer
+/*------------------------------------*/
+
+html, body {
+    height: 100%;
+}
+#the_all {
+    position: relative;
+    min-height: 100%;
+}
+
+#main {
+    clear: both;
+    background: #FFF ;
+    padding: 0 15px 50px 15px;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+    border-top: 1px solid #B1BAC2;
+    background-color: #E6ECF2;
+    color:#919FAC;
+    clear: both;
+    padding: 6px 0 8px;
+    }
+    #footer .reduce {
+        padding: 0 14px 0;
+    }
+    #footer a { 
+        padding: 6px 0 8px; /* same as footer paddings to extend links vertically */
+        color: #5c7a99;
+        text-decoration: none;
+    }
+    #footer a:hover { 
+        text-decoration: underline;
+    }
+    #footer a.footer_right {
+        position: absolute;
+        top: 0;
+        right: 1px;
+        padding: 6px 14px 7px 14px;
+        text-align: right;
+    }
+
+table.listing.listing_projects tr.toggler_row:hover a.underlined_on_hover,
+table.listing.listing_projects  a.underlined_on_hover:hover {
+    text-decoration: underline;
+}
+table.listing.listing_projects .toggler_row td,
+table.listing.listing_projects .fullrow_handler.caption {
+    overflow: hidden;
+}
+table.listing.listing_projects .small_btn,
+.fullrow_handler {
+    position: relative;
+}
+.fullrow_handler {
+    width: 100%;
+}
+table.listing.listing_projects .fullrow_handler.caption {
+    padding-top: 25px;
+}
+.fullrow_handler a.fullsize.fullrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* This hack sets element's height to 100% of parent td */
+    height: 5000px;
+}
+table.listing.listing_projects small.project_active_sprints {
+    color: gray;
+    position: relative;
+}
+table.listing.listing_projects .name {
+    width: 70%;
+}
+table.listing.listing_projects .buttons {
+    width: 30%;
+}
+table.listing.listing_projects form.button-to, table.listing.listing_projects form.button-to div {
+    display: inline;
+}
+
+/*------------------------------------*/
+/*    Sprints list
+/*------------------------------------*/
+#sprintlist .new_sprint_button {
+    margin-right: 10px;
+}
+
+#sprintlist_header th {
+    font-weight: bold;
+    color: #333333;
+}
+
+#sprintlist_header th.handle {
+    padding-top: 5px;
+    width: 13px;
+}
+#sprintlist_header th.name {
+    width: 350px;
+}
+#sprintlist_header th.start_date {
+    width: 150px;
+}
+#sprintlist_header th.end_date {
+    width: 150px;
+}
+
+#sprintlist_table td, #sprintlist_table th {
+    vertical-align: middle;
+}
+
+#sprintlist_table .cursor {
+    padding-left: 5px;
+    padding-right: 0;
+    width: 11px;
+    text-align:center;
+}
+
+#sprintlist_table .small_btn {
+    margin: 0 0 2px 0;
+}
+
+#sprintlist_table .group_heading td {
+    font-size: 14px;
+    font-weight: bold;
+}
+#sprintlist_table .group_heading:hover td{
+    background-color: #fff;
+}
+
+#sprintlist_table .sprint_checkbox {
+    margin: 0;
+}
+
+#sprintlist_table form.button-to, #sprintlist_table form.button-to div {
+    display: inline;
+}
+
+#sprintlist_table tr.toggler_row:hover a, #sprintlist_table a.sprint_name:hover {
+    text-decoration: underline;
+}
+
+/*------------------------------------*/
+/*    Rounding elements
+/*------------------------------------*/
+.rounded_caption {
+    position: relative;
+    background: #E1EFF9;
+    padding: 10px;
+}
+    .rounded_caption_right {
+        float: right;
+    }
+    /* add this class when there is only buttons in the header right part, buttons are taller than text, so should be aligned */
+    .rounded_caption_right_buttons {
+        margin-top: -.35em;
+    }
+    .rounded_caption_tl,
+    .rounded_caption_tr,
+    .rounded_caption_bl,
+    .rounded_caption_br {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        font-size: 0;
+    }
+        .rounded_caption_tl {
+            top: 0;
+            left: 0;
+        }
+        .rounded_caption_tr {
+            top: 0;
+            left: -5px;
+            margin-left: 100%;
+        }
+        .rounded_caption_bl {
+            left: 0;
+            bottom: 0;
+        }
+        .rounded_caption_br {
+            bottom: 0;
+            left: -5px;
+            margin-left: 100%;
+        }
+
+/*------------------------------------*/
+/*    Flash and Spinner (same Flash but with loading_small.gif)
+/*------------------------------------*/
+.flash { 
+    position: fixed;
+    left: 50%;
+    bottom: 10px;
+    text-align: center; 
+    margin-left: -170px;
+    z-index: 3;
+    width: 340px;
+    opacity: 0.90;
+    
+    display: none;
+}
+    .flash_shown {
+        display: block;
+    }
+    .flash .spinner_message,
+    .flash .round_t,
+    .flash .round_b {
+        display: block;
+        background-color: #FAD163 !important;
+    }
+    .flash .spinner_message {
+        padding: 0 20px;
+        line-height: 15px;
+    }
+    .flash .round_t,
+    .flash .round_b {
+        position: relative;
+        margin: 0 5px;
+        height: 5px;
+        font-size: 0;
+    }
+    
+    .flash .round_tl,
+    .flash .round_tr,
+    .flash .round_bl,
+    .flash .round_br {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        font-size: 0;
+    }
+        .flash .round_tl,
+        .flash .round_bl {
+            left: -5px;
+        }
+        .flash .round_tr,
+        .flash .round_br {
+            margin-left: 100%;
+        }
+        /* add ajax spinner to the spinner node */
+        #spinner_message {
+            padding-left: 17px;
+            margin-left: -17px;
+            background: url(/images/loading_small.gif?1484830116) no-repeat 0 50%;
+        }
+
+body.popup_dialog #flash { 
+    position: absolute; 
+    top: 84px; left: 12px; width: 150px;
+    text-align: center;
+}
+
+
+/*------------------------------------*/
+/*    Login Form
+/*------------------------------------*/
+div.first_login_column {
+    float: left;
+    margin: 35px 25px 0px 15px;
+    border-right: 1px solid #ccc;
+    padding: 0px 25px 0px 0px;
+}
+
+div.second_login_column {
+    margin: 35px 25px;
+}
+
+
+/* flash with login error */
+/* IE6 gives .foo.bar the same priority as .foo, so here #id.baz to increase rule weight */
+#flash.login {
+    position: absolute; 
+    top: auto;
+    bottom: auto;
+    margin-top: .25em; /* align flash with username input */
+    left: 480px;
+    width: 280px;
+}
+
+#flash.flash_for_two_columns {
+    top: 80px;
+    left: 200px;
+}
+
+
+
+/*------------------------------------*/
+/*    New Task Popup
+/*------------------------------------*/
+
+.popup_dialog {
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    z-index: 6;
+    background: #FFF;
+    border: 1px solid #000;
+    }
+    .popup_dialog h3 {
+        margin: 0px;
+        height: 18px;
+        background-color: #4998d0;
+        color: #fff;
+        vertical-align: middle;
+        padding: 2px 0px 0px 5px;
+        z-index:3;
+        border-bottom: #b1bac2;
+        position: relative;
+        font-size: 12px;
+        }
+        .popup_dialog h3 a { 
+            position: absolute; 
+            right: 5px;
+            color: #FFF !important;
+            }
+            
+body.popup_dialog { 
+    border: none; 
+    }
+            
+#new_task_dialog {
+    right: 10px;
+    bottom: 10px;
+    width: 340px;
+}
+#new_task_dialog table{
+    width: 100%;
+    border-collapse: collapse; 
+    padding: 0px; 
+    margin: 0px;
+}
+#new_task_dialog_more_controls {
+    width: 305px;
+    padding: 5px 0 5px 15px;
+}
+#new_task_dialog_more_controls {
+    width: 305px;
+    padding: 5px 0 5px 15px;
+}
+#new_task_dialog label,
+body.popup_dialog label {
+    display: block;
+}
+
+
+.more_arrow {
+    text-decoration: none;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    margin-left: -16px;
+    cursor: pointer;
+}
+
+
+#feedback_dialog {
+    left: 10px;
+    bottom: 10px;
+    width: 340px;
+    height: 250px;
+    }
+
+#shortcuts_help_dialog {
+    top: 32%;
+    left: 50%;
+    margin: -190px;
+    width: 380px;
+    }
+    #shortcuts_help_dialog.two_column_shortcuts_help{
+        margin: -190px -300px -300px -300px;
+        width: 600px;
+    }
+    #shortcuts_help_dialog #shortcuts_list {
+        padding: 10px 20px 5px 20px;
+        }
+        #shortcuts_help_dialog #shortcuts_list .shortcut {
+            width: 40px;
+            padding-left: 20px;
+            float: left;
+        }
+        #shortcuts_help_dialog #shortcuts_list .accesskey_shortcut {
+            width: 110px;
+            float: left;
+        }
+    #shortcuts_help_dialog .close_button {
+        text-align: center;
+        padding: 5px 5px 10px 5px;
+    }
+
+#nav_dialog {
+    top: 50%;
+    left: 50%;
+    margin-left: -270px;
+    margin-top: -170px;
+    width: 540px;
+    z-index: 2;
+    }
+#nav_dialog #nav_sprint_list {
+    padding: 10px 20px 20px 20px;
+    }
+#nav_dialog #nav_sprint_list span {
+    font: bold 15px "Trebuchet MS", Arial, sans-serif;
+    padding-left: 5px;
+    padding-right: 5px;
+    }
+#nav_dialog #nav_sprint_list span.selected {
+    background-color: #ffa;
+}
+#nav_dialog #nav_dialog_load_archived {
+    height: 22px;
+    text-align: right;
+}
+#nav_dialog #nav_dialog_load_archived #load_archived_sprints_link {
+    margin-right: 8px;
+}
+
+#nav_project_dialog {
+    top: 50%;
+    left: 50%;
+    margin-left: -270px;
+    margin-top: -170px;
+    width: 540px;
+    }
+#nav_project_dialog #nav_project_list {
+    padding: 10px 20px 20px 20px;
+}
+#nav_project_dialog #nav_project_list span {
+font: bold 15px "Trebuchet MS", Arial, sans-serif;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#nav_project_dialog #nav_project_list span.selected {
+    background-color: #ffa;
+}
+
+#apply_tag_dialog {
+    top: 50%;
+    left: 50%;
+    margin-left: -270px;
+    margin-top: -170px;
+    width: 540px;
+    }
+    #apply_tag_dialog #apply_tag_list {
+        padding: 10px 20px 20px 20px;
+        }
+        #apply_tag_dialog #apply_tag_list span {
+            font: bold 15px "Trebuchet MS", Arial, sans-serif;
+                padding-left: 5px;
+                padding-right: 5px;               
+            }
+            #apply_tag_dialog #apply_tag_list span.selected {
+                background-color: #ffa;
+            }
+
+#remove_tag_dialog {
+    top: 50%;
+    left: 50%;
+    margin-left: -270px;
+    margin-top: -170px;
+    width: 540px;
+    }
+    #remove_tag_dialog #remove_tag_list {
+        padding: 10px 20px 20px 20px;
+        }
+        #remove_tag_dialog #remove_tag_list span {
+            font: bold 15px "Trebuchet MS", Arial, sans-serif;
+                padding-left: 5px;
+                padding-right: 5px;               
+            }
+            #remove_tag_dialog #remove_tag_list span.selected {
+                background-color: #ffa;
+            }
+
+#spinner_dialog {
+    top: 50%;
+    left: 50%;
+    margin-left: -270px;
+    margin-top: -170px;
+    width: 540px;
+    }
+    #spinner_dialog #spinner_dialog_content {
+        padding: 10px 20px 20px 20px;
+        }
+        #nav_dialog #spinner_dialog_text {
+                padding-left: 5px;
+                padding-right: 5px;               
+            }
+
+.popup_dialog form {padding: 10px;}
+.popup_dialog form textarea { width: 310px; height: 150px; }
+.popup_dialog form table { width: 310px;}
+.popup_dialog form select { width: 130px;}
+.popup_dialog form .estimate, .popup_dialog form .due_date { width: 120px;}
+.popup_dialog form table.three_column select { width: 100px; }
+.popup_dialog form table.three_column .estimate { width: 90px; }
+
+#analytics_form_dialog_container {
+    padding: 10px;
+}
+
+/*    Welcome blurb, derivative of popup_dialog
+/*------------------------------------*/
+.welcome {
+    left: 50%; margin-left: -200px; width: 400px; height: 262px; top: 140px;
+    z-index: 20; 
+    text-align: center;
+    }
+    .welcome h3 {padding: 2px 0px 4px;}            
+    .welcome p {margin: 5px 20px; }
+.overlay_dialog {
+    opacity: 0.6;
+    position: fixed; 
+    top: 0px; 
+    left: 0px; 
+    background: #666; 
+    z-index: 19; 
+    width: 100%; 
+    height: 100%;
+}
+
+/*------------------------------------*/
+/*    Error Display, Scaffolded
+/*------------------------------------*/
+
+.fieldWithErrors { padding: 2px; display: inline; }
+.fieldWithErrors input {border: 2px solid red !important; }
+
+#errorExplanation {
+    width: 400px;
+    border: 1px solid red;
+    padding: 7px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    background: url(/images/dialog-warning.png?1484830116) #f0f0f0 10px 30px no-repeat;
+    }
+    #errorExplanation h2 {
+        text-align: left;
+        padding: 5px 5px 5px 15px;
+        margin: -7px;
+        background-color: #c00;
+        color: #fff;
+        }
+    #errorExplanation p {
+        margin: 10px 0px 0px 50px;
+        padding: 5px;
+        }
+    #errorExplanation ul li {
+        margin-left: 60px;
+        list-style: disc;
+    }
+    /* This allows to have checkboxes in error messages 
+       like the error message about bouncing email */
+    #errorExplanation input {
+        float: none !important;
+    }
+    /* Error message box without red header 
+       Used to show bouncing email message on Edit Profile page  */
+#errorExplanation.no-header {
+        background: url(/images/dialog-warning.png?1484830116) #f0f0f0 10px 10px no-repeat;
+    }
+    #errorExplanation.no-header p {
+        margin-top: 0px;    
+    }
+
+
+/*------------------------------------*/
+/*    Sprint List
+/*------------------------------------*/
+
+table.listing tr.active_sprint td,
+table.listing tr.active_sprint td a {font-weight: bold;}
+table.listing tr.active_sprint td .btn {font-weight: normal;}
+
+#active_sprint {margin-top:35px; }
+
+/**************************************/
+/*    Table for Listing Something
+/**************************************/
+
+table.listing, table.listing .sub table {
+    clear:both;
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+    padding: 0;
+    }
+    /* cells and rows to incluse sub-tables */
+    table.listing .sub  {border: 0; padding: 0;}
+    table.listing .sub tr {border: none;}
+    table.listing th, table.listing td {
+        padding: 5px;
+        text-align: left;
+        vertical-align: top;
+    }
+    table.listing th {
+        background-color: #e1eff9;
+        border-bottom: 2px solid #d0e6f6;
+        color: #738999;
+        font-weight: normal;
+    }
+    table.listing tr.selected td {
+        background-color: #FFC;
+    }
+    table.listing td { border-bottom: 1px solid #b2bbbb; }
+    table.listing td.noborder { border-bottom: 0; }
+    table.listing td.cell, table.listing th.cell {
+        border-left: 1px solid #e1e8ed;
+        text-align: center;
+        vertical-align: middle;
+    }
+    table.listing td.light { border-bottom: 1px solid #e8eef4 ; }
+    table.listing tr.separator {  background-color: #efefef; }
+
+/*    table.listing tr.level_0 {  background-color: #f7f7f7; }*/
+    table.listing tr.even {  background-color: #f7f7f7; }
+    table.listing tr.odd {  background-color: #fcfcfc; }
+    table.listing tr.level_0 {  background-color: #fcfcfc; }
+    table.listing tr.level_1 {  background-color: #fcfcfc; }
+    table.listing tfoot th {
+        color: #333;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    table.listing .r { text-align: right; }
+
+    /* here live controls that are shown only on hover */
+    table.listing td .toggler {visibility:hidden;}
+    table.listing tr:hover td .toggler,
+    table.listing tr td .toggler_shown {visibility:visible;}
+
+    table.listing a.fullsize {
+        display: block;
+        width: 100%;
+        margin: -5px;
+        padding: 5px;
+    }
+    table.listing a.plain { color: #000; /*  text-decoration: none; */ }
+    table.listing a.nodecor { text-decoration: none; }
+
+    table.listing img { vertical-align: middle; }
+    table.listing textarea {
+        display: block;
+        width: 100%;
+        margin: 0;
+        height: 70px;
+    }
+    table.listing span.comments {
+        font-size: 80%;
+        color: #999;
+    }
+    table.listing span.newline {
+        display: block;
+    }
+    table.listing tfoot#sprint_totals {
+        height: 30px;
+    }
+    /* hide for editors */
+    table.listing td .wrapper { position: relative; }
+    table.listing .wrapper .hidden {
+        display: block;
+        visibility: hidden;
+    }
+
+table.highlight_row tr:hover td {
+    background-color: #fff5d9;
+}
+table.highlight_row tr.nohover:hover td {
+    background-color: transparent;
+}
+
+#shortcut_status {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px;
+    background: #f00;
+    color: #fff;
+}
+
+/*------------------------------------*/
+/*    Tools page
+/*------------------------------------*/
+.blurb {
+    width: 800px; 
+    margin-left: 40px ;
+    }  
+    .blurb p {    line-height: 17px;}
+    .blurb ol, .blurb ul {list-style: circle; margin: 5px 0 5px 15px;}
+    .blurb li {margin-top: 5px;}
+  
+
+#idle_filter_link a {
+    text-decoration: none;
+}
+
+
+table#org_list th,  table#org_list td {
+    font-size: 90%;
+    padding: 2px 5px 2px 2px;
+}
+
+table#org_list th {
+    vertical-align: middle;
+}
+
+table#org_list th.link_container {
+    white-space: nowrap;
+}
+
+table#org_list td.clickable a {
+    margin: -1px -1px -7px -1px;
+    padding: 1px 1px 7px 1px;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+#org_list div.misc_details {
+    width: 100%;
+    overflow: hidden;
+}
+#org_list div.misc {
+    position: absolute;
+    width: 300px;
+    margin-left: -330px;
+    border: 1px solid #000;
+    padding: 5px;
+    background-color: #ffe;
+}
+
+#billing_timeline.listing td {
+    font-size: 11px;
+}
+#billing_timeline.listing td .misc {
+    visibility: hidden; /* opera doesn't repaint document when using display none */
+    position: fixed;
+    border: 1px solid #000;
+    width: 400px;
+    padding: 5px;
+    background-color: #FFE;
+    z-index: 2;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+#billing_timeline.listing td .misc_shown {
+    visibility: visible;
+}
+#billing_timeline.listing .month_totals th {
+    padding: 0 5px 0 5px;
+    border-bottom: none;
+}
+
+
+a.org_link {
+        color: #000;
+        text-decoration: none;
+    }
+    a.org_link:hover {
+         text-decoration: underline;
+    }
+
+#org_list .small_btn {
+    padding: 0px;
+}
+
+/* simple tabs styles */
+ul.tabs {
+    list-style: none;
+    margin: 0;
+    padding: 2px 0;
+}
+    ul.tabs li {
+        display: inline;
+        margin: 0;
+    }
+        ul.tabs li a {
+            text-decoration: none;
+            padding: 2px 1em;
+            color: #666;
+            border: 1px solid #B1BAC2;
+            background-color: #FFF;
+        }
+        ul.tabs li a:hover {
+            color: #000;
+            background-color: #EEE;
+        }
+        ul.tabs li a.active {
+            background-color: #CED4D9;
+            color: #000;
+        }
+        ul.tabs li a.active:hover {
+            background-color: #CED4D9;
+            color: #000;
+        }
+
+
+/*------------------------------------*/
+/* Search form and page
+/*------------------------------------*/
+
+#search_form {
+    position: absolute;
+    right: 10px;
+    top: 30px;
+}
+#search_form input {
+    margin: 0;
+}
+
+#search_results {
+    width: 100%;
+    /*
+    width: 700px;
+    height: 200px;
+    overflow: auto;
+    */
+}
+
+a.search_in_all_projects {
+    margin-left: 10px;
+}
+
+#search_table {
+    width: 100%;
+}
+
+#search_table tr {
+}
+
+#search_table td {
+    border: 1px solid #e1e8ed;
+    padding: 5px;
+    width: 100%;
+}
+
+#search_table td a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    margin: -5px;
+    padding: 5px;
+}
+
+#search_table td a.sprint_link {
+    display: inline;
+    margin-right: 2px;
+}
+
+#search_table small {
+    color: #808080;
+}
+
+#search_table tr:hover {
+    background: #FFF7DF;
+    text-decoration: none;
+}
+
+.issue_number_link {
+    color: #888 !important;
+    text-decoration: none !important;
+}
+a.issue_number_link:hover {
+    text-decoration: underline !important;
+    color: #888 !important;
+}
+
+/*------------------------------------*/
+/* Payment and Account pages
+/*------------------------------------*/
+
+acronym.validation {cursor: help; background-color: inherit; border-bottom:none; font-weight: normal;}
+
+#cvv_help {
+    position: absolute;
+    border: 1px solid #777;
+    width: 300px;
+    padding: 5px 10px;
+    background-color: #fff9d9;
+    }
+    #cvv_help p {
+        font-size: 90%;
+    }
+
+#cards_help {
+    position: absolute;
+    border: 1px solid #777;
+    padding: 5px;
+    background-color: #fff9d9;
+    font-size: 90%;
+    z-index: 2;
+}
+
+.payment-form .form_item {
+    padding-left: 11em;
+    height: 24px;
+    margin: 6px 0;
+}
+    .payment-form .form_item_noindent {
+        padding-left: 0;
+    }
+    .payment-form .form_item label {
+        display: inline;
+        float: left;
+        width: 11em;
+        margin-left: -11em;
+        height: 24px;
+        line-height: 24px;
+    }
+    .payment-form .credit_cards {
+        position: relative;
+        left: 6px;
+        cursor: default;
+    }
+        .payment-form #cvv_help {
+            margin-top: 2px;
+            margin-left: 6px;
+        }
+
+        .payment-form .credit_cards #cards_help {
+            margin-top: 14px;
+            top: 100%;
+            left: 0;
+            white-space: nowrap;
+        }
+        .payment-form .cc_icon {
+            display: inline-block;
+            width: 37px;
+            height: 23px;
+            vertical-align: middle;
+            font-size: 0;
+            margin-right: 5px;
+            background-position: 0 0;
+            background-repeat: no-repeat;
+        }
+            .payment-form .cc_icon_visa {
+                background-image: url(/images/cc-visa.png?1484830116);
+            }
+            .payment-form .cc_icon_mastercard {
+                background-image: url(/images/cc-mastercard.png?1484830116);
+            }
+            .payment-form .cc_icon_amex {
+                background-image: url(/images/cc-amex.png?1484830116);
+            }
+
+table.plans td.r, table.plans th.r {
+    text-align: right;
+}
+
+table.plans td.c, table.plans th.c {
+    text-align: center;
+}
+
+div.account {
+    margin-bottom: 20px;
+    }
+    div.account h3 {
+        border-bottom: 1px solid #ccc; 
+        margin-top: 20px; 
+        font: bold 16px "Trebuchet MS", Arial, sans-serif; 
+        margin-left: -30px;
+        }
+        div.account h3 .toolset {
+            font: normal 12px Arial, Helvetica, Geneva, sans-serif;
+        }
+    div.account p {
+        margin-top: 10px;
+    }
+    div.stat {
+        margin-top: 10px;
+        margin-bottom: 14px;
+    }
+    div.stat-label {
+        width: 200px;
+        overflow: hidden;
+        float: left;
+        color: #999;
+    }
+    div.stat p.stat-label{
+        margin: 0;
+        padding: 0;
+    }
+
+#manual_charge_form {
+    position: absolute;
+    right: 10px;
+    top: 35px;
+}
+#commit_manual_charge_form h3 {
+    margin-bottom: 20px;
+    border: none;
+}
+
+
+#trial_reminder_form {
+    position: absolute;
+    right: 115px;
+    top: 35px;
+}
+
+
+/*
+in some cases Firefox 2 on linux renders SELECT's OPTIONs with width 
+not equal to width of original SELECT.
+This is especially annoying when we have given SELECT yellow backgrouns, 
+and OPTIONs have white background.
+
+the bug goes away with page reload, making it hard to track 
+
+to prevent it, we specify OPTION's width explicitly.
+*/
+
+select option {width: 100%;}
+
+
+h2.billing_timeline {
+    margin-top: 15px;
+    margin-bottom: -5px;
+}
+
+table.billing_timeline a.org_link {
+        color: #000;
+        text-decoration: none;
+    }
+    table.billing_timeline a.org_link:hover {
+         text-decoration: underline;
+    }
+    table.billing_timeline tr span {
+        color: #06c;
+        text-decoration:underline;
+    }
+table.billing_timeline tr.not-paid {
+        color: #ccc;
+    }
+    table.billing_timeline tr.not-paid span {
+        color: #f00;
+        text-decoration:underline;
+    }
+    table.billing_timeline tr.not-paid a.org_link {
+        color: #ccc;
+    }
+
+table.billing_timeline tr.forecast {
+        color: #777;
+    }
+    table.billing_timeline tr.forecast a {
+        color: #777;
+    }
+    table.billing_timeline tr.forecast span {
+        color: #777;
+    }
+
+table.listing tfoot th {
+    text-transform: none;
+}
+
+
+#billing_timeline_form {
+        position: absolute;
+        padding-top: 5px;
+        right: 10px;
+    }
+    #billing_timeline_form input#months {
+        width: 30px;
+    }
+
+#billing_timeline div.misc table {
+    border-collapse: collapse;
+}
+#billing_timeline div.misc table td {
+    padding: 0px;
+    border: none;
+    background: none;
+}
+
+#org_analytics_marketing_form {
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+
+div.disabled label, div.disabled span {
+    color: #ccc;
+}
+
+table.roles {
+        border-collapse: collapse;
+    }
+    table.roles th {
+        width: 90px;
+    }
+    table.roles tr.first_header th {
+        padding: 5px 5px 8px 5px;
+        border: 1px solid #000;
+        border-bottom: none;
+    }
+    table.roles tr.middle_header th {
+        padding: 0 5px 1px 5px;
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        font-weight: normal;
+    }
+    table.roles tr.last_header th {
+        padding: 0 5px 1px 5px;
+        border: 1px solid #000;
+        border-top: none;
+        font-weight: normal;
+    }
+    table.roles th.permission { width: 150px; }
+    table.roles td {
+        padding: 5px;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid #000;
+    }
+    table.roles td.permission { text-align: left; }
+    table.roles td.group_column {
+        text-align: left;
+        width: 40px;
+    }
+    table.roles span.builtin { color: #999; font-weight: normal; }
+
+div#users_in_role_form select#users_for_role { width: 250px; }
+div#users_in_role_form select#users_in_role { width: 250px; }
+div#users_in_role_form input#users_for_role_button { width: 120px; }
+div#users_in_role_form input#users_in_role_button { width: 120px; }
+
+
+.by_role h3 {
+    display: inline;
+    padding: 0;
+}
+.by_role h3 small {
+    margin-left: 5px;
+    font: normal 12px/1 Arial, Helvetica, sans-serif;
+    color: #738999;
+}
+.by_role table.listing td, .by_role table.listing th {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.by_role br.next_role {
+    margin-bottom: 30px;
+}
+
+/*user selector widget*/
+table.user_selector_table {
+    border-collapse: collapse;
+    padding: 0px;
+    margin: 0px;
+}
+select.user_filter,
+select#users_for_project, select#project_users, 
+select#users_for_project_watch_list, select#project_watch_list { width: 250px; }
+input.mover_button { width: 170px; }
+
+.user_selector_arrow {
+    text-decoration: none;
+    color: black;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    cursor: pointer;
+}
+span.grayed { color: #aaa; }
+
+table.pricing_plans th span {
+    width: 30px;
+    overflow: hidden;
+    display: block;
+}
+
+table.pricing_plans th,  table.pricing_plans td {
+    font-size: 90%;
+    padding: 2px 5px 2px 2px;
+}
+
+.sidebar .revenue_chart {
+    margin-top: 30px;
+}
+
+#feed_troubleshooting {
+    background-color: #FFE;
+    padding: 5px;
+    border: 1px solid #000;
+    width: 390px;
+    position: absolute;
+    margin-left: 26em;
+}
+#feed_troubleshooting a.close_link {
+    float: right;
+}
+
+div#users_in_team_form select#users_for_team,
+div#users_in_team_form select#users_in_team {
+    width: 250px;
+}
+div#users_in_team_form input#users_for_team_button,
+div#users_in_team_form input#users_in_team_button {
+    width: 120px;
+}
+
+div.org-analytics {
+    padding-top: 20px;
+}
+
+table.user_form_additional_data td.teams_column {
+    padding-left: 40px;
+}
+table.user_form_additional_data label {
+    padding-left: 5px;
+}
+table.user_form_additional_data select {
+    width: 200px !important;
+}
+
+table#testlog {
+    border-collapse: collapse;
+    margin: 10px auto;
+}
+    table#testlog th, table#testlog td {
+        padding: 5px;
+        font-size: 11px;
+        vertical-align: top;
+        border: 1px solid #CCC;
+    }
+        table#testlog .error td {
+            background-color: #ff7878;
+        }
+    table#testlog .source {
+        width: 500px;
+    }
+        table#testlog .source .scroll_wraper {
+            width: 500px;
+            white-space: pre;
+            white-space: pre-wrap;
+            overflow-y: auto;
+        }
+    table#testlog .selectors {
+        width: 200px;
+    }
+    table#testlog .time {
+        width: 200px;
+    }
+    table#testlog tbody td.time, table#testlog tfoot td {
+        text-align: right;
+    }
+    table#testlog tfoot td {
+        vertical-align: bottom;
+        background-color: #FFA;
+    }
+    table#testlog tbody td.time, table#testlog th {
+        font-weight: bold;
+    }
+        table#testlog table#timings {
+            border-collapse: collapse;
+            width: 100%;
+        }
+            table#testlog table#timings td {
+                border: none;
+                padding: 0;
+                line-height: 1.5;
+            }
+            table#testlog table#timings td.total_time {
+                width: 25%;
+            }
+
+.experiment {
+    margin-left: 20px;
+}
+
+td#analytics_multisprint_form select#sprints_to_analyze.updated option.sprint {
+    padding-left: 35px;
+}
+input.analytics_analyze_button {
+    margin-left: 3px;
+}
+
+input#show_hide_new_issue {
+    margin-right: 20px;
+}
+
+input#remove_from_sprint {
+    margin-left: 15px;
+}
+
+a.project_name_link, a.sprint_name_link {
+    text-decoration: underline !important;
+}
+
+div#more_actions_container.issues_more_actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+div#more_actions_container.issues_more_actions select {
+    width: 150px;
+}
+
+div#issuelist_toolbox.rounded_caption {
+    padding-right: 170px;
+}
+
+div#issuelist_toolbox.rounded_caption div.issues_collection_info {
+    margin-top: 10px;
+    margin-left: 100px;
+}
+div#issuelist_toolbox.rounded_caption div.issues_collection_info.inline_mode {
+    margin-left: 2px !important;
+    margin-top: 0 !important;
+    display: inline;
+}
+
+select#sprint_type {
+    width: 210px;
+}
+
+h2#archived_sprint {
+    margin-top: 15px;
+}
+
+input.sprint_form_radio {
+    margin-right: 4px !important;
+}
+
+#settings_back_link {
+    position: absolute;
+    display: block;
+    left: 15px;
+    top: 36px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff60a !important;
+    text-decoration: none;
+}
+
+#settings_back_link:hover {
+    text-decoration: underline;
+}
+
+iframe.upgrade {
+    width: 830px;
+    height: 1450px;
+    border: none;
+    margin-left: -30px;
+}
+body.iframe {
+        width: 790px;
+        min-width: 700px;
+    }
+    body.iframe div.account_upgrade {
+        width: 790px;
+    }
+    body.iframe div.account_upgrade_wrap {
+        width: 790px;
+    }
+    body.iframe div.breadcrumbs {
+        display:none;
+    }
+
+.google_apps_login_button {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.google_apps_users_warning {
+        background: url("/images/dialog-warning.png") no-repeat scroll 10px 10px;
+        padding:7px 7px 12px 55px;
+        width: 450px;
+    }
+    .google_apps_users_warning p {
+        font-size: 12px !important;
+    }
+    .google_apps_users_warning ol,
+    .google_apps_openid_deprecated_help ol {
+        list-style:decimal outside none;
+        margin: 0px 0 15px 25px;
+        padding-left:10px;
+    }
+
+
+div.listing_small { 
+        margin-top: 6px;
+        color: #888; 
+        font-size: 80%; 
+    }
+    .listing_small .label {
+        color: #000;
+    }
+    .listing_small a.org_link {
+        color: #888;
+    }
+
+span.old-price {
+        color: #f00;
+        text-decoration: line-through;
+    }
+    span.old-price span {
+        color: #000;
+    }
+
+#discounts_table .group_heading td {
+    padding-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+div.github_hook {
+        margin-top: 20px;
+    }
+    .github_hook .token {
+        font-size: 18px;
+        font-weight: bold;
+        color: #999;
+    }
+    .github_hook p {
+        font-size: 13px;
+    }
+    .github_hook h3 {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    .github_hook ul {
+        margin-top: 0;
+    }
+    .github_hook ul li {
+        list-style: circle; margin: 0px 0 5px 15px;
+        font-size: 13px;
+    }
+
+div.diff_load_error {
+    }
+    .diff_load_error p {
+        font-size: 13px;
+    }
+    .diff_load_error ul li {
+        list-style: disc;
+        margin: 0px 0 5px 15px;
+        font-size: 13px;
+    }
+
+table.report {
+        border-collapse: collapse;
+    }
+    .report tr:hover {
+        background: #FFF7DF;
+    }
+    .report td {
+        padding-right: 10px;
+    }
+    .report th {
+        text-align: left;
+        padding-top: 20px;
+        padding-bottom: 5px;
+    }
+    .report th h2 {
+        border-bottom: 1px solid #ccc;
+    }
+    .report span.positive {
+        color: #070;
+    }
+    .report span.negative {
+        color: #e00;
+    }
+
+
+
+
+
+/* Copyright (c) 2006-2007 Pluron, Inc. */
+
+/* Buttons
+------------------------------ */
+
+.controls {
+    float: left;
+    width: 100%;
+    padding: 0 0 10px;
+}
+
+a.accesslink { 
+    display: block;
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    color: #E1EFF9;
+    z-index: -1;
+}
+
+/* Forms
+------------------------------ */
+
+fieldset {
+    clear: both;
+    margin: 10px 0 15px;
+    border: 1px solid #CED4D9;
+    padding: 5px 15px 15px;
+    background-color: #F6FAFD;
+    }
+    fieldset label, fieldset input, fieldset select, fieldset textarea { vertical-align: middle; }
+    fieldset legend {
+        padding: 0 5px;
+        color: #2E6399;
+        background-color: inherit; /* fixes opera stiked-out text  */
+    }
+    fieldset table { border-collapse: collapse;}
+    fieldset legend a {
+        padding-left: 3px;
+        padding-right: 3px;
+        padding-bottom: 1px;
+        color: #2E6399;
+    }
+    fieldset br { clear: both; }
+
+fieldset.plain-form label,
+fieldset.plain-form input,
+fieldset.plain-form select {
+    float: left;
+    margin: 0.6em 0;
+    }
+    fieldset.plain-form label {    width: 9em; }
+    fieldset.plain-form label.access_control_policy_label { margin-left: 10px; width: 300px; }
+    fieldset.plain-form textarea {
+        display: block;
+        clear: both;
+        width: 100%;
+    }
+    fieldset.plain-form textarea {
+        width: 9em;
+    }
+    fieldset.plain-form .datebox input,
+    fieldset.plain-form .datebox select { float: none;}
+    fieldset.plain-form .datebox textarea { 
+        float: none;
+        clear: none;
+        width: 360px;
+        height: 150px;
+    }
+    fieldset.plain-form select[multiple=multiple] { width: 206px; }
+    fieldset.plain-form small.input_notice {
+        display: block;
+        margin-left: 107px; 
+        margin-bottom: 7px;
+    }
+
+/* new plain form */
+fieldset.new-plain-form {}
+    fieldset.new-plain-form label.form-item {
+        position: relative;
+        padding-left: 9em;
+        display: block;
+        margin: .6em 0;
+    }
+    fieldset.new-plain-form .caption {
+        position: absolute;
+        top: .36em; /*baseline with input kept*/
+        left: 0;
+        width: 9em;
+    }
+    fieldset.new-plain-form label.form-item-check {
+        padding-left: 0;
+    }
+    fieldset.new-plain-form label.form-item-check .caption {
+        position: static;
+        width: auto;
+    }
+    fieldset.new-plain-form label.form-item-indent {}
+    fieldset.new-plain-form label.form-item-indent .caption {
+        left: 4.5em;
+    }
+    fieldset.new-plain-form input, 
+    fieldset.new-plain-form select {}
+
+fieldset.account-settings {
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    fieldset.account-settings label {
+        float: left;
+        width: 11.5em;
+    }
+
+fieldset.invoice-form {
+    }
+    fieldset.invoice-form label {
+        width: 11.5em;
+    }
+    fieldset.invoice-form .required {
+        font-weight: bold;
+        font-size: 14px;
+        color: #ff0000;
+        position: absolute;
+        margin: 13px 0 0 5px;
+    }
+
+fieldset.auto_archive_sprints {
+    }
+    fieldset.auto-archive-sprints label { 
+        margin: 7px 10px; 
+        width: auto; 
+    }
+    fieldset.auto-archive-sprints #org_auto_archive_sprints_period { 
+        margin: 4px 0 0 0;
+        float: left;
+        width: 24px;
+    }
+
+fieldset.google-apps-settings {
+    }
+    fieldset.google-apps-settings label {
+        width: 17em;
+    }
+    fieldset.google-apps-settings textarea {
+        display: inline;
+        width: 300px;
+    }
+
+fieldset.github-auth-method {
+    }   
+    fieldset.github-auth-method label {
+        margin: 7px 0px 15px 10px; 
+        width: 100px; 
+    }
+
+
+fieldset.clean {padding-top: 5px;}
+fieldset.clean p * { vertical-align: bottom; }
+fieldset.clean label {float:none; vertical-align: bottom;}
+
+
+    fieldset#timeline-filter input.focused { background: white; }
+    fieldset#timeline-filter input[type=text]:focus { background: white; }
+
+input[type=text], input[type=password], textarea {
+    width: 200px;
+    border: 1px solid #aaa;
+    padding: 1px 1px 1px 5px;
+    margin: 2px 0px;
+}
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+    border-left-color: #777;
+    border-top-color: #777;
+    border-right-color: #eee;
+    border-bottom-color: #eee;
+    background: #ffffd3;
+}
+
+input.disabled { background: #eee; }
+
+input#search_text:focus { background: #ffffd3 !important; }
+input#search_text:hover { background: #ffffd3; }
+input#search_text { background: #D9DBE1; width: 120px; }
+
+/* this one to allow several button_to live happily in a row */
+.controls div, .controls form {display: inline;}
+
+/* small buttons */
+input.small_btn, input.accesslink { padding: 0 6px; margin-bottom: 0; }
+td.small_buttons_container {
+    padding-top: 2px !important; 
+    padding-bottom: 0 !important;
+}
+
+.orgs-filter {
+    float: right;
+}
+
+textarea#wiki {
+    width: 80%;
+}
+
+.notification-settings table {
+        border-collapse: collapse;
+        padding: 0px;
+        margin: 0px;
+    }
+    .notification-settings table input {
+        padding: 0px;
+        margin: 0px;
+    }
+    .notification-settings table * {
+        vertical-align: top;
+    }
+    .notification-settings table td {
+        padding-right: 10px;
+    }
+    .notification-settings table td.title {
+        font-weight: bold;
+        padding: 10px 0px 0px 0px;
+    }
+    .notification-settings table td.nomargin {
+        padding: 0px;
+    }
+    .notification-settings tbody.disabled {
+        color: #ccc;
+    }
+
+.repo_long_label {
+    width: 300px !important;
+    margin-left: 10px !important;
+}
+
+.repo_p4_counter {
+    margin-left: 22px !important;
+    margin-top: 0px !important;
+}
+
+/* nested fieldsets */
+fieldset.relationship_box fieldset {
+    border: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: transparent;
+}
+    fieldset.relationship_box fieldset legend {
+        margin-bottom: -5px;
+        margin-left: -3px;
+    }
+
+.relationship_box {
+    margin: 0 5px 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: transparent;
+}
+    .relationship_box table {
+        margin: 5px 0 10px;
+    }
+    .relationship_box .relationship_box { 
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+        .relationship_box .relationship_box table {
+            margin: 0;
+        }
+
+.role_form input.checkbox {
+    margin-right: 5px;
+    margin-top: 7px;
+}
+.role_form label.prominent {
+    font-weight: bold;
+}
+.role_form fieldset.plain-form label {
+    width: 19em;
+}
+.role_form fieldset.plain-form label.role_name {
+    width: 4em;
+    margin-top: 10px;
+}
+.role_form table.permission_groups td {
+    vertical-align: top;
+}
+.role_form table.permission_groups td.permission_column_0 {
+    padding-right: 20px;
+    padding-top: 10px;
+}
+.role_form .permission_group {
+    padding-top: 15px;
+    border-bottom: 1px solid #000;
+}
+.role_form label#label_for_role_can_view_projects_sprints_and_tasks small,
+.role_form label#label_for_role_can_access_unassigned_projects small,
+.role_form label#label_for_role_can_update_profile small
+{
+    color: #999;
+}
+.role_form label.differs_from_default { color: #f00; }
+.role_form label small.differs_from_default { color: #f00 !important; }
+.role_form div.explanation { margin-top: 10px; }
+
+fieldset.announcement-form label,
+fieldset.announcement-form input {
+    float: left;
+    margin: 5px 0;
+}
+fieldset.announcement-form label {  width: 120px; }
+fieldset.announcement-form div.announcement_wiki { padding-top: 10px; }
+fieldset.announcement-form textarea#announcement_summary {
+    width: 620px;
+    height: 100px;
+}
+fieldset.announcement-form textarea#announcement_wiki {
+    width: 620px;
+    height: 300px;
+}
+fieldset.announcement-form input[type=text] {
+    width: 500px;
+}
+fieldset.announcement-form input.date { width: 200px;}
+
+fieldset.discount-form {
+    }
+    fieldset.discount-form label {width: 170px;}
+    fieldset.discount-form label.long {width: 300px; padding-left: 10px;}
+    fieldset.discount-form input[type=text] {width: 350px;}
+    fieldset.discount-form .dates input {width: 100px;}
+    fieldset.discount-form .numbers input {width: 40px;}
+    fieldset.discount-form textarea {
+        width: 350px;
+        height: 100px;
+        display: inline
+    }
+
+span.form_section {
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+    border-bottom: 1px solid black;
+}
+
+table.pricing_plan_table td {
+    width: 350px;
+    vertical-align: top;
+}
+
+div.forgot {
+    position: absolute;
+    left: 375px;
+    padding-top: 0.6em;
+}
+
+div.google_apps_domain {
+    padding-top: 8px;
+}
+
+.google_apps_users {
+    }
+    .google_apps_users .ban_buttons {
+        float: right; 
+    }
+    .google_apps_users input[value="Ban Selected Users"]{
+        margin-left: 20px;
+    }
+    .google_apps_users tr.acunote_user {
+        color: #bbb;
+    }
+    .google_apps_users_description {
+            padding-top: 10px;
+            width: 800px;
+            padding-right: 20px;
+        }
+        .google_apps_users_description p {
+            text-align: justify;
+        }
+
+.roles_list {
+        padding-left: 110px;
+    }
+    .roles_list input {
+        float: none !important;
+    }
+    .roles_list .microcopy {
+        width: 400px; 
+    }
+
+
+
+
+/**************************************/
+/*    Changeset view with code inspection
+/*    Copyright (c) 2006-2007 Pluron, Inc.
+/**************************************/
+
+table.diffs {
+    border-collapse:collapse;
+    border-spacing: 0px;
+    width: 100%;
+    margin-left: -12px;
+    padding: 0;
+    margin-bottom: 1.5em;
+    }
+    table.diffs td {
+        padding: 0px;
+        height: 16px;
+    }
+    table.diffs td.bubbles {
+        width: 35px;
+        height: 16px;
+        padding: 0;
+        background: url(/images/left-line.png?1484830116) 8px 0px repeat-y;
+    }
+    table.diffs td.inactive_bubbles {
+        width: 35px;
+        height: 16px;
+        padding: 0;
+    }
+    table.diffs tr.diff { background: none;    }
+    table.diffs tr.diff:hover td, table.diffs tr.diff.hovered td {  background-color: #FFC; }
+
+    table.diffs tr.diff_selected {  background: #ffffcc; }
+
+.diffs .log {
+    font-weight: normal;
+    color: #555
+    }
+
+.diffs .index {  font-weight: bold; }
+.diffs .file {  font-weight: bold; }
+.diffs .del {  color: red; }
+.diffs .add {  color: blue; }
+.diffs .none {  color: black; }
+.diffs img { vertical-align: middle; }
+.diffs .bubbles .active_area {
+    cursor: pointer;
+    width: 35px;
+    height: 12px;
+    font-size: 0;
+    padding-top: 4px;
+    }
+.diffs .bubbles .active_area .marker {
+    width: 7px;
+    height: 7px;
+    margin-left: 14px;
+    margin-top: 1px;
+    font-size: 0;
+}
+
+.diffs .number {
+    color: #ccc;
+    padding-right: 5px;
+    font-family: monospace; 
+    font-weight: normal;
+}
+
+a.number {
+        text-decoration: none;
+        font-size: 90%;
+    }   
+    a.number:hover {
+        text-decoration: underline;
+    }
+
+
+.status_bubble {
+    position: absolute;
+    margin-top: -13px;
+    margin-left: 12px;
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+    font-size: 0;
+}
+
+.diff_tip {
+    z-index: 1;
+    position: absolute;
+    margin-top: -26px;
+    margin-left: 28px;
+    padding: 10px 10px 10px 15px;
+    background: none;
+}
+
+.diff_tip_content {
+    width: 400px;
+    border: 1px groove #000000;
+    padding: 5px;
+    background-color: #FFFFFF;
+    }
+    .diff_tip_content .buttons {
+        margin: -5px -5px 5px -5px;
+        padding: 1px 5px 3px;
+        background: #4998D0;
+        }
+        .diff_tip_content .buttons  a {
+            color: white;
+            margin-right: 10px;
+            } 
+
+.diffs .spinner {
+    position: absolute;
+    margin-top: -14px;
+    margin-left: 12px;
+}
+
+/*------------------------------------*/
+/*    Diff Editor
+/*------------------------------------*/
+
+.diff_editor {
+    z-index: 2;
+    position: absolute;
+    width: 460px;
+    height: 230px;
+    margin-top: 0px;
+    left: 46px;
+    padding: 5px;
+    border: 1px solid black;
+    background-color: #FFFFFF;
+/*    filter:alpha(opacity=90);
+    opacity: 0.9;*/
+    }
+    .diff_editor h3 {
+        background: #4998D0; 
+        color: white; 
+        margin: -5px; 
+        padding: 2px 5px;
+    }
+    .diff_editor .marker_bubble {
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        cursor: pointer;
+        font-size: 0;
+        top: -15px;
+        left: -32px;
+    }
+    .diff_editor textarea {
+        position: absolute;
+        width: 440px;
+        height: 100px;
+        top: 50px;
+        left: 10px;
+    }
+    .diff_editor .select_project {
+        position: absolute;
+        top: 25px;
+        left: 10px;
+    }
+    .diff_editor .select_project select {
+        width: 150px;
+    }
+    .diff_editor .select_project img {
+        position: absolute;
+        top: 7px;
+        left: 220px;
+    }
+    .diff_editor .select_sprint {
+        position: absolute;
+        top: 25px;
+        left: 250px;
+    }
+    .diff_editor .select_sprint select {
+        width: 150px;
+    }
+    .diff_editor .select_owner {
+        position: absolute;
+        top: 160px;
+        left: 10px;
+    }
+    .diff_editor .input_estimate {
+        position: absolute;
+        top: 160px;
+        right: 10px;
+    }
+
+    .diff_editor .select_status {
+        position: absolute;
+        top: 160px;
+        left: 170px;
+    }
+    .diff_editor input.estimate {  width: 120px; }
+    .diff_editor select.sprint {  width: auto; }
+    .diff_editor .select_status select {  width: 120px; }
+    .diff_editor .select_owner select {  width: 120px; }
+    .diff_editor .left_button {   
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+    }
+    .diff_editor .right_button {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+
+#status_info {
+    position: fixed;
+    top: 110px;
+    right: 10px;
+    width: 200px;
+    padding: 5px;
+    background: #c00;
+    color: #fff;
+    }
+    #status_info a {  color: #ff0; }
+
+
+
+
+/* The main calendar widget.  DIV containing a table. */
+
+div.calendar { position: relative; }
+
+.calendar, .calendar table {
+  border: 1px solid #556;
+  font-size: 11px;
+  color: #000;
+  cursor: default;
+  background: #eef;
+  font-family: tahoma,verdana,sans-serif;
+}
+
+/* Header part -- contains navigation buttons and day names. */
+
+.calendar .button { /* "<<", "<", ">", ">>" buttons have this class */
+  text-align: center;    /* They are the navigation buttons */
+  padding: 2px;          /* Make the buttons seem like they're pressing */
+}
+
+.calendar .nav {
+  background: #778 url(/jscalendar/menuarrow.gif?1484830116) no-repeat 100% 100%;
+}
+
+.calendar thead .title { /* This holds the current "month, year" */
+  font-weight: bold;      /* Pressing it will take you to the current date */
+  text-align: center;
+  background: #fff;
+  color: #000;
+  padding: 2px;
+}
+
+.calendar thead .headrow { /* Row <TR> containing navigation buttons */
+  background: #778;
+  color: #fff;
+}
+
+.calendar thead .daynames { /* Row <TR> containing the day names */
+  background: #bdf;
+}
+
+.calendar thead .name { /* Cells <TD> containing the day names */
+  border-bottom: 1px solid #556;
+  padding: 2px;
+  text-align: center;
+  color: #000;
+}
+
+.calendar thead .weekend { /* How a weekend day name shows in header */
+  color: #a66;
+}
+
+.calendar thead .hilite { /* How do the buttons in header appear when hover */
+  background-color: #aaf;
+  color: #000;
+  border: 1px solid #04f;
+  padding: 1px;
+}
+
+.calendar thead .active { /* Active (pressed) buttons in header */
+  background-color: #77c;
+  padding: 2px 0px 0px 2px;
+}
+
+/* The body part -- contains all the days in month. */
+
+.calendar tbody .day { /* Cells <TD> containing month days dates */
+  width: 2em;
+  color: #456;
+  text-align: right;
+  padding: 2px 4px 2px 2px;
+}
+.calendar tbody .day.othermonth {
+  font-size: 80%;
+  color: #bbb;
+}
+.calendar tbody .day.othermonth.oweekend {
+  color: #fbb;
+}
+
+.calendar table .wn {
+  padding: 2px 3px 2px 2px;
+  border-right: 1px solid #000;
+  background: #bdf;
+}
+
+.calendar tbody .rowhilite td {
+  background: #def;
+}
+
+.calendar tbody .rowhilite td.wn {
+  background: #eef;
+}
+
+.calendar tbody td.hilite { /* Hovered cells <TD> */
+  background: #def;
+  padding: 1px 3px 1px 1px;
+  border: 1px solid #bbb;
+}
+
+.calendar tbody td.active { /* Active (pressed) cells <TD> */
+  background: #cde;
+  padding: 2px 2px 0px 2px;
+}
+
+.calendar tbody td.selected { /* Cell showing today date */
+  font-weight: bold;
+  border: 1px solid #000;
+  padding: 1px 3px 1px 1px;
+  background: #fff;
+  color: #000;
+}
+
+.calendar tbody td.weekend { /* Cells showing weekend days */
+  color: #a66;
+  background-color: #D5D5E6;
+}
+
+.calendar tbody td.today { /* Cell showing selected date */
+  font-weight: bold;
+  color: #00f;
+}
+
+.calendar tbody .disabled { color: #999; }
+
+.calendar tbody .emptycell { /* Empty cells (the best is to hide them) */
+  visibility: hidden;
+}
+
+.calendar tbody .emptyrow { /* Empty row (some months need less than 6 rows) */
+  display: none;
+}
+
+/* The footer part -- status bar and "Close" button */
+
+.calendar tfoot .footrow { /* The <TR> in footer (only one right now) */
+  text-align: center;
+  background: #556;
+  color: #fff;
+}
+
+.calendar tfoot .ttip { /* Tooltip (status bar) cell <TD> */
+  background: #fff;
+  color: #445;
+  border-top: 1px solid #556;
+  padding: 1px;
+}
+
+.calendar tfoot .hilite { /* Hover style for buttons in footer */
+  background: #aaf;
+  border: 1px solid #04f;
+  color: #000;
+  padding: 1px;
+}
+
+.calendar tfoot .active { /* Active (pressed) style for buttons in footer */
+  background: #77c;
+  padding: 2px 0px 0px 2px;
+}
+
+/* Combo boxes (menus that display months/years for direct selection) */
+
+.calendar .combo {
+  position: absolute;
+  display: none;
+  top: 0px;
+  left: 0px;
+  width: 4em;
+  cursor: default;
+  border: 1px solid #655;
+  background: #def;
+  color: #000;
+  font-size: 90%;
+  z-index: 100;
+}
+
+.calendar .combo .label,
+.calendar .combo .label-IEfix {
+  text-align: center;
+  padding: 1px;
+}
+
+.calendar .combo .label-IEfix {
+  width: 4em;
+}
+
+.calendar .combo .hilite {
+  background: #acf;
+}
+
+.calendar .combo .active {
+  border-top: 1px solid #46a;
+  border-bottom: 1px solid #46a;
+  background: #eef;
+  font-weight: bold;
+}
+
+.calendar td.time {
+  border-top: 1px solid #000;
+  padding: 1px 0px;
+  text-align: center;
+  background-color: #f4f0e8;
+}
+
+.calendar td.time .hour,
+.calendar td.time .minute,
+.calendar td.time .ampm {
+  padding: 0px 3px 0px 4px;
+  border: 1px solid #889;
+  font-weight: bold;
+  background-color: #fff;
+}
+
+.calendar td.time .ampm {
+  text-align: center;
+}
+
+.calendar td.time .colon {
+  padding: 0px 2px 0px 3px;
+  font-weight: bold;
+}
+
+.calendar td.time span.hilite {
+  border-color: #000;
+  background-color: #667;
+  color: #fff;
+}
+
+.calendar td.time span.active {
+  border-color: #f00;
+  background-color: #000;
+  color: #0f0;
+}
+
+/* here goes hiding of Calendar's parts */
+/*.calendar tr.titlerow,*/
+.calendar tr.daynames,
+.calendar tr.footrow {
+  display: none;
+}
+
+
+
+
+
+/* ===================================*/
+/* Copyright (c) 2006-2007 Pluron, Inc.
+/* Acunote
+/* Tools page stylesheet
+/* ===================================*/
+.tab-container {
+        padding: 5px;
+        border: 1px solid #B1BAC2;
+    }
+    .tab-container label.for-file {
+        width: 150px;
+        padding-left: 5px;
+    }
+
+.import_preview_container {
+    margin-top: 10px;
+    border: 1px solid #CED4D9;
+    border-bottom: none;
+    width: 767px;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.import-error {
+    font-weight: bold;
+    color: red;
+}
+
+table.import-results {
+        border-collapse: collapse;
+    }
+    table.import-results td {
+        text-align: right;
+        border: 1px solid #ced4d9;
+        padding: 3px;
+    }
+
+table.import_preview {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table.import_preview tr {
+        background-color: #FFF;
+    }
+    table.import_preview tr.header {
+        background-color: #F6FAFD;
+    }
+    table.import_preview tr.bypassed {
+        background: #fee;
+        color: red;
+    }
+    table.import_preview td {
+        border: 1px solid #CED4D9;
+        font-size: 11px;
+    }
+    table.import_preview td.last {
+        border-right: none;
+    }
+    table.import_preview td.picked_up_columns {
+        font-weight: bold;
+    }
+    table.import_preview td.picked_up_columns span.ignored {
+        font-weight: normal;
+        color: red;
+    }
+    table.import_preview td.number {
+        width: 20px;
+    }
+
+textarea#taskpad_data {
+    padding: .5em;
+    width: 98%;
+    margin-bottom: 7px;
+    background: #fff;
+}
+
+.taskpad-results ul {list-style: circle; margin: 5px 0 5px 15px;}
+.taskpad-results li {margin-top: 5px;}
+ul.import-events {margin-bottom: 10px;}
+ul.import-events b {font-weight: normal; font-style: italic;}
+ul.import-events .details {display:block; font-size: 11px; color: #777;}
+
+
+
+
+
+/* ===================================*/
+/* Copyright (c) 2006-2007 Pluron, Inc.
+/* Timeline
+/* ===================================*/
+
+/* the big div containing all the events */
+div#timeline {
+    min-height: 200px;
+}
+
+a.feed {
+    text-decoration: none;
+}
+    a.feed .link_text {
+        text-decoration: underline;
+        margin-left: 5px;
+        font-size: 100%;
+    }
+    a.feed .sprite-rss {
+        position: relative;
+        top: -1px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        font-size: 0;
+        vertical-align: middle;
+    }
+
+h1 .toolset a.feed {
+    margin-left: 4px;
+}
+
+#timeline-filter{
+    position: absolute;
+    top: 90px;
+    right: 15px;
+    width: 266px;
+    z-index: 5;
+    border: none;
+    padding-bottom: 20px;
+}
+    #timeline-filter #changeset_loader {
+        position: absolute; 
+        bottom: 5px;
+        right: 10px; 
+        background: none; 
+        color: #666; 
+        padding: 0;
+    }
+    #timeline-filter input.days,
+    #timeline-filter input#from_date {
+        margin: 0 5px;
+    }
+    #timeline-filter input.days { width: 20px; }
+
+    #timeline-filter input#from_date { width: 70px; }
+    #timeline-filter input.submit_button {
+        position: absolute;
+        right: 10px;
+        top: 8px;
+        width: 50px;
+    }
+    #timeline-filter table {
+        border-collapse: collapse;
+        margin: 8px 0;
+    }
+    #timeline-filter table td {
+        padding: 0;
+        margin: 0;
+    }
+    #timeline-filter table td input, #timeline-filter table td label {
+        vertical-align: middle;
+        margin: 0;
+    }
+    #timeline-filter table td label {
+        margin-left: 5px;
+    }
+
+div.calendar { position: relative; z-index: 6;}
+
+.event {
+    position: relative;
+    display: block;
+    margin: 0 0 0.4em;
+    padding: 6px 10px 6px 70px;
+    text-decoration: none;
+    cursor: pointer;
+    }
+    .event:hover {
+        background-color: #FFF7DF;
+        text-decoration: none;     
+        }
+    .event .title {
+        display: block;
+        position: relative;
+        color: #000;
+        }
+        .event .title a {color: #000; text-decoration: none;}
+        .event .title a:hover { text-decoration:underline; }
+        .event .title a:visited { color: #444; }
+        .event .title span { background: #FFFFe0; }
+        .event .title em {
+            color: black;
+            margin: 0 .5em;
+        }
+    .event .details {
+        display: block;
+        margin-left: 15px;
+        margin-top: 2px;
+        color: #777;
+    }
+    .event span.time {
+        position: absolute;
+        width: 40px;
+        margin-left: -40px;
+        color: #999;
+        background: none;
+    }
+    .event span.timeline_task_link {
+        color: #0066CC;
+        text-decoration: underline;
+    }
+    .event .icon {
+        position: absolute;
+        display: block;
+        left: 6px;
+        top: 6px;
+        width: 16px;
+        height: 16px;
+        overflow: hidden;
+    }
+
+div#timeline.taskish {
+    border-bottom: 1px solid #AAA;
+}
+    div#timeline.taskish .event,
+    div#timeline.taskish .event.nohover {
+        cursor: default !important;
+        padding-left: 270px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    div#timeline.taskish .event .icon {
+        top: 2px;
+    }
+    div#timeline.taskish .event:hover,
+    div#timeline.taskish .event.nohover:hover {
+        background: transparent !important; 
+    }
+    div#timeline.taskish .title span.time {
+        margin-left: -240px;
+        width: 232px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+.timeline pre {
+  margin: 0;
+  padding: 0;
+}
+
+h2.timeline {
+    padding: 0.6em 0 0.3em 0.6em;
+    margin-bottom: 0.5em;
+    color: black;
+    border-bottom: 1px solid #CED4D9;
+    background-color: #F6FAFD;
+}
+
+
+
+
+/* ===================================*/
+/* Copyright (c) 2006-2007 Pluron, Inc.
+/* Task List Editing
+/* ===================================*/
+
+/*------------------------------------*/
+/*    Task Editing
+/*------------------------------------*/
+
+/* Task Colors, important is set to override other rules that might
+    interfere if .completed is deeply nested */
+.not_started, .not_started p, .not_verified, .not_replied { color: #F00 !important; }
+.in_progress, .in_progress p, .reopened, .in_test, .integration_testing { color: #00F !important; }
+.completed, .completed p, .verified, .verified p, 
+.integrated, .confirmed, .deployed, .approved, .replied { color: #070 !important; }
+.will_not_do, .duplicate, .will_not_reply { color: #888 !important; }
+
+#main .content {
+    float: left;
+    width: 100%;
+    margin-left: -305px;
+    }
+    #main .content .wrap {
+        float: none;
+        width: auto;
+        padding-left: 305px;
+        }
+
+.sidebar {
+    float: right;
+    width: 294px;
+    }
+    .sidebar table {
+        margin: 0;
+        padding: 0;
+        background-color: #FFF;
+        }
+    .sidebar .rounded_caption {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .sidebar select { width: 264px; }
+
+#burndown_inner {
+    border-left: 2px solid #E1EFF9;
+    border-right: 2px solid #E1EFF9;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #CED4D9;
+    background: url(/images/loading_small.gif?1484830116) #E1EFF9 no-repeat center;
+    height: 217px;
+}
+
+/*------------------------------------*/
+/*    Listing Table
+/*------------------------------------*/
+
+.table_border {
+    border-left:2px solid #E1EFF9;
+    border-right:2px solid #E1EFF9;
+}
+
+.bottom_newtask_btn {
+    position: relative;
+    left: -52px;
+    margin: 0;
+}
+
+#tasklist {} /* Table to hold Sprint Tasks */
+
+    #tasklist td.short_description {
+        }
+
+        #tasklist td.short_description div {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #tasklist td.short_description div br {
+            display: none;
+        }
+
+    #tasklist a.description_link {
+        margin-right: 3px;
+    }
+    #tasklist td, #tasklist th {
+        padding: 4px 3px;
+        line-height: 1.25;
+    }
+        #tasklist th.popup {
+            /* compensate generated background position for menu icon */
+            padding-top: 0;
+        }
+    #tasklist th.sub {
+        padding: 0;
+    }
+    #tasklist a.fullsize {
+        margin: -4px -3px;
+        padding: 4px 3px;
+    }
+    #tasklist td.issue_number {
+        overflow: hidden;
+    }
+    #tasklist a.issue_number_link {
+        color: #888;
+        display: block;
+        position: relative;
+        width: 100%;
+        padding: 4px 3px  200px  3px;
+        margin: -4px -3px -200px -3px;
+        outline: none;
+    }
+    #tasklist td.priority, #tasklist td.severity {
+        width: 25px;
+    }
+    #tasklist td.priority select, #tasklist td.severity select {
+        position: absolute;
+    }
+    #tasklist tr {background: #FFF;}
+
+    #tasklist tr.dragged td { background: #e0e0e0 !important; }
+
+    .is_dragging { 
+        background: none !important;
+        border: 2px solid #000 !important;
+        text-indent: -32768px !important;
+        outline: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .is_dragging * { visibility: hidden !important;  }
+
+    #tasklist tr span.descr_edit {
+        display: block;
+        cursor: pointer;
+        width: 100%;
+        color: #000;
+        text-decoration: none;
+    }
+    #tasklist a {text-decoration: none;}
+    #tasklist .description .hidden, #tasklist .estimate .hidden,
+    #tasklist .remaining .hidden { display: none; }
+    /* checkbox lives here */
+    #tasklist td.handle, #tasklist th.handle {
+        width: 10px;
+        padding-top: 5px;
+        padding-bottom: 0;
+        text-align: center;
+    }
+    #tasklist td.handle input, #tasklist th.handle input {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 13px;
+        height: 13px;
+    }
+    /* popup lives here */
+    #tasklist td.popup {
+        cursor: pointer;
+        width: 20px;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+    }
+    #tasklist td.popup .sprite-menu {
+        position: relative;
+        float: left;
+        width: 20px;
+        height: 18px;
+        margin-bottom: -200px;
+        padding-bottom: 200px;
+        z-index: 1;
+        /* For IE's z-index bugs. http://www.aplus.co.yu/lab/z-pos/ */
+    }
+    .sprite-menu .itemmenu {
+        top: 4px;
+        left: 18px;
+    }
+    #tasklist td.popup .sprite-menu .itemmenu {
+        top: 5px;
+    }
+    
+    #tasklist .cursor {
+        width: 10px;
+        text-align: center;
+        vertical-align: middle;
+        padding-left: 2px;
+        padding-right: 0;
+    }
+    #tasklist .cursor.radio {
+        padding-top: 0;
+    }
+    /* since cursor is hidden, we need to position spinner absolutely to avoid increasing row height */
+    #tasklist td.cursor img {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        margin-top: -13px;
+        margin-left: -5px;
+    }
+    #tasklist .owner {
+        width: 70px;
+    }
+    #tasklist .popup { width: 20px; }
+    #tasklist .status { width: 70px; white-space: nowrap;}
+    #tasklist .resolution { width: 70px;  }
+    #tasklist .task_severity { width: 25px; }
+    #tasklist .task_priority { width: 25px; }
+    #tasklist th.status a { display: block; }
+    #tasklist .estimate, #tasklist .remaining {
+        width: 32px;
+    }
+    #tasklist th.title , #tasklist th.estimate, #tasklist th.remaining, #tasklist th.issue_number {
+        color: #333; font-weight: bold;
+    }
+    #tasklist span#selected_priority,
+    #tasklist span#selected_severity,
+    #tasklist span#selected_owner,
+    #tasklist span#selected_status,
+    #tasklist span#selected_resolution {
+        display: block;
+        font-size: 10px;
+    }
+    #tasklist th.title .filter_description {
+            text-align: right;
+            font-size: 10px;
+            display: block;
+        }
+        #tasklist th.title .filter_description .filter_description_part {
+            margin-left: 10px;
+            color: #738999
+        }
+    #tasklist th.issue_number, #tasklist td.issue_number {
+        width: 43px;
+    }
+    .listing td .wrapper select.dynamic_editor {
+        position: absolute;
+        top: 1px;
+        left: -4px;
+        margin: 0;
+        padding: 0;
+        z-index: 100;
+    }
+    .listing td .wrapper input.dynamic_editor {
+        font: normal 12px/1 Arial, Helvetica, sans-serif;
+        width: 20px;
+        position: absolute;
+        top: 0;
+        left: -4px;
+        padding: 0; margin: 0;
+    }
+    #tasklist .filter_container,
+    #tasklist .filter_status {
+        position: relative;
+    }
+    #tasklist .filter_container select {
+        position: absolute;
+        top: -2px;
+        left: -2px;
+    }
+    #tasklist .filter_status img {
+        position: absolute;
+        top: -13px;
+        left: -13px;
+    }
+    #tasklist .filter_status span {
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    #tasklist td.sprint a { padding: 5px; margin: -5px; display: block; }
+    #tasklist td.project a { padding: 5px; margin: -5px; display: block; }
+    #tasklist td.remaining input:focus, #tasklist td.remaining input.focused,
+    #tasklist td.estimate  input:focus, #tasklist td.estimate  input.focused {background: #FFF; }
+
+    div.in_sprints { color: #999; font-size: 80%; }
+    div.in_sprints a { color: #999; }
+    div.in_sprints span.deleted_notice { color: #F00; }
+
+    #tasklist td textarea:focus {background: #FFF;}
+
+    #tasklist th span.widener {text-align:right; font-size:6px; color:#E1EFF9;}
+        #tasklist th span.widener a { color:#E1EFF9;}
+
+    /* for displaying recently changed estimates */
+    #tasklist .prominent { font-weight: bold; }
+
+    #tasklist #new_form_row { background-color: #E1EFF9; }
+    #tasklist tr:hover td { background: none; }
+    #tasklist tr.selected:hover td { background: #ffffcc; }
+    #tasklist tr#new_form_row:hover td { background: #E1EFF9; }
+    #tasklist td.new_form_col { margin:0; padding:0; }
+    #tasklist #new_form_row td.new_form_space {
+        padding: 0;
+    }
+    #tasklist #new_form_row td.new_form_arrow_left,
+    #tasklist #new_form_row td.new_form_arrow_right {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 10px;
+        text-align: center;
+    }
+        #tasklist #new_form_row td.new_form_arrow_left a,
+        #tasklist #new_form_row td.new_form_arrow_right a {
+            display: block;
+            width: 16px;
+            height: 16px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        #tasklist #new_form_row td.new_form_arrow_right a {
+            margin-left: 7px;
+        }
+
+    #tasklist td.new_form_col div#new_task_form {
+        border: none;
+    }
+    #tasklist td.new_form_col_0 { margin:0; padding:0; }
+    #tasklist td.new_form_col_0 div#new_task_form {
+        border: none;
+    }
+    #tasklist td.new_form_col_1 {
+        margin:0;
+        padding-left: 28px;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-right: 0;
+    }
+    #tasklist td.new_form_col_1 div#new_task_form {
+        border-left: 1px solid #E1E1E1;
+        border-bottom: none;
+        border-top: none;
+        border-right: none;
+    }
+    #tasklist td.new_form_col_2 {
+        margin:0;
+        padding-left: 58px;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-right: 0;
+    }
+    #tasklist td.new_form_col_2 div#new_task_form {
+        border-left: 1px solid #E1E1E1;
+        border-bottom: none;
+        border-top: none;
+        border-right: none;
+    }
+
+    #tasklist td div.level_1,
+    #tasklist td div.level_2 {
+        padding: 4px 3px 4px 6px;
+        border-left: 1px solid #e1e8ed;
+        margin: -4px 0;
+    }
+    #tasklist td div.level_1 {
+        margin-left: 25px;
+    }
+
+    #tasklist td div.level_2 {
+        margin-left: 55px;
+    }
+
+    #tasklist a.bugtracker_link {
+        width: 20px;
+        height: 20px;
+        float: left;
+        margin-top: -1px;
+    }
+
+    #tasklist a.codeinspection_link {
+        width: 20px;
+        height: 20px;
+        float: left;
+        margin-top: -3px;
+        margin-bottom: -3px;
+    }
+
+table.task_status_bar {
+    border-collapse: separate;
+    width: 5.25em; /* width of word 'completed */
+    height: 14px;
+}
+#tasklist table.task_status_bar {
+    margin-left: -1px;
+}
+#tasklist table.task_status_bar td {
+    padding: 0;
+    font-size: 0;
+}
+
+#indicator {
+    z-index: 100;
+    border-top: 4px dotted #aaa;
+    position: absolute;
+    display: none;
+}
+
+/*------------------------------------*/
+/*    Toolbox Table
+/*------------------------------------*/
+
+#tasklist-toolbox { }
+    #tasklist-toolbox select { width: 150px; }
+    #tasklist-toolbox form, #tasklist-toolbox div {display: inline;}
+    #tasklist-toolbox td {
+        vertical-align: top;
+        margin: 0;
+    }
+
+#show_hide_new_task {margin-right: 15px; width: 70px;}
+
+.inline_new_form {
+    background: #E1EFF9;
+    border-top: 1px solid #E1EFF9;
+    padding: 5px 10px 10px 10px;
+    }
+    .inline_new_form label {
+        margin: 2px 10px 2px 0;
+    }
+    .inline_new_form label.nowrap {
+        white-space: nowrap;
+    }
+    .inline_new_form label.textarea {
+        display: block;
+        margin: 5px 0 4px;
+    }
+    .inline_new_form label.textarea span {
+        display: block;
+    }
+    .inline_new_form select {
+        width: 105px;
+    }
+    .inline_new_form select, .inline_new_form input {
+        margin: 0;
+        vertical-align: middle;
+    }
+    .inline_new_form .estimate_field { width: 100px;}
+    .inline_new_form form { margin: 0; clear: both; background: #E1EFF9; }
+
+    .inline_new_form .more_controls { 
+        margin: 5px 15px 5px 12px;
+        padding-left: 15px;
+        vertical-align: middle;
+    }
+    .inline_new_form .more_controls a {
+        line-height: 170%;
+    }
+    .inline_new_form .more_arrow {
+        margin-top: 2px;
+    }
+    .inline_new_form .more_link { 
+        text-decoration: underline;
+    }
+
+    .inline_new_form #new_task_form_more, 
+    .inline_new_form #new_issue_form_more { 
+        margin-top: 8px;
+        padding: 0 0 5px;
+    }
+    .inline_new_form label.fixed {
+        position: relative;
+        float: left;
+        padding-left: 110px;
+        width: 110px;
+    }
+    .inline_new_form label.fixed input {
+        width: 100px;
+    }
+    .inline_new_form label.fixed input.due_date {
+        width: 97px;
+    }
+    .inline_new_form label.fixed span.label {
+        position: absolute;
+        left: 0;
+        top: .45em;
+        width: 105px;
+    }
+    .inline_new_form label.fixed span.label_before_select {
+        top: .25em;
+    }
+    .inline_new_form label.fixed_narrow {
+        padding-left: 55px;
+    }
+    .inline_new_form label.fixed_narrow span.label {
+        width: 50px;
+    }
+    .inline_new_form label.fixed #issue_project_id_spinner {
+        position: absolute;
+        top: 8px;
+        left: -14px;
+    }
+#new_task_form 
+.newtask-buttonrow {margin-top: 10px;}
+    .newtask-buttonrow input {
+        padding: 0 10px;
+        margin-left: 0px;
+        margin-right: 3px;
+    }
+
+#taskwiki_template_inline {
+    position: absolute;
+    right: 340px;
+}
+
+/*------------------------------------*/
+/*    Menu
+/*------------------------------------*/
+ul.itemmenu {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 19px;
+    width: 130px;
+    border: 1px solid #333;
+    background: #FFF;
+    padding: 3px 2px;
+    color: #000;
+    cursor: default;
+    z-index: 2;
+    display: none;
+    }
+    ul.itemmenu_shown {
+        display: block;
+    }
+    ul.itemmenu li b { padding: 2px; }
+    ul.itemmenu li span {
+        color: #000;
+        display: block;
+        padding: 2px 0 2px 12px;
+        cursor: pointer;
+        width: 116px;
+        }
+    ul.itemmenu li span.disabled {
+        color: #999;
+        cursor: default;
+        }
+    ul.itemmenu li span.unindented {
+        padding-left: 5px !important;
+        padding-right: 7px !important;
+        }
+    ul.itemmenu li span.unindented:hover {
+        padding-left: 4px !important;
+        }
+    ul.itemmenu li span:hover {
+        padding: 1px 0 1px 11px;
+        border: 1px solid silver;
+        background-color: #f0f0f0;
+        }
+    ul.itemmenu li a {
+        color: #000;
+        display: block;
+        padding: 2px 0 2px 12px;
+        cursor: pointer;
+        width: 116px;
+        }
+    ul.itemmenu li a.disabled {
+        color: #999;
+        cursor: default;
+        }
+    ul.itemmenu li a:hover {
+        padding: 1px 0 1px 11px;
+        border: 1px solid silver;
+        background-color: #f0f0f0;
+        }
+    ul.itemmenu hr.separator {
+        height:1px;
+        color:#000;
+        background-color:#000;
+        border:0pt none
+    }
+/* level menu uses old menu display scheme */
+ul#levelmenu {
+    display: block;
+}
+ul#levelmenu.itemmenu {
+    margin: 0;
+}
+
+
+/*------------------------------------*/
+/*    Prediction Table
+/*------------------------------------*/
+div.slider_open, div.slider_loading, div.slider_closed {
+    display: block;
+    background-color: #E1EFF9;
+    text-decoration: none;
+    color: #000;
+    padding: 5px 0 5px 2px;
+    cursor: pointer;
+}
+
+#task-action {
+    margin-top: 4px;
+    margin-bottom: 10px;
+}
+
+.side_container {
+    border-bottom: 1px solid #CED4D9;
+}
+
+.sidebar .rounded_caption {
+    padding-top: 6px !important;
+    padding-bottom: 0 !important;
+}
+
+div.slider_loading {
+    background-image: url(/images/loading_small.gif?1484830116) !important;
+    background-repeat: no-repeat;
+    background-position: 0 center !important;
+    width: 16px;
+    height: 16px;
+    float: left;
+    border: none;
+    padding: 0;
+}
+div.slider_icon {
+    width: 16px;
+    height: 16px;
+    float: left;
+}
+div.slider_text {
+    background-color: #E1EFF9;
+}
+
+#prediction table.prediction{
+    border-left: 2px solid #E1EFF9;
+    border-right: 2px solid #E1EFF9;
+    }
+    #prediction table.prediction tr.nohover:hover td { background: transparent; }
+    #prediction table.prediction th.person {width: 90px;}
+    #prediction div.usercolor {
+        margin-top: 2px;
+        float: left;
+        display: block;
+        width: 10px;
+        height: 10px;
+    }
+    #prediction span.username {
+        vertical-align: middle;
+        margin-left: 5px;
+    }
+
+table.analyze td, table.analyze th {
+        height: 25px;
+        padding: 1px 1px 1px 5px;
+        vertical-align: middle;
+        }
+table.analyze .est {
+    border-right: 1px solid #999; width: 30px;
+    vertical-align: middle;
+    }
+
+table.analyze tr.nohover:hover td{ background: transparent; }
+table.analyze td.current { background-color: #f7f7f7; }
+table.analyze tr.nohover:hover td.current { background-color: #f7f7f7; }
+table.analyze td.solid { border-bottom: 1px solid #aaa; }
+table.analyze td.no_activity, table.analyze th.no_activity { color: #c7c7c7; }
+
+
+
+table.analyze-work-amount th { background-color: #e1eff9; }
+
+
+/*------------------------------------*/
+/*    Sprint Analyze
+/*------------------------------------*/
+
+.horz-scroller {display:none;}
+
+.excel {position:relative; padding-left: 200px; }
+.excel .scroller { overflow: auto; overflow-y:hidden; width:100%; }
+.excel .titles {position: absolute; top: 0; left: 0; }
+.excel .titles td.name { vertical-align: top; padding-top: 4px;}
+
+
+.teams_progress_footer {
+    background-color: #e1eff9;
+    margin: 0;
+    height: 20px;
+}
+.teams_progress_footer div {
+    float: right;
+    padding-top: 2px;
+    margin-right: 10px;
+}
+.teams_progress_footer div a {
+    text-decoration: none;
+    font-size: 90%;
+}
+
+/*------------------------------------*/
+/*    Tags sidebar panel
+/*------------------------------------*/
+
+#taglist {
+        background-color: #e1eff9;
+        margin: 0;
+        height: 20px;
+    }
+    #taglist .caption {
+        padding: 0;
+    }
+    #teams_progress_contents .selected_team,
+    #taglist_contents .selected_tag {
+        font-weight: bold;
+    }
+    #teams_progress_contents a.export_link,
+    #taglist_contents a.export_link,
+    #progress_contents a.export_link {
+        float: right;
+        color: #738999;
+        text-decoration: none;
+    }
+    #taglist_contents a.export_link:hover,
+    #progress_contents a.export_link:hover {
+        text-decoration: underline;
+    }
+    .teams_progress_footer .no_filter,
+    #taglist .no_filter {
+        font-size: 90%;
+        display: block;
+        float: left;
+        padding-top: 2px;
+        margin-left: 4px;
+    }
+    #taglist .no_tags {
+        color: #ccc;
+    }
+    #taglist .add_tag {
+        display: block;
+        float: right;
+        padding-top: 2px;
+        margin-right: 10px;
+    }
+    #taglist .add_tag a { text-decoration: none; font-size: 90%; }
+
+#tag_edit {
+        position: absolute;
+        z-index: 2;
+        margin-top: 10px;
+        margin-left: 20px;
+        width: 235px;
+        height: 28px;
+        border: 1px solid #000;
+        background-color: #fff;
+        padding: 3px;
+        text-align: center;
+
+    }
+    #tag_edit #tag_edit_form {
+        margin: 0;
+        padding: 0
+    }
+    #tag_edit #tag_edit_name {
+        width: 110px;
+    }
+    #tag_edit #tag_edit_spinner {
+        font-size: 80%;
+        margin-top: 10px;
+        vertical-align: middle;
+    }
+    #tag_edit input[type=button] {
+        width: 50px;
+    }
+
+select#more_actions {
+    width: 150px;
+}
+
+span.tags {
+    margin: 0 3px 0 0;
+    font-size: 80%;
+    color: #070;
+}
+
+.task_properties {
+    cursor: default;
+    font-size: 80%;
+}
+.task_properties, .task_properties a {
+    color: #999;
+}
+.task_properties a.overdue {
+    color: #f00;
+}
+.task_properties a.comments {
+    white-space: nowrap;
+}
+
+div#task_description_0 {
+    cursor: pointer;
+    padding: 5px;
+    margin: -5px;
+}
+    div#task_description_0 span {
+        display:block;
+        font-size: 90%;
+        color: #808080;
+        margin-top: 1px;
+    }
+
+
+/*------------------------------------*/
+/*    Comments
+/*------------------------------------*/
+
+.comment_form_dialog {
+        width: 400px !important;
+        height: 250px !important;
+        padding: 0;
+        z-index: 3;
+    }
+    .comment_form_dialog form {
+        margin: 0;
+        padding: 0;
+    }
+    .comment_form_dialog textarea {
+        margin: 10px;
+        width: 370px !important;
+        height: 140px !important;
+    }
+    .comment_form_save_button {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+    }
+    .comment_form_cancel_button {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+    .comment_form_dialog .checkbox_area, .comment_form_dialog .feedback_area {
+        position: absolute;
+        bottom: 40px;
+        left: 10px;
+        margin: 0;
+        padding: 0;
+    }
+
+.task_details_comment_form {
+    position: absolute;
+    right: 120px;
+    margin: 50px 0 0 0;
+}
+
+.task_list_comment_form {
+    position: absolute;
+    margin: 30px 0 0 25px;
+}
+
+#comment_button {
+    width: 100%;
+    text-align: right;
+}
+
+#issue_comments .table_border {
+    border-bottom:2px solid #E1EFF9;
+    padding: 0;
+    margin: 0;
+}
+
+#changesets_list .table_border {
+    border-bottom:2px solid #E1EFF9;
+    padding: 0;
+    margin: 0;
+}
+
+#relationships_list .table_border {
+    border-bottom:2px solid #E1EFF9;
+    padding: 0;
+    margin: 0;
+}
+
+#relationships_list td.label {
+    width: 16em;
+}
+
+#relationships_list td.issue_number a {
+    display: block;
+    margin: -5px;
+    padding: 5px;
+    color: #888;
+    text-decoration: none;
+}
+
+#relationships_list tr {
+    height: 34px;
+}
+
+#relationships_list input[type=text] {
+    width: 70px;
+}
+
+#issue_comments .popup_dialog {
+    position: absolute !important;
+    right: 80px;
+    margin-top: -20px;
+}
+
+div#other_owners_and_due_date table.listing tr.owners {
+    height: 36px;
+}
+
+div#other_owners_and_due_date table.listing tr.owners td {
+    width: 33%;
+}
+
+div#other_owners_and_due_date table.listing tr.owners td.due_date .hidden {
+    display: none;
+}
+
+div#other_owners_and_due_date table.listing tr.owners td select {
+    position: absolute;
+}
+
+div#other_owners_and_due_date table.listing tr.owners:hover td {
+    background: transparent;
+}
+
+div#other_owners_and_due_date table.listing tr.owners td a {
+    margin-top: 1px;
+    text-decoration: none;
+}
+
+.comment_edit_button {
+    float: right;
+    padding: 5px;
+    text-align: right;
+}
+
+.comment {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.awaiting_for_feedback { background: #F7F7F7;}
+.comment:hover {background: #fff7df; }
+.comment .comment_content {
+        margin-right: 100px;
+        padding: 5px;
+    }
+    .comment .comment_content .ws_wrapper {
+        white-space: pre-wrap;
+    }
+.comment span.time { color: #999; }
+.comment span.time a { color: #999; text-decoration: none;  }
+.comment span.time a:hover { text-decoration: underline; }
+.comment span.creator { color: #000; background: #ffffe0; }
+.comment span.description {
+    display: block;
+    margin: 5px 180px 5px 40px;
+}
+
+.comment a.changeset_link {
+    cursor:pointer;
+    display:block;
+    color: #333;
+    text-decoration:none;
+    width:100%;
+}
+.comment span.creator em {
+    font-weight: bold;
+    font-style: normal;
+}
+.comment span.from_issue {
+    color: #999;
+    padding-left: 7px;
+}
+.comment span.from_issue:hover {
+    text-decoration: underline;
+}
+.comment span.repo {
+    color: #999;
+}
+
+.level_filter {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1;
+    }
+    div.bulletable {
+        margin-left: -14px;
+        margin-right: 2px;
+        margin-top: -1px;
+        width: 16px;
+        height: 16px;
+        float: left;
+    }
+    .bulletted {
+        background-position: top left;
+    }
+    .spinner {
+        background: url(/images/loading_small.gif?1484830116) no-repeat top left !important;
+    }
+
+
+#issue_attachments .table_border {
+    border-bottom:2px solid #E1EFF9;
+    padding: 0;
+    margin: 0;
+}
+
+#attach_button, #changeset_button {
+    width: 100%;
+    text-align: right;
+}
+
+#issue_attachments .attachment_buttons {
+    float: right;
+    padding: 0;
+    width: 150px;
+    margin: 5px;
+    text-align: right;
+}
+
+.attachment:hover {background: #fff7df; }
+
+#issue_attachments .popup_dialog {
+    position: absolute !important;
+    right: 80px;
+    margin-top: -20px;
+}
+
+.attachment_form_dialog {
+        width: 400px !important;
+        height: 220px !important;
+        padding: 0;
+        z-index: 3;
+    }
+
+.link_in_description {
+    cursor: pointer;
+}
+
+.link_in_description {
+    text-decoration: underline !important;
+    color: #000 !important;
+}
+.link_in_description:hover {
+    background-color: #ececff;
+}
+
+#initializing {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    width: 110px;
+    background: #c00;
+    color: #fff;
+    z-index: 10;
+}
+
+/*------------------------------------*/
+/*    Gmail Threads
+/*------------------------------------*/
+
+.gmail_thread_dialog {
+        width: 250px !important;
+        height: 90px !important;
+        padding: 0;
+        z-index: 3;
+    }
+    .gmail_thread_dialog #thread_id {
+        width: 220px;
+    }
+
+#gmail_threads .table_border {
+    padding: 0;
+    margin: 0;
+}
+#gmail_threads .listing td.remove a {
+    text-decoration: none;
+}
+#gmail_threads .listing tr:hover td {
+    background-color: #FFF;
+}
+#gmail_threads .listing tr .subj {
+    padding-left: 17px;
+}
+#gmail_threads .listing tr .email {
+    width: 120px;
+}
+#gmail_threads .listing tr .thread_id {
+    width: 115px;
+}
+#gmail_threads .listing tr .status {
+    width: 80px;
+}
+#gmail_threads .listing tr .remove {
+    width: 60px;
+    text-align: right;
+}
+#gmail_threads .listing tr td.status {
+    white-space: nowrap;
+}
+
+div.cursor_image {
+    width: 9px;
+    height: 15px;
+    visibility: hidden;
+}
+div.cursor_image_shown {
+    visibility: visible;
+}
+
+td.analyze_issue_link {
+    vertical-align: top !important;
+    padding-top: 4px !important;
+}
+
+td.analyze_issue_link a {
+    color:#888888;
+    display:block;
+    width:100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+td.analyze_task_link a {
+    text-decoration: none;
+    color: #333;
+    width:100%;
+    height: 100%;
+    display:block;
+}
+
+table.gmail_data {
+        border: none;
+        border-collapse: collapse;
+    }
+    table.gmail_data tr, table.gmail_data td {
+        padding: 2px 5px;
+        border: none;
+    }
+    table.gmail_data td.email {
+        width: 20%;
+    }
+    table.gmail_data td.thread_id {
+        width: 20%;
+    }
+table.task_details_gmail_data td.subj {
+        width: 400px;
+    }
+    table.task_details_gmail_data tr, table.task_details_gmail_data td {
+        padding: 0 5px;
+    }
+
+
+input#query {
+    width: 350px;
+}
+
+#analytics_form {   
+    padding: 0;
+    margin-bottom: 5px;
+    background: #E1EFF9;
+}
+
+#analytics_form .rounded_caption td{   
+    padding: 5px 0 0 0 !important;
+}
+
+#analytics_query_form {
+    }
+    #analytics_query_form form#filter_form {
+        display:inline;
+    }
+    #analytics_query_form fieldset#issues_query {
+    }
+    #analytics_query_form input#query {
+        padding: 0 !important;
+        width: 300px !important;
+    }
+    #analytics_query_form #query_form_addon {
+        float: right;
+        vertical-align: bottom;
+    }
+    #analytics_query_form #query_form_addon small {
+        float: left;
+        margin-top: 10px;
+    }
+    #analytics_query_form #saved_filters_selector_container {
+        padding: 1px 0 0 0;
+        margin: 0;
+        float: left;
+    }
+    #analytics_query_form #saved_filters_selector {
+        width: 140px;
+        margin-right: 10px;
+        font: 11px Tahoma,sans-serif;
+    }
+    
+#issues_top_controls {
+        margin-bottom: 10px;
+    }
+    #issues_top_controls small.search_help {
+        display: block;
+    }
+    #issues_top_controls .pagination {
+        float: left;
+        margin-top: 5px;
+    }
+    #issues_top_controls #filter_form_container {
+        float: right;
+    }
+
+#advanced_search_form {
+    }
+    #advanced_search_form table {
+            border-collapse: collapse;
+        }
+        #advanced_search_form table td {
+            padding: 0;
+            margin: 0;
+            vertical-align: top;
+        }
+        #advanced_search_form table td.section {
+            font-weight: bold;
+            padding: 10px 0;
+        }
+        #advanced_search_form table td input {
+            float: none;
+            margin: 2px 0;
+        }
+        #advanced_search_form table td select {
+            width: 350px;
+            margin: 2px 0;
+        }
+        #advanced_search_form table td input.tags {
+            width: 342px;
+        }
+        #advanced_search_form table.wide td label {
+            display: block;
+            width: 200px;
+            margin: 4px 10px;
+        }
+        #advanced_search_form table td.buttons {
+            padding-top: 15px;
+        }
+        #advanced_search_form table td.as_more_options {
+            padding: 15px 0px 15px 12px;
+        }
+        #advanced_search_form table td.note {
+            padding: 10px 0 10px 10px;
+        }
+    #advanced_search_form input.wide {
+        width: 410px;
+    }
+    #advanced_search_form input.narrow {
+        width: 115px;
+    }
+    #advanced_search_form input.number {
+        width: 115px;
+    }
+    #as_project_selector_spinner {
+        position: absolute;
+        padding: 8px 0 0 3px;
+    }
+    #advanced_search_form div.buttons {
+            padding-top: 10px; 
+    }
+    #advanced_search_form .search-hint {
+            font-size: 11px;
+            color: #999;
+    }
+    #advanced_search_form span.tip {
+        position: relative;
+    }
+    #advanced_search_form span.tip div.hint {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        margin-top: -6px;
+        width: 250px;
+    }
+
+#analytics_multisprint_form {
+    }
+    #analytics_multisprint_form table {
+            padding: 0;
+            margin: 0;
+            border-collapse: collapse;
+        }
+        #analytics_multisprint_form table td {
+            padding: 0 4px 0 0;
+            margin: 0;
+        }
+    #analytics_multisprint_form fieldset#sprint_selector {
+    }
+    #analytics_multisprint_form select {
+        width: 302px !important;
+    }
+#analytics_selected_form {
+    }
+    #analytics_selected_form input#issues {
+        padding: 0;
+        width: 300px !important;
+    }
+
+
+#analytics_form .disabled {
+    }
+    #analytics_form .disabled fieldset {
+        border: 1px solid #ccc;
+        background-color: #fefefe;
+    }
+    #analytics_form .disabled fieldset legend, 
+    #analytics_form .disabled label,
+    #analytics_form .disabled #start_date_query,
+    #analytics_form .disabled #end_date_query,
+    #analytics_form .disabled #start_date_selected,
+    #analytics_form .disabled #end_date_selected,
+    #analytics_form .disabled #start_date_multisprint,
+    #analytics_form .disabled #end_date_multisprint,
+    #analytics_form .disabled small {
+            color: #ccc;
+    }
+
+#analytics_form_toggle_arrow, #date_selector_toggle_arrow {
+    text-decoration: none;
+    color: #000;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#task_watch_list {
+    }
+    #task_watch_list .table_border {
+        border-bottom:2px solid #E1EFF9;
+        padding: 5px;
+    }
+    #task_watch_list select#users_for_issue_watch_list, #task_watch_list select#issue_watch_list { width: 250px; }
+    #task_watch_list input.mover_button { width: 170px; }
+
+#merge_tasks_form div.table_border {
+    border-bottom:2px solid #E1EFF9;
+    padding: 5px;
+}
+
+
+.listing tr.request_item textarea {
+    display: inline;
+    margin: 10px;
+    background:#FFFFD3 none repeat scroll 0 0;
+    height: 170px !important;
+}
+
+.listing tr.request_item div.comment_form_dialog {
+    right: 20px;
+    margin-top: 25px;
+    position: absolute;
+    float: right !important;
+    z-index: 100;
+}
+
+.listing tr.request_item div.comment_form_dialog h3 {
+    text-align: left;
+}
+
+.listing tr.request_item span.request_header {
+    color: #999;
+    font-size: 80%;
+}
+
+.listing tr.awaiting_for_feedback {
+    background-color: #F7F7F7;
+}
+
+/* turn off hover for grey feedback rows */
+table.listing tr.awaiting_for_feedback:hover td,
+table.listing tr.request_item:hover td {
+    background-color: #F7F7F7;
+}
+
+#duplicate_dialog {
+        width: 200px;
+        height: 100px;
+        position: absolute;
+    }
+    #duplicate_dialog input[type="text"] {
+        width: 170px;
+        margin-bottom: 10px;
+    }
+    #duplicate_dialog_form {
+        text-align: right;
+    }
+
+#due_date_dialog {
+    position: absolute;
+    margin-top: 10px;
+    width: 155px;
+}
+#due_date_dialog_form {
+    position: relative;
+    height:  60px;
+    text-align: center;
+}
+#due_date_dialog input#issue_due_date {
+    width: 125px;
+    margin-bottom: 10px;
+}
+#issue_due_date_save_button, #issue_due_date_cancel_button {
+    position: absolute;
+    bottom: 10px;
+}
+#issue_due_date_save_button {
+    left: 10px;
+}
+#issue_due_date_cancel_button {
+    right: 10px;
+}
+
+.hidden_text_input {
+    width: 0 !important;
+    height: 0 !important;
+    border: none !important;
+}
+
+table.relationship_list tr:hover td { background: transparent; }
+table.relationship_list td.issue_number {
+    width: 40px;
+}
+table.relationship_list td.owner {
+    text-align: center;
+    width: 80px;
+}
+table.relationship_list td.status {
+    text-align: center;
+    width: 85px;
+}
+table.relationship_list td.priority {
+    width: 30px;
+}
+table.relationship_list td.estimate, table.relationship_list td.remaining {
+    padding: 5px 0 0;
+    text-align: left;
+    vertical-align: top;
+    width: 30px;
+}
+table.relationship_list a.comments {
+    text-decoration: none;
+}
+span.other_project_relationships {
+    display: block;
+    color: #000;
+    padding: 10px 0 10px 0;
+}
+
+
+div#qa_dashboard th.popup, div#qa_dashboard td.popup {
+    display: none;
+}
+
+#filter_form_container form#filter_form {
+    display:inline;
+}
+select#saved_filters_selector {
+    width: 150px;
+}
+
+
+#filters_list_table_container h2,
+#widgets_table_container h2 {
+    color: #666;
+    margin-top: 20px;
+}
+
+
+table.listing_filters td {
+    height: 35px;
+    padding: 0 5px;
+    vertical-align: middle;
+}
+table.listing_filters tr.owner th {
+    color: #5E707D;
+}
+table.listing_filters tr.no_filters:hover td {
+    background-color: #FFF;
+}
+#saved_filter_form_container input#saved_filter_name {
+    width: 90% !important;
+}
+#saved_filter_form_container input#saved_filter_filter {
+    width: 90% !important;
+}
+
+#show_hide_new_issue, #show_hide_new_task, #show_hide_new_task2 {
+    width: 75px;
+}
+
+
+/* issues header */
+thead#issues_header th {
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 1em;
+}
+
+#move_to_project_dialog {
+        position: absolute;
+        right: 26px;
+        padding-top: 10px;
+    }
+    #move_to_project_dialog div.decor {
+        background-color: #fff;
+        border: 1px solid #000;
+        border-top: 5px solid #4998D0;
+        padding: 5px;
+    }
+    #move_to_project_dialog select#move_to_project_selector {
+        width: 200px;
+    }
+
+.clear_filters_link {
+    color: #0066CC !important;
+    font-weight: normal;
+}
+.clear_filters_link span {
+    font-weight: bold;
+}
+
+span.special_tag {
+    padding: 2px 3px 2px 3px;
+    background-color: #F1F5EC;
+}
+
+.task_details_page_links {
+    font-size: 10px;
+    padding-top: 10px;
+}
+
+
+
+
+/* Copyright (c) 2006-2007 Pluron, Inc.*/
+
+@media print {
+
+    /* for Opera, it (surprize!) prints backgrounds */
+    * {background: white !important;}
+
+    #footer, #header, #tasklist-toolbox, .handle, .popup, #show_hide_new_task2, .cursor_image {display: none;}
+
+    /* resetting task/issue link height back */
+    #tasklist a.issue_number_link {
+        padding: 0 !important; 
+        margin: 0 !important;
+    }
+
+    /* to make Burndown type description more prominent */
+    .sidebar select { 
+        border: none; font-weight: bold; font-size: 15px; margin-top: 10pt;
+        border-bottom: 1px solid black;
+    }
+
+    .table_border, div#timeline.taskish  {border: none;}
+
+    .titles table.listing {border-top: none;}
+    table.listing {border-top: 1px solid black;}
+    table.listing td {border: none;}
+    #task_list_for_ li {border: none;}
+    .task_item_handle {display: none;}
+    table.listing th {font-weight: bold; color: black;}
+    table.listing th span.widener {visibility: hidden; display: none; color: white;}
+
+    /* totals on each page look weird */
+    tfoot#sprint_totals { display: table-row-group; }
+
+    /* no floating on the paper */
+    #main .content, #main .content .wrap {margin: 0px; padding: 0px;  float: none;}
+
+    /* flash message in useless */
+    #flash {display: none;}
+
+    .sidebar {float: none; border: none; background: none; margin-bottom: 12pt;
+        width: 100% !important;
+        }
+
+    /* no sub-sprint actions menu */
+    h1 .toolset {display: none;}
+
+    /* when prediction/progress are not yet loaded, do not display their headers */
+    div.slider_closed, div.slider_loading {
+        display:none;
+    }
+    div.slider_open {
+        border: none; font-weight: bold; font-size: 15px; margin-top: 10pt;
+        border-bottom: 1px solid black;
+    }
+
+    .sidebar table, .sidebar td , .sidebar div{background: none !important; border: none !important;}
+
+    .side_container, #prediction .side_container {float: left; width: 300px;}
+    #prediction {position: relative; left: -10pt;}
+    #prediction .side_container { width: 280px; margin-left: 10pt;}
+    #taglist { display: none }
+
+    /* task styles, tweaked to display ok on b/w printer */
+    .not_started, .not_started p { }
+    .in_progress, .in_progress p { font-style: italic; }
+    .deferred, .deferred p { text-decoration: line-through;}
+    .completed, .completed p { text-decoration: underline; }
+    .controls {visibility: hidden; display: none;}
+
+    /* don't print wiki edit button */
+    #page_wiki table form.button-to,
+    /* don't print wiki inclusion edit buttons */
+    #page_wiki .included_page_wiki_edit_link {
+        display: none;
+    }
+
+} /* @media print */
+
+
+
+
+/* This file is generated by script/css_sprites.rb. Do not edit. */
+
+.sprite-rounded_caption_bl { background-position: 0 -0px; } /* 5 x 5 */
+.sprite-rounded_caption_br { background-position: -5px -0px; } /* 5 x 5 */
+.sprite-rounded_caption_tl { background-position: -10px -0px; } /* 5 x 5 */
+.sprite-rounded_caption_tr { background-position: -15px -0px; } /* 5 x 5 */
+.sprite-rounded_flash_bl { background-position: -20px -0px; } /* 5 x 5 */
+.sprite-rounded_flash_br { background-position: -25px -0px; } /* 5 x 5 */
+.sprite-rounded_flash_tl { background-position: -30px -0px; } /* 5 x 5 */
+.sprite-rounded_flash_tr { background-position: -35px -0px; } /* 5 x 5 */
+table.diffs tr.diff:hover .active_area .marker, table.diffs tr.diff.hovered .active_area .marker { background-position: 0 -5px; } /* 7 x 7 */
+.sprite-left-arrow-grey { background-position: 0 -12px; } /* 7 x 11 */
+.sprite-redirect-12px { background-position: 0 -23px; } /* 16 x 12 */
+.sprite-diff-blocked { background-position: 0 -35px; } /* 13 x 13 */
+.sprite-diff-completed { background-position: -13px -35px; } /* 13 x 13 */
+.sprite-diff-duplicate { background-position: -26px -35px; } /* 13 x 13 */
+.sprite-diff-in-progress { background-position: -39px -35px; } /* 13 x 13 */
+.sprite-diff-not-started { background-position: -52px -35px; } /* 13 x 13 */
+.sprite-diff-reopened { background-position: -65px -35px; } /* 13 x 13 */
+.sprite-diff-verified { background-position: -78px -35px; } /* 13 x 13 */
+.sprite-diff-will-not-do { background-position: -91px -35px; } /* 13 x 13 */
+.sprite-bullet_black { background-position: 0 -48px; } /* 16 x 16 */
+.sprite-close { background-position: -16px -48px; } /* 16 x 16 */
+.sprite-cursor { background-position: -32px -48px; } /* 9 x 16 */
+.sprite-down_arrow { background-position: -41px -48px; } /* 16 x 16 */
+.sprite-inline-left-disabled { background-position: -57px -48px; } /* 16 x 16 */
+.sprite-inline-left { background-position: -73px -48px; } /* 16 x 16 */
+.sprite-inline-right-disabled { background-position: -89px -48px; } /* 16 x 16 */
+.sprite-inline-right { background-position: -105px -48px; } /* 16 x 16 */
+.sprite-open_in_new_window { background-position: -121px -48px; } /* 16 x 16 */
+.sprite-right_arrow { background-position: -137px -48px; } /* 16 x 16 */
+.sprite-rss { background-position: -153px -48px; } /* 16 x 16 */
+.sprite-timeline_email { background-position: -169px -48px; } /* 16 x 16 */
+.sprite-timeline_project { background-position: -185px -48px; } /* 16 x 16 */
+.sprite-timeline_sprint { background-position: -201px -48px; } /* 16 x 16 */
+.sprite-timeline_svn-changeset { background-position: -217px -48px; } /* 16 x 16 */
+.sprite-timeline_task-complete { background-position: -233px -48px; } /* 16 x 16 */
+.sprite-timeline_task-copy { background-position: -249px -48px; } /* 16 x 16 */
+.sprite-timeline_task-create { background-position: -265px -48px; } /* 16 x 16 */
+.sprite-timeline_task-delete { background-position: -281px -48px; } /* 16 x 16 */
+.sprite-timeline_task-edit { background-position: -297px -48px; } /* 16 x 16 */
+.sprite-timeline_task-move { background-position: -313px -48px; } /* 16 x 16 */
+.sprite-timeline_wiki-create { background-position: -329px -48px; } /* 16 x 16 */
+.sprite-timeline_wiki-delete { background-position: -345px -48px; } /* 16 x 16 */
+.sprite-timeline_wiki-edit { background-position: -361px -48px; } /* 16 x 16 */
+.sprite-timeline_wiki-rename { background-position: -377px -48px; } /* 16 x 16 */
+.sprite-timeline_wiki-undelete { background-position: -393px -48px; } /* 16 x 16 */
+.sprite-wiki-redirect { background-position: -409px -48px; } /* 16 x 16 */
+.sprite-next { background-position: 0 -64px; } /* 9 x 18 */
+.sprite-previous { background-position: -9px -64px; } /* 9 x 18 */
+.sprite-bug { background-position: 0 -82px; } /* 20 x 20 */
+.sprite-clear { background-position: -20px -82px; } /* 20 x 20 */
+.sprite-acunote_logo { background-position: 0 -102px; } /* 112 x 22 */
+.sprite-tab-inactive-left { background-position: 0 -124px; } /* 250 x 31 */
+.sprite-tab-active-right { background-position: right -155px; } /* 6 x 31 */
+.sprite-tab-active-left { background-position: 0 -186px; } /* 250 x 31 */
+.sprite-tab-inactive-right { background-position: right -217px; } /* 6 x 31 */
+.sprite-menu { background-position: 0 -248px; } /* 20 x 22 */
+
+.sprite-rounded_caption_bl, 
+.sprite-rounded_caption_br, 
+.sprite-rounded_caption_tl, 
+.sprite-rounded_caption_tr, 
+.sprite-rounded_flash_bl, 
+.sprite-rounded_flash_br, 
+.sprite-rounded_flash_tl, 
+.sprite-rounded_flash_tr, 
+table.diffs tr.diff:hover .active_area .marker, table.diffs tr.diff.hovered .active_area .marker, 
+.sprite-left-arrow-grey, 
+.sprite-redirect-12px, 
+.sprite-diff-blocked, 
+.sprite-diff-completed, 
+.sprite-diff-duplicate, 
+.sprite-diff-in-progress, 
+.sprite-diff-not-started, 
+.sprite-diff-reopened, 
+.sprite-diff-verified, 
+.sprite-diff-will-not-do, 
+.sprite-bullet_black, 
+.sprite-close, 
+.sprite-cursor, 
+.sprite-down_arrow, 
+.sprite-inline-left-disabled, 
+.sprite-inline-left, 
+.sprite-inline-right-disabled, 
+.sprite-inline-right, 
+.sprite-open_in_new_window, 
+.sprite-right_arrow, 
+.sprite-rss, 
+.sprite-timeline_email, 
+.sprite-timeline_project, 
+.sprite-timeline_sprint, 
+.sprite-timeline_svn-changeset, 
+.sprite-timeline_task-complete, 
+.sprite-timeline_task-copy, 
+.sprite-timeline_task-create, 
+.sprite-timeline_task-delete, 
+.sprite-timeline_task-edit, 
+.sprite-timeline_task-move, 
+.sprite-timeline_wiki-create, 
+.sprite-timeline_wiki-delete, 
+.sprite-timeline_wiki-edit, 
+.sprite-timeline_wiki-rename, 
+.sprite-timeline_wiki-undelete, 
+.sprite-wiki-redirect, 
+.sprite-next, 
+.sprite-previous, 
+.sprite-bug, 
+.sprite-clear, 
+.sprite-acunote_logo, 
+.sprite-tab-inactive-left, 
+.sprite-tab-active-right, 
+.sprite-tab-active-left, 
+.sprite-tab-inactive-right, 
+.sprite-menu { background-image: url(/images/sprites/sprite.png?1484830116); background-repeat: no-repeat; }
+
+
+
+
+/* editor textarea*/
+textarea#wiki_editor {
+    padding: .5em;
+    font: normal 12px/1.25 "Courier New", "Courier", monospace;
+    background-color: #FFF;
+    width: 100%;
+}
+#wiki_editor_wrapper {
+    width: auto;
+    margin-right: 15px;
+}
+.wrapper_with_help {
+    margin-right: 215px !important;
+}
+#issue_wiki {
+    border-bottom:2px solid #E1EFF9;
+}
+#issue_wiki > .wiki {
+    padding: 5px;
+}
+#wiki_edit_button {
+    width: 100%;
+    text-align: right;
+}
+#issue_wiki form {
+    white-space: normal !important;
+    width: 100%;
+}
+#issue_wiki_edit_form {
+    position: relative;
+    white-space: normal !important;
+}
+div.section > #issue_wiki_edit_form, 
+div.section > #extract_form_container {
+    margin-top: 2.076em;
+}
+div.section span.section_edit_link {
+    visibility: hidden;
+}
+div.section > h1:hover + span.section_edit_link,
+div.section > h2:hover + span.section_edit_link,
+div.section > h3:hover + span.section_edit_link,
+div.section > h4:hover + span.section_edit_link,
+div.section > h5:hover + span.section_edit_link,
+div.section > h6:hover + span.section_edit_link {
+    visibility: visible;
+}
+div.section > span.section_edit_link:hover {
+    visibility: visible;
+}
+
+#issue_wiki #extract_form textarea {
+    width: 98%;
+}
+
+/* reset default styles for formatted wiki */
+
+.wiki {
+    
+    }
+    .wiki a, 
+    .wiki a:link, 
+    .wiki a:visited { 
+        color: #06c; 
+    }
+    .wiki .section_edit_link {
+            float: right;
+            margin-top: -30px;
+        }
+        .wiki .section_edit_link a {
+            padding-left: 12px;
+        }
+    .wiki h3 + a.section,
+    .wiki h4 + a.section,
+    .wiki h5 + a.section {
+        margin-top: -25px;
+    }
+    .wiki legend {
+        padding: 0 5px;
+        color: #000;
+    }
+    .wiki ul,
+    .wiki ol {
+        margin: 0 0 1em 1.5em;
+        padding: 0;
+        line-height: 1.5em;
+    }
+    .wiki ul {
+        list-style: disc;
+    }
+    .wiki ol {
+        list-style: decimal inside;
+    }
+    .wiki li {
+        margin: 0 0 0.1em 0;
+    }
+    .wiki li > ul,
+    .wiki li > ol {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .wiki dd {
+        margin-left: 20px;
+    }
+    .wiki pre {
+        background-color:#f9f9f9;
+        border:1px dashed #2f6fab;
+        line-height:1.1em;
+        padding: 12px;
+        margin: 7px 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    .wiki pre.indent {
+        padding: 12px;
+        margin: 7px 0;
+    }
+    .wiki pre.template {
+        border: none;
+        background: none;
+        padding: 0px;
+        margin: 7px 0;
+    }
+    .wiki h1,
+    .wiki h2,
+    .wiki h3,
+    .wiki h4,
+    .wiki h5 {
+        font-family: sans-serif !important;  
+        color: #000;
+        line-height: 1.5em !important;
+        padding: 0.5em 0 0 0;
+    }
+    .wiki h1 {
+        font-weight: normal;
+        font-size: 24px;
+        margin: 0 0 0.6em 0;
+    }
+    .wiki h1 a {
+        color: #06C !important;
+    }
+    .wiki h2 {
+        font-weight: normal;
+        font-size: 19px;
+        margin: 0 0 0.6em 0;
+    }
+    .wiki h3 {
+        font-weight: bold;
+        font-size: 16px;
+        margin: 0 0 0.3em 0;
+    }
+    .wiki h4 {
+        font-weight: bold;
+        font-size: 14px;
+        margin: 0 0 0.3em 0;
+    }
+    .wiki h5 {
+        font-weight: bold;
+        font-size: 12px;
+        margin: 0 0 0.3em 0;
+    }
+    .wiki div.section h1,
+    .wiki div.section h2 {
+        border-bottom: 1px dashed #ccc;
+    }
+    .wiki p {
+        line-height: 1.5em;
+        padding: 0;
+        margin: 0.4em 0 0.5em;
+    }
+    .wiki p + ul {
+        margin-top: -0.5em;
+    }
+    .wiki .not-found {
+        color: #f00;
+    }
+    .wiki .section textarea {
+        width: 100%;
+        height: 100px;
+    }
+    .wiki .task_wiki {
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+            padding: 3px;
+            margin: 0;
+        }
+        .wiki .task_wiki span.desc {
+            display: block;
+            font-weight: normal;
+        }
+        .wiki .task_wiki span.task_wiki_edit_link {
+            float: right;
+        }
+        .wiki .task_wiki textarea {
+            width: 100%;
+            height: 100px;
+        }
+    .wiki .included_page_wiki {
+            background: #fff;
+            margin-bottom: 5px;
+            padding-top: 10px;
+        }
+    .wiki .included_page_wiki .included_page_wiki_edit_link {
+        margin-top: -9px;
+    }
+    .wiki .plus_minus {
+        text-decoration: none;
+        color: #000;
+    }
+    .wiki .plus_minus:hover {
+        text-decoration: underline;
+    }
+    .wiki .inactive_editor_tab, #issue_wiki .inactive_editor_tab {
+        font-weight: normal;
+        background-color: #FFF;
+        border-bottom: 1px solid #CED4D9;
+    }
+    .wiki .inactive_editor_tab a, #issue_wiki .inactive_editor_tab a {
+        color: #666;
+    }
+    .wiki .active_editor_tab, #issue_wiki .active_editor_tab {
+        font-weight: bold;
+        background-color: #F6FAFD;
+        border-bottom: 1px solid #F6FAFD;
+    }
+    .wiki .active_editor_tab a, #issue_wiki .active_editor_tab a {
+        text-decoration: none;
+        cursor: default;
+        color: #000;
+    }
+    .wiki .editor_tab, #issue_wiki .editor_tab {
+        padding: 3px;
+        width: 100px;
+        float: left;
+        border-top: 1px solid #CED4D9;
+        border-right: 1px solid #CED4D9;
+        text-align: center;
+    }
+    .wiki .long_editor_tab, #issue_wiki .long_editor_tab {
+        width: 170px;
+    }
+    .wiki .editor_tab a, #issue_wiki .editor_tab a {
+        display: block;
+        margin: -5px;
+        padding: 5px;
+        width: 100%;
+    }
+    .wiki .editor_tab a:active,
+    .wiki .editor_tab a:focus,
+    #issue_wiki .editor_tab a:active,
+    #issue_wiki .editor_tab a:focus
+    {
+        outline: none;
+    }
+
+    .wiki #plain_edit_switch, #issue_wiki #plain_edit_switch {
+        border-left: 1px solid #CED4D9;
+    }
+    .wiki .wiki_edit_form_contents, #issue_wiki .wiki_edit_form_contents {
+        background-color: #F6FAFD;
+        border: 1px solid #CED4D9;
+        padding: 6px;
+    }
+    .wiki .wiki_edit_form_tabs, #issue_wiki .wiki_edit_form_tabs {
+        margin-bottom: -1px;
+    }
+    .wiki span.tags {
+        margin: 0;
+    }
+
+div.wiki table {
+    border-collapse: collapse;
+}
+
+#new_task_from_wiki {
+        top: 50%;
+        left: 20px;
+        margin-top: -170px;
+        width: 480px;
+        height: 340px;
+        white-space: normal !important;
+    }
+    #new_task_from_wiki h3 {
+        margin: 0;
+        height: 18px;
+        background-color: #4998d0;
+        color: #fff;
+        vertical-align: middle;
+        padding: 2px 0 0 5px;
+        z-index:3;
+        border-bottom: #b1bac2;
+        position: relative;
+        font-size: 12px;
+    }    
+    #new_task_from_wiki table {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        border-collapse: collapse;
+    }    
+    #new_task_from_wiki form {
+        width: 470px;
+        padding: 5px;
+        margin: 0;
+    }
+    #new_task_from_wiki textarea {
+        width: 460px;
+        height: 120px;
+    }
+    #new_task_from_wiki textarea.new_task_from_wiki_desc {
+        height: 50px;
+    }
+    #new_task_from_wiki input {
+        width: 100px;
+    }
+    #project_selector_for_new_task_from_wiki_spinner {
+        position: absolute;
+        margin-top: 5px;
+    }
+
+.wiki_update_notice {
+    padding-left: 7px;
+    color: #999;
+    font-size: 90%;
+}
+
+.wiki_delete_notice {
+    color: #F00;
+}
+
+
+.sprite-wiki-redirect {
+    position: relative;
+    display: block;
+    float: left;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+}
+    .templates-list td .sprite-wiki-redirect { /* wiki pages list */
+        margin: 2px .5em 0;
+    }
+    .templates-list td .link_to_redirect {
+        margin: .5em 0;
+        padding: 0;
+        font-size: 100%;
+    }
+
+.wiki_redirect_notice {
+    color: #F00;
+    margin-bottom: 1em;
+}
+    .wiki_redirect_notice p {
+        padding: 0;
+        margin-bottom: 5px;
+    }
+    .wiki_redirect_notice .sprite-wiki-redirect {
+        top: -4px;
+        margin: 0 .5em 0 15px;
+    }
+
+#wiki_page_history table {
+        border-collapse: collapse;
+    }
+    #wiki_page_history table td {
+        margin: 0;
+        height: 20px;
+    }
+    #wiki_page_history table td.radio-right {
+        padding-right: 8px;
+    }
+    #wiki_page_history table td.revision {
+        border-left: 1px solid #ccc;
+        padding-left: 8px;
+    }
+
+.wiki_diff {
+    font-family: "Courier New", monospace;
+    white-space: pre;
+}
+.wiki_diff ins {
+    background: #dfd;
+}
+.wiki_diff del {
+    background: #fdd;
+}
+
+.wiki_revision_warning {
+    display: block;
+    padding-bottom: 2px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f00; 
+}
+
+.wikitoc {
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    padding: 7px 7px 7px 2px;
+    margin: 7px 0;
+    }
+    .wikitoc ul {
+        padding-top: 2px;
+        margin: 0;
+        list-style: none;
+    }
+    .wikitoc li {
+        margin-left:10px;
+    }
+    .wikitoc li a {
+        text-decoration: none;
+    }
+    .wikitoc li a:hover {
+        text-decoration: underline;
+    }
+    .wikitoc .wikitocnumber {
+        margin-right: 4px;
+    }
+    .wikitoc .wikitoctitle {
+        font-weight: bold;
+        margin-left: 10px;
+    }
+#wiki_editor_buttons {
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+}
+
+
+#wiki_search_result {
+    }
+    #wiki_search_result span.match {
+        font-weight: bold;
+    }
+    #wiki_search_result h2 {
+        font-family: Arial, sans-serif;
+        font-weight: normal;
+        padding: 0;
+        margin: 0;
+    }
+    #wiki_search_result p {
+        padding: 0;
+        margin: 0;
+        display: block;
+        width: 42em;
+    }
+    #wiki_search_result .last_revision {
+        font-size: 11px;
+        color: #070;
+    }
+    #wiki_search_result ol {
+            list-style: none;
+            margin: 10px 0 0 5px;
+        }
+        #wiki_search_result ol li{
+            margin: 0 0 10px 0;
+        }
+        #wiki_search_result ol li tt {
+            display: block;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+table.templates-list th {
+    width: 70%;
+}
+table.templates-list th.buttons {
+    width: 30%;
+}
+
+.wiki_buttonbar_spacer {
+    width: 20px;
+}
+
+#wiki_inline_help {
+        position: absolute;
+        width: 180px;
+        right: 15px;
+        font-size: 90% !important;
+    }
+    #wiki_inline_help div {
+        margin-bottom: 10px;
+    }
+
+#taskwiki_template {
+    padding: 0 6px; margin-bottom: 0;
+}
+
+#conflict_warning {
+    background: url("/images/dialog-warning.png") no-repeat scroll 10px 10px #F0F0F0;
+    border:1px solid #f00;
+    margin-bottom:20px;
+    padding:7px 7px 12px 55px;
+}
+
+.wiki .inline_new_form,
+#issue_wiki .inline_new_form {
+    background: none;
+    border: none;
+}
+
+#inclusion_builder {
+        right: 10px;
+        top: 20px;
+        width: 340px;
+    }
+    #inclusion_builder h3 {
+        margin: 0;
+        height: 18px;
+        background-color: #4998d0;
+        color: #fff;
+        vertical-align: middle;
+        padding: 2px 0 0 5px;
+        z-index:3;
+        border-bottom: #b1bac2;
+        position: relative;
+        font-size: 12px;
+    }    
+    #inclusion_builder textarea {
+        width: 320px;
+        margin: 5px;
+        border: 1px solid #666;
+    }
+    #inclusion_builder input[type=text] {
+        width: 150px;
+    }
+    #inclusion_builder input[type=checkbox] {
+        margin-top: 1px;
+    }
+    #inclusion_builder label {
+        margin-left: 5px;
+    }
+    #inclusion_builder .tab_control label {
+        font-weight: normal;
+        display: block;
+        float: left;
+        padding-top: 4px;
+        width: 95px;
+    }
+    #inclusion_builder .inactive_editor_tab  {
+        font-weight: normal;
+        border-top: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #666;
+        border-left: 1px solid #ccc;
+    }
+    #inclusion_builder .inactive_editor_tab a {
+        color: #999;
+    }
+    #inclusion_builder .active_editor_tab {
+        font-weight: bold;
+        border-top: 1px solid #666;
+        border-right: 1px solid #666;
+        border-bottom: 1px solid #fff;
+        border-left: 1px solid #666;
+        background-color: #fff;
+    }
+    #inclusion_builder .active_editor_tab a {
+        text-decoration: none;
+        cursor: default;
+        color: #000;
+    }
+    #inclusion_builder .active_editor_tab + .inactive_editor_tab {
+        border-left: none;
+    }
+    #inclusion_builder .inactive_editor_tab + .inactive_editor_tab {
+        border-left: none;
+    }
+    #inclusion_builder .inactive_editor_tab + .active_editor_tab {
+        margin-left: -1px;
+    }
+    #inclusion_builder .editor_tab {
+        padding: 3px;
+        width: 70px;
+        float: left;
+        text-align: center;
+    }
+    #inclusion_builder .editor_tab a {
+        display: block;
+        margin: -5px;
+        padding: 5px;
+        width: 100%;
+    }
+    #inclusion_builder #inclusion_builder_work_amount_tab {
+        width: 90px;
+    }
+    #inclusion_builder .editor_tab a:active,
+    #inclusion_builder .editor_tab a:focus {
+        outline: none;
+    }
+    #inclusion_builder .tab_container {
+        border: 1px solid #666;
+        height: 240px;
+        margin: 0 0 5px 5px;
+        padding: 10px 5px 10px 5px;
+        width: 315px;
+    }
+    #inclusion_builder .small_btn { 
+        margin: 0 0 5px 140px;
+        width: 40px;
+    }
+    #inclusion_builder .tabs {
+        padding: 5px 5px 0 5px;
+        margin-bottom: -1px;
+    }
+    #inclusion_builder div.field_column {
+        float:left;
+        margin-right: 12px;
+        height: 90px;
+    }
+    #inclusion_builder div.short {
+        height: 45px;
+    }
+    #inclusion_builder div.disabled {
+        color: #aaa;
+    }
+    #inclusion_builder div.wiki_column {
+        margin-top: 12px;
+        margin-bottom: 12px;
+        border-top: 1px solid #aaa;
+        padding: 10px 0 10px 0;
+    }
+    #ib_task_section_label.disabled {
+        color: #aaa;
+    }
+    #inclusion_builder .required {
+        font-weight: bold;
+        font-size: 14px;
+        color: #ff0000;
+    }
+    #inclusion_builder small {
+        color: #aaa;
+    }
+    #inclusion_builder .float_form {
+        position: absolute;
+        right: 50px;
+        margin-top: -17px;
+    }
+    #inclusion_builder_page_tab_contents .required,
+    #inclusion_builder_task_tab_contents .required {
+        position:absolute;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+    #inclusion_builder .float_form .required {
+        position: absolute;
+        margin-top: -19px;
+        margin-left: 163px;
+    }
+    #inclusion_builder div.help {
+        padding: 5px 5px 0 8px;
+        margin: 0 0 -10px 0;
+    }
+    #inclusion_builder .help ul {
+        list-style: disc;
+        line-height:1.5em;
+        margin:0 0 1em 1.5em;
+        padding:0;
+    }
+    #inclusion_builder .help li {
+        font-size: 90%;
+    }
+
+#wiki_attachments {
+    }
+    #wiki_attachments .popup_dialog {
+            position: absolute;
+            margin: -225px 0 0 0;
+        }
+        #wiki_attachments .popup_dialog h3 {
+            padding: 2px 0 0 5px;
+            font-size: 12px;
+            color: #fff;
+        }
+        #wiki_attachments  .comment_content .description {
+            padding: 5px;
+        }
+
+
+
+
+/* Copyright (c) 2009 Pluron, Inc. */
+
+#dasboard_layout {
+    padding-top: 1px;
+    margin: 15px 0 15px;
+}
+
+/* dashboard widget */
+.dashboard_column {
+    float: left;
+    min-height: 150px;
+    width: 49%;
+}
+#dashboard_column2 {
+    float: right;
+}
+
+.dashboard_widget {
+    position: relative;
+    margin: 0 0 17px;
+    border: 2px solid #E1EFF9;
+    background-color: #FFF;
+    padding: 5px 0 0;
+    
+    border-top: none;
+}
+.dashboard_widget .dashboard_widget_reduce {
+    padding: 5px;
+}
+.dashboard_widget h3 {
+    position: relative;
+    padding: 0;
+}
+.dashboard_widget h3 a {
+    color: #333;
+    text-decoration: none;
+}
+.dashboard_widget h3 a:hover {
+    text-decoration: underline;
+}
+.dashboard_widget h3 small {
+    position: absolute;
+    top: -3px;
+    right: 0;
+    height: 22px;
+    font: normal 12px/22px Arial, Helvetica, sans-serif;
+    color: #738999;
+}
+    .dashboard_widget h3 small.sprite-close {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
+.dashboard_widget h3 small a {
+    color: #738999;
+    text-decoration: underline;
+}
+.dashboard_widget h3 small a:hover {
+    text-decoration: underline;
+}
+.dashboard_widget .rounded {
+    margin: 0 -2px -5px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+/* header with rounded corners*/
+.rounded {
+    position: relative;
+    background-color: #E1EFF9;
+    top: -5px;
+    padding: 10px 5px;
+}
+.rounded .rounded_tl,
+.rounded .rounded_tr {
+    position: absolute;
+    top: 0;
+    width: 5px;
+    height: 5px;
+    font-size: 0; /*height should be 5px strict*/
+}
+.rounded .rounded_tl {
+    left: 0;
+}
+.rounded .rounded_tr {
+    left: -5px;
+    margin-left: 100%;
+}
+
+/* widget contents */
+/* tasklist in widget */
+.dashboard_widget table.listing {
+    position: relative;
+    margin-top: -5px;
+}
+.dashboard_widget table.listing a,
+.dashboard_widget table.listing a:hover {
+    text-decoration: none;
+}
+.dashboard_widget table.listing tr.last_row td {
+    border-bottom: none;
+}
+
+.dashboard_widget table.listing td { padding: 0; }
+.dashboard_widget table.listing th { padding: 5px 0;}
+.dashboard_widget table.listing th span { margin-left: 5px;}
+.dashboard_widget table.listing .wrapper {
+    position: relative;
+    display: block;
+    height: 2.08em;
+    line-height: 2.08;
+    margin: 0 5px;
+    overflow: hidden;
+}
+.dashboard_widget table.listing .wrapper a {
+    display: block;
+    line-height: 2.08;
+    height: 2.08em;
+    color: #333;
+}
+.dashboard_widget table.listing .wrapper .nowrap {
+    position: absolute;
+    white-space: nowrap;
+}
+
+.dashboard_widget table.listing .number { width: 45px; }
+.dashboard_widget table.listing .owner { width: 60px; }
+.dashboard_widget table.listing .status,
+.dashboard_widget table.listing .resolution { width: 75px; }
+.dashboard_widget table.listing .priority { width: 25px; }
+.dashboard_widget table.listing .severity { width: 25px; }
+.dashboard_widget table.listing .estimate, 
+.dashboard_widget table.listing .remaining { width: 35px ;}
+
+/* feedback widget */
+.feedback_container table.listing {
+    margin-top: 0 !important;
+}
+.feedback_container table.listing tr.nohover:hover td {
+    background: none;
+}
+.dashboard_widget h4 {
+    margin: 0;
+    padding: 5px 5px 3px;
+    font-size: 12px;
+    font-weight: normal;
+    background-color: #E1EFF9;
+    border-bottom: 2px solid #d0e6f6;
+    color: #738999;
+    text-transform: capitalize;
+    
+    margin-top: -10px;
+}
+.dashboard_widget h4.middle_header { margin-top: 0; }
+
+.dashboard_widget tr.request_item td { padding: 2px 0 2px 5px; }
+
+.dashboard_widget .feedback_container .comment_edit_button {
+    position: relative;
+}
+.dashboard_widget .dashboard_comment_form h3 { padding: 2px 0 0 5px; }
+
+.dashboard_widget table.listing td.reply {
+    padding-left: 30px;
+}
+    .dashboard_widget td.reply .sprite-redirect-12px {
+        display: inline-block;
+        font-size: 0;
+        width: 16px;
+        height: 12px;
+        margin-left: -22px;
+        margin-right: 3px;
+    }
+
+/* layout config */
+li.dashboard_widget {}
+#dashboard_layout li.dashboard_widget {
+    cursor: move;
+}
+#dashboard_layout_footer {
+    text-align: center;
+}
+#widgets_to_add_selector {
+    float: right;
+}
+select#widgets_to_add {
+    width: 210px;
+}
+
+
+
+
+a.announcements-prominent-link {
+    color: #ebeb00 !important;
+    font-weight: bold;
+    padding-left: 5px;
+    margin-left: -5px;
+}
+div.no-announcements {
+    padding: 10px;
+}
+div.announcements {
+        width: 750px;
+        margin-bottom: 20px;
+    }
+    div.announcements h3.announcement-title {
+        position: relative;
+        font-size: 15px;
+        margin: 0 0 0 30px;
+        padding: 4px 6em 4px 4px;
+        border-bottom: 1px solid #ccc;
+    }
+    div.announcements h3.first {
+        border-top: none;
+    }
+    div.announcements h3.unread{
+        background-color: #fffadd;
+        border-bottom: 1px solid #000;
+    }
+    div.announcements h3.announcement-title a {
+        font-size: 11px;
+        font-weight: normal;
+        text-decoration: none;
+        position: absolute;
+        top: 6px;
+        right: 4px;
+    }
+    div.announcements h3.announcement-title a:hover {
+        text-decoration: underline;
+    }
+    div.announcements div.date {
+        font-family: Verdana, Arial,sans-serif;
+        font-size: 11px;
+        color: #999;
+        margin: 10px 0 0 30px;
+    }
+    div.announcements div.announcement-body {
+        margin-left: 58px;
+    }
+    div.announcements .vote-container {
+        margin-left: 58px;
+        margin-bottom: 20px;
+    }
+
+    
+.announcement {
+        background-color:#FFFADD;
+        border:1px solid #ccc;
+        color:#000;
+        margin-bottom: 10px;
+    }
+    .announcement h4 {
+        margin: 12px 0px 0px 15px;
+        padding: 0;
+    }
+    .announcement div.wiki-container {
+        margin: 8px 12px 8px 15px;
+        padding: 0;
+        max-width: 700px;
+    }
+    .announcement span.dismiss {
+        float: right;
+        margin-top: 10px;
+        margin-right: 10px;
+        font-size: 11px;
+    }
+    .announcement .vote-container {
+        margin: 0 12px 12px 15px;
+    }
+
+
+.vote-container {
+        font-size: 11px;
+    }
+    .vote-container span.vote {
+        padding: 2px 5px 2px 5px;
+        margin-right: 5px;
+        background: white;
+        border: 1px solid #ccc;
+    }
+    .vote-container span.vote a {
+        margin-right: 3px;
+        padding-right: 5px;
+        border-right: 1px solid #000;
+    }
+    .vote-container span.vote a.last {
+       border: none;
+        margin-right: 0;
+        padding-right: 0;
+    }
+    .vote-container textarea {
+        width: 400px;
+        height: 70px;
+    }
+
+
+
+
+
+.analytics-sidebar {
+    position: absolute;
+    width: 200px;
+}
+.analytics-contents {
+    position: relative;
+    left: 220px;
+    width: 800px;
+}
+.analytics-contents div.chart_type,
+.analytics-contents div.graph_by,
+.analytics-contents div.graph_mode {
+    float: right;
+}
+.analytics-contents div.graph_mode strong a {
+    color: #738999;
+}
+
+.analytics-contents div.team_selector,
+.analytics-contents div.project_selector { margin-top: 4px; }
+
+.analytics-contents div.graph_by,
+.analytics-contents div.chart_type { margin-bottom: 4px; }
+
+.analytics-contents input#sprints_filter { width: 99%; }
+.analytics-contents select#all_sprints_to_analyze { width: 100%; }
+
+ul.analytics-menu {
+    list-style-position: outside;
+    list-style-type: none;
+}
+ul.analytics-menu li {
+}
+ul.analytics-menu li.section {
+    font-size: 14px;
+}
+ul.analytics-menu li.subsection {
+    font-size: 12px;
+    margin-left: 20px;
+}
+ul.analytics-menu li a {
+    display: block;
+    height: 18px;
+    padding: 2px 10px 0px 10px;
+    margin: 1px 0 1px 0;
+
+    color: #333;
+
+    text-decoration: none;
+}
+ul.analytics-menu li a:hover {
+    text-decoration: underline;
+}
+ul.analytics-menu li a.selected {
+    font-weight: bold;
+
+    background-color: #D0E6F6;
+
+    border: 1px solid #b8ccda;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+
+}
+
+table.analytics-table tr.org-data th, table.analytics-table tr.org-data td {
+    font-size: 13px;
+}
+table.analytics-table tr.org-data {
+    background-color: #fcfcfc;
+}
+table.analytics-table tr.org-data td {
+    height: 40px;
+    border-top: 2px solid #B2BBBB;
+}
+table.analytics-table td.deleted {
+    text-decoration: line-through;
+}
+
+table.analytics-table { width: 100% }
+table.analytics-table th.checks { width: 3%; }
+table.analytics-table th.group_by { width: 30%; }
+table.analytics-table th.group_by_task { width: 50%; }
+
+table.analytics-table th.total,
+table.analytics-table th.percent,
+table.analytics-table th.average_period,
+table.analytics-table th.average_daily {
+    width: 30px;
+}
+
+table.analytics-table td {
+    line-height: 1.5 !important;
+}
+table.analytics-table th.number, table.analytics-table td.number {
+    text-align: right;
+}
+
+div.interval-area {
+    float: right;
+}
+
+table.dummy-table {
+    margin-bottom: 10px;
+}
+
+span.date-range {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+#date-selector {
+    margin-top: 10px;
+}
+
+
+.analytics_popup {
+    position: absolute;
+    width: 200px;
+    padding: 5px;
+    z-index: 2;
+    margin-left: 15px;
+    margin-top: 15px;
+    visibility: hidden; /* opera doesn't repaint document when using display none */
+    background-color: #FFE !important;
+    border: 1px solid #000 !important;
+    font-size: 11px;
+}
+.analytics_popup_shown {
+    visibility: visible;
+}
+.analytics_popup .dataset {
+    margin-bottom: 3px;
+}
+.analytics_popup .label {
+    color: #777;
+}
+.analytics_popup .value {
+    font-weight: bold;
+}
+
+.analytics-breadcrumbs {
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.analytics_important_note {
+    margin-top: 10px;
+}
+
+.analytics_access_error {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 8px 12px 8px 15px;
+
+    background-color:#FFFADD;
+    border:1px solid #ccc;
+    color:#000;
+}
+.analytics_access_error h4 {
+    font-size: 14px;
+}
+
+
+
+
+/* ===================================*/
+/* Copyright (c) 2007-2010 Pluron, Inc.
+/* Help
+/* ===================================*/
+
+.help h2 {
+    padding-bottom: 0;
+    font: bold 20px Verdana, sans-serif;
+    margin-left: -30px;
+    margin-top: 50px;
+    border-bottom: 1px solid #ccc; 
+}
+.help h2.toc {
+    margin-left: -30px;
+    border-bottom: 1px solid #ccc; 
+}
+.help h3 {
+    border-bottom: 1px solid #ccc; 
+    margin-top: 20px; 
+    font: bold 18px Verdana, sans-serif;
+    margin-left: -30px;
+}
+.help h4 {
+    font: bold 16px Verdana, sans-serif;
+    margin-top: 25px;
+    margin-bottom: 0px;
+    border-bottom: 1px dashed #CCCCCC;
+}
+.help h5 {
+    font: bold 14px Verdana, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.help table.multiproject_tasks {
+    border-collapse: collapse;
+    margin: 10px 0px 10px 0px;
+    width: 100%;
+}
+.help table.multiproject_tasks td, .help table.multiproject_tasks th {
+    border: 1px solid #aaaaaa;
+    padding: 4px;
+}
+.help table.multiproject_tasks td.restriction {
+    text-align: center;
+}
+
+.help table.shortcuts {
+    border-collapse: collapse;
+    margin: 10px 0px 10px 0px;
+    width: 80%;
+}
+.help table.shortcuts td, .help table.shortcuts th {
+    border: 1px solid #aaaaaa;
+    padding: 4px;
+}
+.help table.shortcuts td.shortcut {
+    text-align: center;
+    width: 20%;
+}
+.help table.shortcuts td.action {
+    width: 30%;
+}
+.help table.shortcuts td.accesskey_shortcut {
+    text-align: center;
+    width: 20%;
+}
+.help table.shortcuts td.accesskey_shortcut small {
+    color: gray;
+}
+.help table.burndown td {
+    text-align: right;
+}
+.help table.burndown td.title {
+    text-align: left;
+}
+
+.help .pricing_plan_warning, .help p, .help ul, .help ol, .help table.help_table th, .help table.help_table td {
+    font-size: 14px;
+    font-family: Verdana,sans-serif;
+}
+
+.help p {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding: 0;
+    line-height: 1.5;
+}
+
+.help li {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+.help ul {
+    padding-left: 7px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.help ol.help_index {
+    list-style-type: decimal;
+}
+.help ol.help_index li {
+    font-size: 14px;
+}
+
+.help div.search_language_example {
+    font-family:Arial,Helvetica,Geneva,sans-serif;
+    font-size:12px;
+    border: 1px solid #aaa;
+    margin-bottom: 7px;
+    line-height: 1.5em;
+}
+
+.help span.analytics_example {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.help .capitalized {
+    background-color: #b1f0a2;
+}
+
+.help table.analytics_report {
+    width: 100%;
+}
+
+.help table.analytics_report ul, .help table.analytics_report p {
+    font-family:Arial,Helvetica,Geneva,sans-serif;
+    font-size:12px;
+}
+
+.help table.search_operators, .help table.analytics_example, .help table.analytics_report {
+    border-collapse: collapse;
+}
+.help table.analytics_example, .help table.analytics_report {
+    margin: 0px 0px 10px 0px;
+}
+.help table.search_operators {
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+}
+
+.help table.analytics_example td, .help table.analytics_example th {
+    border: 1px solid #aaaaaa;
+    padding: 4px;
+    font-family: monospace;
+    font-weight: normal;
+}
+
+.help table.analytics_report th {
+    font-weight: normal;
+}
+.help table.analytics_report td.value {
+    width: 100px;
+    font-weight: bold;
+}
+
+.help table.analytics_report td, .help table.analytics_report th,
+.help table.search_operators td, .help table.search_operators th {
+    border: 1px solid #aaaaaa;
+    padding: 4px;
+}
+
+.help table.analytics_report td {
+    vertical-align: top;
+}
+
+.help .velocity_formula {
+    margin-left: 20px;
+}
+
+.help .important {
+    color: red;
+}
+
+.help table.csv_example {
+        border-collapse: collapse;
+    }
+    .help table.csv_example td {
+        background-color: #fff;
+        height: 17px;
+        border-right: 1px solid #bebebe;
+        border-bottom: 1px solid #bebebe;
+    }
+    .help table.csv_example td.cell-name {
+        font-size: 11px;
+        background-color: #efefef;
+        text-align: center;
+        border: 1px solid #000;
+    }
+    .help table.csv_example td.header {
+        font-weight: bold;
+    }
+    .help table.csv_example td.number {
+        text-align: right;
+    }
+
+.help table.two_column_help {
+    width: 100%;
+}
+.help table.two_column_help td {
+    padding: 0px 20px 40px 20px;
+    width: 50%;
+    vertical-align: top;
+}
+.help .table_border {
+    border-bottom:2px solid #E1EFF9;
+    padding: 3px 15px 3px 0px;
+}
+.help .table_border ul {
+    list-style: circle;
+}
+.help .table_border ul li {
+    font: normal 14px Arial, sans-serif;
+    margin: 0 0 0 15px;
+    line-height: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.help .table_border a {
+    color: #333;
+}
+.help h2 a {
+    color: #333;
+}
+.help .help_box {
+    margin-bottom: 20px;
+}
+.help .help_box h2 {
+    font: normal 18px Arial, sans-serif;
+}
+.help .pricing_plan_warning {
+    font-weight: normal;
+    background-color:#FFFADD;
+    border:1px solid #ccc;
+    color:#000;
+    margin: 10px 0 10px 0;
+    padding: 5px;
+}
+.help .footer {
+    margin: -40px 0 0 22px;
+}
+
+.help .wiki td h1,
+.help .wiki td h2,
+.help .wiki td h3,
+.help .wiki td h4,
+.help .wiki td h5,
+.help .wiki td h6 {
+    padding: 0 !important;
+    margin: 0 !important;
+    border-bottom: none !important;
+    font-weight: normal !important;
+}
+
+.help .search_results {
+    margin-left: -30px;
+}
+.help .search_results span.match {
+    font-weight: bold;
+}
+.help .search_results h3 {
+    font-weight: normal;
+    padding: 0;
+    margin: 20px 0 0 0;
+    border-bottom: none;
+}
+.help .search_results p {
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 42em;
+}
+.help .search_results ol {
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+.help .search_results ol li{
+    margin: 0 0 10px 0;
+}
+
+.help table.help_table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .help table.help_table th {
+        font-weight: normal;
+    }
+    .help table.help_table th, .help table.help_table td {
+        border: 1px solid #aaaaaa;
+        padding: 5px;
+        line-height: 1.5;
+    }
+    .help table.help_table p {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    /* custom per-table formatting */
+    .help table.help_table .status {
+        font-weight: bold;
+    }
+
+.help ul.help_section_toc {
+        margin: 0;
+        padding: 0;
+        line-height: 1.5;
+    }
+    .help ul.help_section_toc li {
+        margin: 0 0 0 20px;
+    }
+    .help ul.help_section_toc li a {
+        font: 14px/18px Verdana,sans-serif;
+        color: #333;
+    }
+    .help ul.help_section_toc li.level_2 {
+        margin-bottom: 15px;
+    }
+    .help ul.help_section_toc li a.level_2 {
+        font-weight: bold;
+    }
+
+.help a {
+    text-decoration: none;
+}
+.help a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+.account_upgrade {
+    margin: 0 auto;
+    width: 900px;
+}
+.account_upgrade_wrap {
+    margin: 0 auto;
+    width: 900px;
+}
+
+.account_upgrade_heading {
+        margin-bottom: 20px;
+    }
+    .account_upgrade_heading h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: normal;
+        padding-bottom: 0;
+    }
+    .account_upgrade_heading h3 {
+            text-align: center;
+            padding-top: 0;
+            font-size: 21px;
+            font-weight: normal;
+            color: #FF6600;
+        }
+        .account_upgrade_heading h3 a {
+            text-decoration: none;
+            color: #333;
+        }
+
+
+.inline_upgrade_table {
+    width: 100% !important;
+}
+.wide_account_page {
+    width: 930px;
+}
+.account_upgrade_table {
+        width: 70%;
+        margin: 0 auto;
+        border-collapse: collapse;
+    }
+    .account_upgrade_table h2 {
+        font-size: 22px;
+        font-family: Arial,Helvetica,Geneva,sans-serif;
+        padding: 0 0 0.4em;
+        margin: 0;
+        color: #333;
+        line-height: 1;
+    }
+    .account_upgrade_table td {
+        padding: 6px 0 6px 6px;
+        font-size: 12px;
+        font-family: Arial,Helvetica,Geneva,sans-serif;
+    }
+    .account_upgrade_table th {
+        width: 160px;
+        padding: 7px 2px 2px 2px;
+        font-size: 12px;
+        font-family: Arial,Helvetica,Geneva,sans-serif;
+    }
+    .account_upgrade_table td, .account_upgrade_table th {
+        border: 1px solid #999;
+    }
+    .account_upgrade_table .preferred_plan_header {
+        background-color: #E1EFF9;
+    }
+    .account_upgrade_table .preferred_plan {
+        background-color: #E1EFF9;
+    }
+    .account_upgrade_table .important {
+        font-weight: bold;
+        text-align: center;
+    }
+    .account_upgrade_table .not_important {
+        font-weight: normal;
+    }
+    .account_upgrade_table .price {
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .account_upgrade_table .price_suffix {
+        font-size:12px;
+        font-weight: normal;
+    }
+    .account_upgrade_table .price_column {
+        vertical-align: top;
+    }
+    .account_upgrade_table .promotion {
+        color: #FF6600;
+        font-weight: bold;
+        border-bottom: 1px dotted #aaa;
+    }
+    .account_upgrade_table .promotion s {
+        color: #333;
+    }
+    .account_upgrade_table .promotion_description {
+        border-top: none;
+        border-bottom: none;
+        font-size: 10px;
+        text-align: center;
+    }
+    .account_upgrade_table .promotion_terms {
+        color: #333;
+    }
+    .account_upgrade_table .button_container {
+            padding: 10px;
+            text-align: center;
+        }
+        .account_upgrade_table .button_container a {
+            font-size: 14px;
+        }
+    .account_upgrade_table .feature_value {
+            text-align: left;
+            vertical-align: top;
+            padding-left: 15px;
+        }
+    .account_upgrade_table sup {
+        color: #f00;
+        font-size: 9.6px;
+    }
+    .account_upgrade_table .new_star {
+        position: absolute;
+        right: 16px;
+        top: -5px;
+        color: #f00;
+    }
+    .wide_account_page .account_upgrade_table .new_star {
+        right: 9px !important;
+    }
+    .account_upgrade_table .free_star {
+        position: absolute;
+        right: 37px;
+        top: -5px;
+        color: #f00;
+    }
+    .account_upgrade_table .new_business_additional_users {
+        position: absolute;
+        right: 36px;
+        top: -5px;
+        color: #f00;
+        font-weight: normal;
+    }
+    .account_upgrade_table .contact_support {
+        color: #FF6600;
+        font-weight: bold;
+    }
+    .account_upgrade_table .your_plan {
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+.account_upgrade_highlights {
+        margin-top: 30px;
+        margin-bottom: -10px;
+    }
+    .account_upgrade_highlights h2 {
+        font-weight: bold;
+        font-size: 14px;
+        padding-bottom: 0;
+        margin-top: 10px;
+    }
+    .account_upgrade_highlights ul {
+        list-style: square;
+        margin: 0px 0 5px 25px;
+        font-size: 13px;
+    }
+
+    .account_upgrade_highlights .letter_from_ceo {
+        background-color: #FFFADD;
+        border:1px solid #ccc;
+        padding: 5px;
+        width: 69%;
+        margin: 0 auto;
+    }
+    .account_upgrade_highlights .letter_from_ceo table td {
+        padding: 10px;
+        vertical-align: middle;
+    }
+
+    .account_upgrade_highlights table {
+        margin: 0 auto;
+    }
+    .account_upgrade_highlights table td {
+        vertical-align: top;
+    }
+    .account_upgrade_highlights table td.highlights {
+    }
+    .account_upgrade_highlights table td.testimonial {
+            width: 305px;
+        }
+        .account_upgrade_highlights table td.testimonial .quote {
+            background-image: url(/images/account/quote.png?1484830116);
+            background-repeat: no-repeat;
+            width: 305px;
+            height: 160px;
+        }
+        .account_upgrade_highlights table td.testimonial .quote_person {
+            padding-left: 40px;
+        }
+        .account_upgrade_highlights table td.testimonial .quote_text {
+            vertical-align: middle;
+            padding: 20px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+    .account_upgrade_highlights .offer_item {
+        padding-left: 15px;
+    }
+
+
+.account_upgrade_faq {
+        width: 50%;
+        margin: 0 auto;
+        padding-top: 40px;
+    }
+    .account_upgrade_faq h2 {
+        text-align: center;
+        color: #0066CC;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .account_upgrade_faq h3 {
+        font-size: 16px;
+    }
+    .account_upgrade_faq h4 {
+        margin: 7px 0 2px 0;
+    }
+    .account_upgrade_faq ul {
+        list-style: square;
+        margin: 0px 0 5px 25px;
+    }
+    .account_upgrade_faq ul li {
+        line-height: 1.5;
+        font-size: 14px;
+    }
+    .account_upgrade_faq p {
+        line-height: 1.5;
+        font-size: 14px;
+    }
+    .account_upgrade_faq .quote {
+        background-image: url(/images/account/quote_wide.png?1484830116);
+        background-repeat: no-repeat;
+        width: 405px;
+        height: 160px;
+    }
+    .account_upgrade_faq .quote_person {
+        padding-left: 40px;
+        padding-bottom: 20px;
+    }
+    .account_upgrade_faq .quote_text {
+        vertical-align: middle;
+        padding: 30px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+    .account_upgrade_faq .quote_text2 {
+        vertical-align: middle;
+        padding: 25px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+.account_upgrade_faq_item {
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.feature_description {
+        line-height: 1.5;
+    }
+    .feature_description .name {
+        cursor: pointer;
+    }
+    .feature_description .name .pseudo_link {
+        border-bottom: 1px dotted #aaa;
+    }
+    .feature_description .name a.try_it {
+        color: #f00;
+        text-decoration: none;
+        border-bottom: 1px dotted #aaa;
+    }
+    .feature_description div.hint {
+        text-decoration: none;
+        font-weight: normal;
+        cursor: default;
+        font-size: 12px;
+        text-align: left;
+        width: 330px;
+    }
+    .feature_description div.hint p {
+        margin-top: 0;
+        line-height: 1.5;
+        font-size: 12px;
+        padding: 0.2em 0 0.6em;
+    }
+    .feature_description div.hint h3 {
+        font-size: 14px;
+    }
+    .feature_description div.hint ul {
+        list-style: square;
+        margin: 0px 0 5px 25px;
+    }
+    .feature_description div.hint ul li {
+        line-height: 1.5;
+    }
+    .feature_description ul {
+        font-size: 12px;
+    }
+.feature_description_link {
+    color: #333 !important;
+}
+.example_screenshot {
+    border: 1px solid #aaa;
+}
+
+.notify_account_owner_explanation {
+    color: #999;
+    font-size: 11px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+#notify_account_owner_dialog {
+    position: absolute;
+}
+
+.account table.discounts {
+    }
+    .account table.discounts tr {
+        vertical-align: top;
+    }
+    .account table.discounts tr td {
+        padding-top: 5px;
+    }
+    .account table.discounts td.title {
+        padding: 20px 0 5px 0;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .account table.discounts td.name {
+        padding-left: 20px;
+        width: 340px;
+    }
+    .account table.discounts .dates {
+        font-size: 11px;
+        color: #999;
+    }
+    .account table.discounts td.values {
+        width: 250px;
+        padding-left: 80px;
+        padding-right: 30px;
+    }
+    .account table.discounts td.feature_prices table.invoice_totals td {
+        padding: 0;
+    }
+    .account table.discounts td.feature-name {
+        width: 300px;
+    }
+    .account table.discounts td.feature-values {
+        padding-left: 30px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    .account table.discounts td.buttons {
+        padding-top: 0px;
+    }
+
+
+
+table.invoice_totals {
+        border-collapse: collapse;
+    }
+    .invoice_totals tr.totals {
+        border-top: 1px solid #000;
+    }
+    .invoice_totals td {
+        padding: 3px;
+        border: none;
+    }
+    .invoice_totals td.r {
+        text-align: right;
+    }
+
+
+select[name="business_analytics"] {
+    width: 200px;
+}
+
+
+
+
+/* hints */
+.hint {
+    position: fixed;
+    width: 390px;
+    padding: 5px;
+    z-index: 2;
+    margin-left: 15px;
+    margin-top: 15px;
+    visibility: hidden; /* opera doesn't repaint document when using display none */
+    background-color: #FFE !important;
+    border: 1px solid #000 !important;
+    color: #333 !important;
+}
+.hint a, .hint a:visited, .hint a:hover {
+    background-color: #FFE !important;
+    color: #06C !important;
+    text-decoration: none !important;
+}
+.hint a:hover {
+    text-decoration: underline !important;
+}
+.hint_shown {
+    visibility: visible;
+}

@@ -1,0 +1,17 @@
+{
+	"name": "BetterAcunote",
+	"version": "0.0.1",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"build": "./node_modules/.bin/uglifyjs --keep-fnames -o betteracunote.js ./script/jquery.js ./script/jquery-template.js ./script/main.js; ./node_modules/.bin/uglifycss ./css/acunote-custom.css > betteracunote.css",
+		"clean": "rm -rf ./dist/; rm BetterAcunote.zip",
+		"dist:chrome": "./node_module/.bin/yarn run clean; ./node_modules/.bin/yarn run build; mkdir dist; cp betteracunote.js ./dist/; cp betteracunote.css ./dist/; cp manifest-chrome.json ./dist/manifest.json; cp ./image/icon-128.png ./dist/; ./node_modules/.bin/cross-zip ./dist BetterAcunote.zip"
+	},
+	"devDependencies": {
+		"cross-zip-cli": "^1.0.0",
+		"uglify-js": "^3.0.13",
+		"uglifycss": "^0.0.27",
+		"yarn": "^0.24.5"
+	}
+}

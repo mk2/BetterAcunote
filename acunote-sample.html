@@ -1,0 +1,1301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0057)http://mk2.acunote.com/projects/53478/sprints/222953/show -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>#1 - mk2 - Acunote</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<meta content="Acunote" name="application-name">
+<meta content="Acunote - Online Project Management and Scrum Software" name="msapplication-tooltip">
+<meta content="/" name="msapplication-starturl">
+<meta name="google" value="notranslate">
+<meta name="msapplication-task" content="name=Projects;
+    action-uri=/projects;
+    icon-uri=/favicon.ico">
+<meta name="msapplication-task" content="name=Current Sprint;
+    action-uri=/sprints/current_sprint;
+    icon-uri=/favicon.ico">
+<meta name="msapplication-task" content="name=Tasks;
+    action-uri=/tasks;
+    icon-uri=/favicon.ico">
+<meta name="msapplication-task" content="name=Timeline;
+    action-uri=/timeline;
+    icon-uri=/favicon.ico">
+<link href="site-css/acunote.css" media="all" rel="stylesheet" type="text/css">
+<link href="site-css/safari.css" media="all" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<script src="site-script/acunote.js" type="text/javascript"></script>
+<script src="script/jquery.js"></script>
+<script src="script/jquery-template.js"></script>
+<script src="script/main.js"></script>
+<!--[if IE]>
+<script type="text/javascript">
+//<![CDATA[
+window.ie = true
+//]]>
+</script><![endif]-->
+
+<script type="text/javascript">
+//<![CDATA[
+var pageProperties = {};
+  
+var FORM_AUTH_TOKEN = 'n4bhXigsI3kd7zeVwfyzgQb5QtHnYxLDxFes2nyOy+U=';
+
+var SHORTCUTS = {
+'*': {
+'a': function() { taskList.selectAll(true); },
+'n': function() { taskList.selectAll(false) }
+},
+'/': function() { Field.focus('search_text'); },
+'<': function() { Cursor.moveCursorToTheEnd(Direction.Back); },
+'>': function() { Cursor.moveCursorToTheEnd(Direction.Forward); },
+'?': function() { ShortcutsHelpDialog.show() },
+'A-/': function() { NewTaskDialog.show() },
+'A-:': function() { FeedbackDialog.show() },
+'A-;': function() { FeedbackDialog.show() },
+'A-<': function() { newTask.moveFormLeft() },
+'A->': function() { newTask.moveFormRight() },
+'A-c': function() { DialogManager.cancel() },
+'A-m': function() { DialogManager.more() },
+'A-s': function() { DialogManager.save() },
+'C': function() { if (Cursor.taskAtCursor()) taskActions.createTaskBelowHere(Cursor.taskAtCursor()); },
+'G': function() { taskList.goToTaskSprintOrChangeset(); },
+'J': function() { Cursor.moveCursorDown(10); },
+'K': function() { Cursor.moveCursorUp(10); },
+'c': function() { if (Cursor.taskAtCursor()) taskActions.createTaskHere(Cursor.taskAtCursor()); },
+'g': {
+'T': function() { redirect('/projects/53478/timeline'); },
+'U': function() { navProjectDialog.show(); },
+'b': function() { redirect('/projects/53478/sprints/backlog'); },
+'c': function() { redirect('/projects/53478/sprints/current_sprint'); },
+'h': function() { redirect('/help'); },
+'n': function() { redirect('/projects/53478/sprints/222951/show'); },
+'p': function() { redirect('/projects/53478/sprints/222952/show'); },
+'r': function() { redirect('/projects'); },
+'s': function() { redirect('/projects/53478/sprints'); },
+'t': function() { redirect('/projects/53478/tasks'); },
+'u': function() { navDialog.show(); },
+'w': function() { redirect('/projects/53478/wiki'); }
+},
+'h': function() { ShortcutsHelpDialog.show() },
+'j': function() { Cursor.moveCursorDown(); },
+'k': function() { Cursor.moveCursorUp(); },
+'n': function() { Element.visible('show_hide_new_task2') ? newTask.insertAtBottom() : newTask.insertAtTop() },
+'o': function() { if (Cursor.taskAtCursor()) taskActions.showTaskDetails(Cursor.taskAtCursor()); },
+'s': {
+'T': function() { removeTagDialog.show() },
+'c': function() { navDialog.show(2); },
+'d': function() { taskActions.deleteTasks(DeleteMode.Confirm) },
+'h': function() { var task = Cursor.taskAtCursor(); if (task) taskActions.moveHere(task,         taskList.selectedTasks(), 222953, {set_cursor: true}) },
+'l': function() { taskActions.moveSelectedTasks('left', 'shortcut') },
+'m': function() { navDialog.show(1); },
+'r': function() { taskActions.moveSelectedTasks('right', 'shortcut') },
+'t': function() { applyTagDialog.show() }
+},
+'t': {
+'c': function() { task = Cursor.taskAtCursor(); if (task) taskActions.showCommentForm(CommentDialog.AddComment, task) },
+'e': {
+'d': function() { var task = Cursor.taskAtCursor(); if (task) taskEditors.showEditor('description', task); },
+'e': function() { var task = Cursor.taskAtCursor(); if (task) taskEditors.showEditor('estimate', task); },
+'o': function() { var task = Cursor.taskAtCursor(); if (task) taskEditors.showEditor('owner_id', task, taskEditors.selectedOwner(task)) },
+'p': function() { var task = Cursor.taskAtCursor(); if (task) taskEditors.showEditor('priority', task, taskEditors.selectedPriority(task)); },
+'r': function() { var task = Cursor.taskAtCursor(); if (task) taskEditors.showEditor('remaining', task); },
+'s': function() { var task = Cursor.taskAtCursor(); if (task) taskEditors.showEditor('status', task, taskEditors.selectedStatus(task)) },
+'v': function() { var task = Cursor.taskAtCursor(); if (task) taskEditors.showEditor('severity', task, taskEditors.selectedSeverity(task)); }
+},
+'l': function() { var task = Cursor.taskAtCursor();
+                    if (task) {
+                        if (taskActions.canMoveLeft(task)) {
+                            taskActions.moveTask('left', task, {single: true})
+                        } else {
+                            Flash.showMessage("Can't move this task");
+                        }
+                    }
+             },
+'m': function() { var task = Cursor.taskAtCursor(); if (task) taskActions.moveHere(task, taskList.selectedTasks(), 222953, {set_cursor: true}) },
+'r': function() {  var task = Cursor.taskAtCursor();
+                    if (task) {
+                        if (taskActions.canMoveRight(task)) {
+                            taskActions.moveTask('right', task, {single: true})
+                        } else {
+                            Flash.showMessage("Can't move this task");
+                        }
+                    }
+             }
+},
+'u': function() { taskList.goToSprintList(); },
+'x': function() { Cursor.selectCurrentRow(); }
+}
+//]]>
+</script>
+
+<!--[if IE 6]>
+  <link href="http://asset0.acunote.com/stylesheets/ie6.css?1484830281" media="screen" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if IE 7]>
+  <link href="http://asset0.acunote.com/stylesheets/ie7.css?1484830116" media="screen" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+<body>
+<div id="the_all">
+  <div class="popup_dialog" id="feedback_dialog" style="display:none">
+    <h3 id="feedback_dialog_header">Tell us About Acunote</h3>
+    <form action="feedback/send_message?request=%2Fprojects%2F53478%2Fsprints%2F222953%2Fshow" id="feedback_form" method="post" name="feedback_form" onsubmit="new Ajax.Updater(&#39;&#39;, &#39;/feedback/send_message?request=%2Fprojects%2F53478%2Fsprints%2F222953%2Fshow&#39;, {asynchronous:true, evalScripts:true, onSuccess:function(request){FeedbackDialog.reset()}, parameters:Form.serialize(this)}); return false;">
+      <div style="margin:0;padding:0;display:inline">
+        <input name="authenticity_token" type="hidden" value="n4bhXigsI3kd7zeVwfyzgQb5QtHnYxLDxFes2nyOy+U=">
+      </div>
+      <p>
+        <label for="message">Message</label>
+        <br>
+        <textarea cols="45" id="message" name="message" rows="20"></textarea>
+      </p>
+      <table width="100%" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td><input onclick="FeedbackDialog.save(); return false;" type="button" value=" Send "></td>
+            <td style="text-align:right"><input onclick="FeedbackDialog.cancel(); return false;" type="button" value="Cancel"></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+  <div class="popup_dialog" id="nav_dialog" style="display:none">
+    <h3 id="nav_dialog_header">Type in Sprint Name</h3>
+    <div id="nav_sprint_list"> <span id="nav_sprint_222951">Backlog</span><span>•</span> <span id="nav_sprint_222953">#1</span><span>•</span><span id="nav_sprint_-1">Load Archived Sprints...</span> <span>•</span><span id="nav_sprint_-2">Load Sprints from All Projects...</span> </div>
+  </div>
+  <div class="popup_dialog" id="nav_project_dialog" style="display:none">
+    <h3 id="nav_project_dialog_header">Type in Project Name</h3>
+    <div id="nav_project_list"> <span id="nav_project_53478">mk2</span></div>
+  </div>
+  <div class="popup_dialog" id="new_task_dialog" style="display:none">
+    <h3 id="new_task_dialog_header">Create New Task</h3>
+    <form action="tasks/create?project_id=53478" id="new_task_dialog_form" method="post" name="new_task_dialog_form" onsubmit="new Ajax.Request(&#39;/tasks/create?project_id=53478&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request){Spinner.hide()}, onLoading:function(request){Spinner.show()}, parameters:Form.serialize(this)}); return false;">
+      <div style="margin:0;padding:0;display:inline">
+        <input name="authenticity_token" type="hidden" value="n4bhXigsI3kd7zeVwfyzgQb5QtHnYxLDxFes2nyOy+U=">
+      </div>
+      <input id="tasklist_sprint" name="tasklist_sprint" type="hidden" value="222953">
+      <input type="hidden" name="new_task_dialog_expanded" id="new_task_dialog_expanded" value="false">
+      <input id="sender" name="sender" type="hidden" value="popup_form">
+      <table>
+        <tbody>
+          <tr>
+            <td><label for="new_task_dialog_project_selector">Project</label>
+              <select autocomplete="off" id="new_task_dialog_project_selector" name="project" onchange="reloadDependentCombos(this, null, null, {})">
+                <option value="53478" selected="selected">mk2</option>
+              </select>
+              <input type="hidden" name="project_menu_controller" id="project_menu_controller" value="sprints">
+              <input type="hidden" name="project_menu_action" id="project_menu_action" value="current_sprint">
+              <img alt="Loading_small" id="new_task_dialog_project_selector_spinner" src="=dev-image/loading_small.gif" style="display:none"></td>
+            <td style="text-align:right;"><label for="new_task_dialog_sprint">Sprint </label>
+              <div id="new_task_dialog_sprint_selector">
+                <select autocomplete="off" header="" id="new_task_dialog_sprint" name="sprint" onchange="updateSprintSelector(this, {projectId: 53478, header: &#39;&#39;, useSpacer: false, showCompleted: false, includeCurrent: true, sprintId: 222953, changeHandler: &#39;&#39;, includeIssues: true, includeAnySprintItem: false, allowLoadArchived: false, showArchivedSprints: false, allowOtherProjects: false, showOtherProjects: false, showBacklogs: true})">
+                  <option value="0"></option>
+                  <option value="222951">Backlog</option>
+                  <option value="222953" selected="selected">#1</option>
+                </select>
+              </div></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <p>
+        <label for="new_task_dialog_task_description">Description</label>
+        <textarea id="new_task_dialog_task_description" name="task[description]"></textarea>
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <td><label for="new_task_dialog_user">Owner</label>
+              <div id="new_task_dialog_user_selector">
+                <select name="task[owner_id]" id="new_task_dialog_user">
+                  <option value=""></option>
+                  <option value="63246">harurin</option>
+                </select>
+              </div></td>
+            <td style="text-align:right;"><label for="task[estimate]">Estimate</label>
+              <input type="text" id="task[estimate]" name="task[estimate]" class="estimate" value=""></td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="new_task_dialog_more_controls"> <a href="projects/53478/sprints/222953/show#" onclick="return NewTaskDialog.more()"> <span id="new_task_dialog_more_arrow" class="more_arrow sprite-right_arrow"></span> More </a> </div>
+      <div id="new_task_dialog_more" class="hidden">
+        <table>
+          <tbody>
+            <tr>
+              <td><label for="new_task_dialog_task_priority">Priority</label>
+                <select id="new_task_dialog_task_priority" include_blank="true" name="task[priority]">
+                  <option value=""></option>
+                  <option value="0">P0</option>
+                  <option value="1">P1</option>
+                  <option value="2">P2</option>
+                  <option value="3">P3</option>
+                  <option value="4">P4</option>
+                </select></td>
+              <td style="text-align: right;"><label for="new_task_dialog_task_severity">Severity</label>
+                <select id="new_task_dialog_task_severity" include_blank="true" name="task[severity]">
+                  <option value=""></option>
+                  <option value="1">S1</option>
+                  <option value="2">S2</option>
+                  <option value="3">S3</option>
+                  <option value="4">S4</option>
+                </select></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          <label for="new_task_dialog_task_wiki">Wiki</label>
+          <textarea id="new_task_dialog_task_wiki" name="task[wiki]"></textarea>
+        </p>
+        <table>
+          <tbody>
+            <tr>
+              <td><label for="new_task_dialog_task_related">Related Tasks</label>
+                <input type="text" id="new_task_dialog_task_related" name="task[related]" class="estimate" autocorrect="off" autocapitalize="off"></td>
+              <td style="text-align:right;"><label for="new_task_dialog_task_duplicate">Duplicate Tasks</label>
+                <input type="text" id="new_task_dialog_task_duplicate" name="task[duplicate]" class="estimate" autocorrect="off" autocapitalize="off"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td style="padding-top: 10px;"><input class="small_btn" onclick="NewTaskDialog.save(); return false;" type="button" value=" Save "></td>
+            <td style="text-align:right; padding-top: 10px;"><input class="small_btn" onclick="NewTaskDialog.cancel(); return false;" type="button" value=" Cancel "></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+  <div class="popup_dialog two_column_shortcuts_help" id="shortcuts_help_dialog" style="display:none">
+    <h3 id="shortcuts_help_dialog_header">Acunote Keyboard Shortcuts</h3>
+    <div id="shortcuts_list">
+      <table>
+        <tbody>
+          <tr valign="top">
+            <td><div class="shortcut">Esc</div>
+              Cancel/close current form/dialog<br>
+              <div class="shortcut">/</div>
+              Search<br>
+              <div class="shortcut">&lt;</div>
+              Move cursor to list beginning<br>
+              <div class="shortcut">&gt;</div>
+              Move cursor to list end<br>
+              <div class="shortcut">?</div>
+              This help<br>
+              <div class="shortcut">c</div>
+              Add sibling task<br>
+              <div class="shortcut">C</div>
+              Add sibling task below<br>
+              <div class="shortcut">j</div>
+              Move cursor down<br>
+              <div class="shortcut">J</div>
+              Move cursor down quickly<br>
+              <div class="shortcut">k</div>
+              Move cursor up<br>
+              <div class="shortcut">K</div>
+              Move cursor up quickly<br>
+              <div class="shortcut">n</div>
+              New task<br>
+              <div class="shortcut">o</div>
+              Task details<br>
+              <div class="shortcut">u</div>
+              Go to sprint list<br>
+              <div class="shortcut">x</div>
+              Select row<br>
+              <br>
+              <div class="shortcut">* a</div>
+              Select all tasks<br>
+              <div class="shortcut">* n</div>
+              Deselect all tasks<br>
+              <br>
+              <div class="shortcut">g b</div>
+              Backlog<br>
+              <div class="shortcut">g c</div>
+              Current sprint<br>
+              <div class="shortcut">g h</div>
+              Help page<br>
+              <div class="shortcut">g n</div>
+              Next sprint<br>
+              <div class="shortcut">g p</div>
+              Previous sprint<br>
+              <div class="shortcut">g r</div>
+              Projects<br>
+              <div class="shortcut">g s</div>
+              Sprints<br>
+              <div class="shortcut">g t</div>
+              Tasks<br>
+              <div class="shortcut">g T</div>
+              Timeline<br>
+              <div class="shortcut">g u</div>
+              Select sprint<br>
+              <div class="shortcut">g U</div>
+              Select project<br>
+              <div class="shortcut">g w</div>
+              Wiki<br></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td><div class="shortcut">s c</div>
+              Copy selected tasks to...<br>
+              <div class="shortcut">s d</div>
+              Delete selected tasks<br>
+              <div class="shortcut">s h</div>
+              Move selected tasks here<br>
+              <div class="shortcut">s l</div>
+              Move selected tasks left<br>
+              <div class="shortcut">s m</div>
+              Move selected tasks to...<br>
+              <div class="shortcut">s r</div>
+              Move selected tasks right<br>
+              <div class="shortcut">s t</div>
+              Apply tag to selected tasks<br>
+              <div class="shortcut">s T</div>
+              Remove tag from selected tasks<br>
+              <br>
+              <div class="shortcut">t c</div>
+              Add comment to the task<br>
+              <div class="shortcut">t l</div>
+              Move the task under the cursor left<br>
+              <div class="shortcut">t r</div>
+              Make the task under the cursor right<br>
+              <br>
+              <div class="shortcut">t e d</div>
+              Edit task description under cursor<br>
+              <div class="shortcut">t e e</div>
+              Edit task estimate under cursor<br>
+              <div class="shortcut">t e o</div>
+              Edit task owner under cursor<br>
+              <div class="shortcut">t e p</div>
+              Edit task priority under cursor<br>
+              <div class="shortcut">t e r</div>
+              Edit task remaining under cursor<br>
+              <div class="shortcut">t e s</div>
+              Edit task status under cursor<br>
+              <div class="shortcut">t e v</div>
+              Edit task severity under cursor<br>
+              <br>
+              <div class="shortcut">Alt+/</div>
+              Create new task<br>
+              <div class="shortcut">Alt+;</div>
+              Send us feedback<br>
+              <div class="shortcut">Alt+&lt;</div>
+              Move "create new task" form left<br>
+              <div class="shortcut">Alt+&gt;</div>
+              Move "create new task" form right<br>
+              <div class="shortcut">Alt+s</div>
+              Save/submit current form<br>
+              <div class="shortcut">Alt+c</div>
+              Cancel/close current form<br>
+              <br></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="close_button">
+      <input id="popup_dialog_close" onclick="ShortcutsHelpDialog.close(); return false;" type="button" value=" Close ">
+    </div>
+  </div>
+  <div id="header"> <a href="http://mk2.acunote.com/" id="logo_link" class="sprite-acunote_logo">Acunote</a>
+    <form action="http://mk2.acunote.com/projects/53478/tasks" id="search_form" method="get" name="search_form">
+      <input id="search_text" name="query" type="text" autocorrect="off" autocapitalize="off">
+      <input class="small_btn" onclick="document.search_form.submit(); return false;" type="button" value="Search">
+    </form>
+    <ul id="metanav" class="rightnav">
+      <li class="first">Logged in as <b> Haruka Okabayashi</b> <span style="display:none" id="current_user_id">63246</span></li>
+      <li id="unread_announcements"> <a href="http://mk2.acunote.com/announcements" target="_blank">Announcements</a> </li>
+      <li><a href="http://mk2.acunote.com/users/edit_profile/63246" target="_blank">Edit Profile</a></li>
+      <li><a href="http://mk2.acunote.com/orgs/edit/29294" target="_blank">Edit Organization</a></li>
+      <li><a href="http://mk2.acunote.com/help" target="_blank">Help</a></li>
+      <li><a href="https://mk2.acunote.com/login/logout">Logout</a></li>
+    </ul>
+    <ul class="projectnav">
+      <li class="first"><a href="http://mk2.acunote.com/projects">Projects</a></li>
+      <li>View Project:</li>
+      <li class="first selector_container"> <a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" id="project_selector_link" onclick="return showProjectSelector();"> mk2 </a>
+        <div id="project_selector_form" style="display:none;">
+          <form action="http://mk2.acunote.com/projects/select_project" class="project_select_form" method="post">
+            <div style="margin:0;padding:0;display:inline">
+              <input name="authenticity_token" type="hidden" value="n4bhXigsI3kd7zeVwfyzgQb5QtHnYxLDxFes2nyOy+U=">
+            </div>
+            <select autocomplete="off" id="project_menu_selector" name="project" onblur="hideProjectSelector()" onchange="$(&#39;project_selector_link&#39;).innerHTML = this.options[this.selectedIndex].text.escapeHTML();;$(&#39;project_menu_selector&#39;).blur();; this.form.submit();">
+              <option value="53478" selected="selected">mk2</option>
+            </select>
+            <input type="hidden" name="project_menu_controller" id="project_menu_controller" value="sprints">
+            <input type="hidden" name="project_menu_action" id="project_menu_action" value="current_sprint">
+          </form>
+        </div>
+      </li>
+    </ul>
+    <ul id="mainnav">
+      <li class=" sprite-tab-inactive-left"><a href="http://mk2.acunote.com/projects/53478/wiki" class=" sprite-tab-inactive-right">Wiki</a></li>
+      <li class="first  sprite-tab-inactive-left"><a href="http://mk2.acunote.com/projects/53478/sprints" class=" sprite-tab-inactive-right">Sprints</a></li>
+      <li class="active sprite-tab-active-left"><strong class="sprite-tab-active-right"><a href="http://mk2.acunote.com/projects/53478/sprints/current_sprint" class=" sprite-tab-inactive-right">Current Sprint</a></strong></li>
+      <li class=" sprite-tab-inactive-left"><a href="http://mk2.acunote.com/projects/53478/sprints/backlog" class=" sprite-tab-inactive-right">Backlog</a></li>
+      <li class=" sprite-tab-inactive-left"><a href="http://mk2.acunote.com/projects/53478/tasks" class=" sprite-tab-inactive-right">Tasks</a></li>
+      <li class=" sprite-tab-inactive-left"><a href="http://mk2.acunote.com/projects/53478/timeline" class=" sprite-tab-inactive-right">Timeline</a></li>
+    </ul>
+  </div>
+  <div id="main">
+    <div id="flash" class="flash"> <b class="round_t"> <i class="round_tl sprite-rounded_flash_tl"></i> <i class="round_tr sprite-rounded_flash_tr"></i> </b> <strong class="spinner_message" id="flash_message"></strong> <b class="round_b"> <i class="round_bl sprite-rounded_flash_bl"></i> <i class="round_br sprite-rounded_flash_br"></i> </b> </div>
+    <div id="spinner" class="flash"> <b class="round_t"> <i class="round_tl sprite-rounded_flash_tl"></i> <i class="round_tr sprite-rounded_flash_tr"></i> </b> <strong class="spinner_message"><span id="spinner_message"></span></strong> <b class="round_b"> <i class="round_bl sprite-rounded_flash_bl"></i> <i class="round_br sprite-rounded_flash_br"></i> </b> </div>
+    <div class="breadcrumbs">
+      <h1> <a href="http://mk2.acunote.com/projects/53478/sprints" id="parent_sprints_breadcrumb_link">Sprints</a> : <a href="http://mk2.acunote.com/projects/53478/sprints/222952/show" class="arrow sprite-previous" title="Previous Sprint"></a>&nbsp;#1 (01 May -  31 May)&nbsp;<a href="http://mk2.acunote.com/projects/53478/sprints/222951/show" class="arrow sprite-next" title="Next Sprint"></a> : Task List </h1>
+      <span style="display:none" id="sprint_id">222953</span> </div>
+    <div id="toolTip" style="display:none; position:absolute"> </div>
+    <div id="tasklist_params" style="display:none">
+      <div id="task_list_constructed_from">sprint</div>
+      <div id="task_list_url_params">sprint=222953</div>
+      <div id="task_list_is_multisprint"></div>
+    </div>
+    <div id="initializing" style="display:none;">Loading...</div>
+    <div class="sidebar" id="burndown">
+      <div class="rounded_caption"> <i class="rounded_caption_tl sprite-rounded_caption_tl"></i> <i class="rounded_caption_tr sprite-rounded_caption_tr"></i>
+        <select class="plain w-h" id="task-action" onchange="$(&#39;burndown_inner&#39;).style.background = &#39;&#39;;
+            new Ajax.Updater(&#39;burndown_inner&#39;, &#39;/tasks/burndown?refresh=true&amp;sprint=222953&#39;, {asynchronous:true, evalScripts:true, parameters:&#39;burndown_type=&#39;+this.value + &#39;&amp;authenticity_token=&#39; + encodeURIComponent(&#39;n4bhXigsI3kd7zeVwfyzgQb5QtHnYxLDxFes2nyOy+U=&#39;)})">
+          <option value="multiuser_line" selected="selected"> Line Burndown: Multiuser</option>
+          <option value="user_line"> Line Burndown: User</option>
+          <option value="team_line"> Line Burndown: Team</option>
+          <option value="multiuser_area"> Area Burndown: Multiuser</option>
+          <option value="user_area"> Area Burndown: User</option>
+          <option value="team_area"> Area Burndown: Team</option>
+        </select>
+      </div>
+      <div id="burndown_inner"> <a href="site-image/burndown
+		  " onclick="window.open(this.href,&#39;burndown_window_sprint_#1_multiuser_line&#39;,&#39;height=640,width=840&#39;);return false;"><img width="290" class="" id="burndown_image" src="site-image/burndown"></a> </div>
+      <div id="prediction">
+        <div class="side_container">
+          <div onclick="taskList.showSlider(&#39;prediction&#39;, &#39;sprints&#39;, &#39;sprint=222953&#39;); return false;" class="slider_closed" id="prediction_slider">
+            <div id="prediction_slider_icon" class="slider_icon sprite-right_arrow"></div>
+            <div class="slider_text">Prediction</div>
+          </div>
+          <div id="prediction_contents" style="display:none"> </div>
+        </div>
+        <div class="side_container">
+          <div onclick="taskList.showSlider(&#39;progress&#39;, &#39;sprints&#39;, &#39;sprint=222953&#39;); return false;" class="slider_closed" id="progress_slider">
+            <div id="progress_slider_icon" class="slider_icon sprite-right_arrow"></div>
+            <div class="slider_text">Progress</div>
+          </div>
+          <div id="progress_contents" style="display:none"> </div>
+        </div>
+        <div class="side_container">
+          <div onclick="taskList.showSlider(&#39;taglist&#39;, &#39;tags&#39;, &#39;sprint=222953&#39;); return false;" class="slider_closed" id="taglist_slider">
+            <div id="taglist_slider_icon" class="slider_icon sprite-right_arrow"></div>
+            <div class="slider_text">Tags</div>
+          </div>
+          <div id="taglist_contents" style="display:none"> </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="content">
+      <div class="wrap">
+        <div id="announcements-container"> </div>
+        <div id="tasklist-toolbox" class="rounded_caption"> <i class="rounded_caption_tl sprite-rounded_caption_tl"></i> <i class="rounded_caption_tr sprite-rounded_caption_tr"></i> <span id="more_actions_container" class="rounded_caption_right">
+          <select class="plain" name="more_actions" id="more_actions" onfocus="taskActions.updateMoreActionsListbox();" onchange="taskActions.moreAction();" autocomplete="off">
+            <option value="">More Actions</option>
+            <optgroup label="Sprint">
+            <option value="order_by_user">Order by User</option>
+            <option value="analyze">Analyze Sprint...</option>
+            <option value="finish">Finish Sprint...</option>
+            </optgroup>
+            <optgroup label="Tasks">
+            <option value="export">Export</option>
+            <option value="import">Import...</option>
+            </optgroup>
+            <optgroup label="Apply Tag">
+            <option value="apply_tag_106000">Bug</option>
+            <option value="apply_tag_105998">Feature</option>
+            <option value="apply_tag_105999">Usability</option>
+            <option value="new_tag">New Tag...</option>
+            </optgroup>
+          </select>
+          </span>
+          <input class="small_btn" id="show_hide_new_task" onclick="newTask.insertAtTop();" type="button" value="New Task">
+          <form action="http://mk2.acunote.com/projects/53478/sprints/222953/show" class="tasklist_tools" id="task_toolbox_form" method="post" name="task_toolbox_form" onsubmit="new Ajax.Request(&#39;/projects/53478/sprints/222953/show&#39;, {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;">
+            <div style="margin:0;padding:0;display:inline">
+              <input name="authenticity_token" type="hidden" value="n4bhXigsI3kd7zeVwfyzgQb5QtHnYxLDxFes2nyOy+U=">
+            </div>
+            <input class="small_btn" onclick="taskActions.toolBoxAction(&#39;Move Selected&#39;); return false;" type="button" value="Move">
+            <input class="small_btn" onclick="taskActions.toolBoxAction(&#39;Copy Selected&#39;); return false;" type="button" value="Copy">
+            <input class="small_btn" onclick="taskActions.toolBoxAction(&#39;Go to Selected&#39;); return false;" type="button" value="Go">
+            <b>&nbsp;to&nbsp;</b>
+            <div id="sprint_selector_holder">
+              <select autocomplete="off" class="plain" header="" id="sprint_selector" name="task[sprint_id]" onchange="updateSprintSelector(this, {projectId: 53478, header: &#39;&#39;, useSpacer: true, showCompleted: true, includeCurrent: true, sprintId: 222953, changeHandler: &#39;&#39;, includeIssues: false, includeAnySprintItem: false, allowLoadArchived: true, showArchivedSprints: false, allowOtherProjects: true, showOtherProjects: false, showBacklogs: true})">
+                <option value="222951" selected="selected">Backlog</option>
+                <option value="222953">#1</option>
+                <option value="-1" disabled="true">--------</option>
+                <option value="other_projects">Load Sprints from All Projects...</option>
+                <option value="assign_archived">Load Archived Sprints...</option>
+              </select>
+            </div>
+          </form>
+          <input class="small_btn" onclick="taskActions.deleteTasks(DeleteMode.Confirm); return false;" style="margin-left: 15px;" type="button" value="Delete">
+        </div>
+        <div id="new_task_form_container">
+          <div id="new_task_form" style="display:none">
+            <form action="http://mk2.acunote.com/tasks/create?project_id=53478&amp;sender=inline_form&amp;sprint=222953" class="inline_new_form" id="task_new_form" method="post" name="new_edit_form" onsubmit="new Ajax.Request(&#39;/tasks/create?project_id=53478&amp;sender=inline_form&amp;sprint=222953&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request){Element.hide(&#39;newtask_form_spinner&#39;);Field.focus(&#39;task_description&#39;)}, onLoading:function(request){Element.show(&#39;newtask_form_spinner&#39;)}, parameters:Form.serialize(this)}); return false;">
+              <div style="margin:0;padding:0;display:inline">
+                <input name="authenticity_token" type="hidden" value="n4bhXigsI3kd7zeVwfyzgQb5QtHnYxLDxFes2nyOy+U=">
+              </div>
+              
+              <!--[form:task]-->
+              <input type="hidden" name="new_task_form_expanded" id="new_task_form_expanded" value="false">
+              <label for="task_description" class="textarea"> <span>Description</span>
+                <textarea cols="45" id="task_description" name="task[description]" rows="5" style="width:98%"></textarea>
+              </label>
+              <label class="nowrap" for="task_owner_id"> Owner:
+                <select id="task_owner_id" include_blank="true" name="task[owner_id]">
+                  <option value="">&nbsp;</option>
+                  <option value="63246">harurin</option>
+                </select>
+              </label>
+              <label class="nowrap" for="task_status"> Status:
+                <select id="task_status" name="task[status]">
+                  <option value="Not Started">Not Started</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Reopened">Reopened</option>
+                  <option value="Blocked">Blocked</option>
+                  <option value="Completed">Completed</option>
+                  <option value="Verified">Verified</option>
+                  <option value="Duplicate">Duplicate</option>
+                  <option value="Will Not Do">Will Not Do</option>
+                </select>
+              </label>
+              <label class="nowrap" for="task_estimate"> Estimate:
+                <input type="text" class="estimate_field" id="task_estimate" name="task[estimate]" autocomplete="off" value="">
+              </label>
+              
+              <!--[eoform:task]-->
+              
+              <div class="newtask-buttonrow">
+                <input class="small_btn" id="new_task_save" onclick="newTask.save(); return false;" type="button" value="Save">
+                <input class="small_btn" id="new_task_cancel" onclick="newTask.cancel(); return false;" type="button" value="Cancel">
+                <span class="more_controls"> <a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="newTask.more(); return false;"> <span id="new_task_form_more_arrow" class="more_arrow sprite-right_arrow"></span> More </a> </span> <span id="newtask_form_spinner" style="font-size:80%;display:none;"> <img alt="Loading_small" src="site-image/loading_small.gif"> Saving... </span> </div>
+              <div id="new_task_form_more" class="&quot;hidden&quot;">
+                <label class="fixed" for="task_priority"> <span class="label label_before_select">Priority:</span>
+                  <select id="task_priority" include_blank="true" name="task[priority]">
+                    <option value=""></option>
+                    <option value="0">P0</option>
+                    <option value="1">P1</option>
+                    <option value="2">P2</option>
+                    <option value="3">P3</option>
+                    <option value="4">P4</option>
+                  </select>
+                </label>
+                <label class="fixed" for="task_severity"> <span class="label label_before_select">Severity:</span>
+                  <select id="task_severity" include_blank="true" name="task[severity]">
+                    <option value=""></option>
+                    <option value="1">S1</option>
+                    <option value="2">S2</option>
+                    <option value="3">S3</option>
+                    <option value="4">S4</option>
+                  </select>
+                </label>
+                <div class="clear"></div>
+                <label for="task_wiki" class="textarea"> <span>Wiki</span>
+                  <textarea cols="45" id="task_wiki" name="task[wiki]" rows="6" style="width:98%"></textarea>
+                </label>
+                <div class="new_task_relationships">
+                  <label for="task_related" class="fixed"> <span class="label">Related Tasks:</span>
+                    <input type="text" id="task_related" name="task[related]" value="" autocorrect="off" autocapitalize="off">
+                  </label>
+                  <label for="task_duplicate" class="fixed"> <span class="label">Duplicate Tasks:</span>
+                    <input type="text" id="task_duplicate" name="task[duplicate]" value="" autocorrect="off" autocapitalize="off">
+                  </label>
+                  <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <div class="newtask-buttonrow">
+                  <input class="small_btn" onclick="newTask.save(); return false;" type="button" value="Save">
+                  <input class="small_btn" onclick="newTask.cancel(); return false;" type="button" value="Cancel">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div id="task_table" class="table_border">
+          <table class="listing " id="tasklist">
+            <thead>
+              <tr>
+                <th class="cursor"></th>
+                <th class="handle"> <input autocomplete="off" id="select_all" name="select_all" onclick="taskList.selectAll(this.checked);" type="checkbox" value="1">
+                </th>
+                <th class="popup" onclick="taskActions.levelFilterPopup(event);"> <div id="level_filter" class="level_filter sprite-menu">
+                    <ul id="levelmenu" class="itemmenu" style="display:none;">
+                      <li><span class="disabled unindented">Filter by level:</span></li>
+                      <li> <span onclick="taskList.filter({level_filter: 3}); return false;" id="level_filter_item_3">
+                        <div class="bulletable bulletted sprite-bullet_black"></div>
+                        <div>All Tasks</div>
+                        </span> </li>
+                      <li> <span onclick="taskList.filter({level_filter: 1}); return false;" id="level_filter_item_1">
+                        <div class="bulletable "></div>
+                        <div>Level 1</div>
+                        </span> </li>
+                      <li> <span onclick="taskList.filter({level_filter: 2}); return false;" id="level_filter_item_2">
+                        <div class="bulletable "></div>
+                        <div>Level 1 &amp; 2</div>
+                        </span> </li>
+                      <li><span class="disabled unindented">Selected:</span></li>
+                      <li><span id="level_move_left" onclick="taskActions.moveSelectedTasks(&#39;left&#39;)">Move Left</span></li>
+                      <li><span id="level_move_right" onclick="taskActions.moveSelectedTasks(&#39;right&#39;)">Move Right</span></li>
+                    </ul>
+                  </div>
+                </th>
+                <th class="issue_number">No.</th>
+                <th class="title"> Description <span class="filter_description"> &nbsp; </span> </th>
+                <th class="owner"> <div id="owner_filter_link"> <a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="
+            Element.hide(&#39;owner_filter_link&#39;);
+            Element.hide(&#39;selected_owner&#39;);
+            
+            Element.show(&#39;owner_filter_selector&#39;);
+            Field.focus(&#39;owner_filter&#39;);
+            observersManager.save();
+            return false;
+        ">Owner</a> </div>
+                  <div id="owner_filter_selector" style="display:none" class="filter_container">
+                    <select id="owner_filter" name="owner_filter" autocomplete="off" onkeydown="taskEditors.escObserver(event, this)" onblur="
+        Element.hide(&#39;owner_filter_selector&#39;);
+        Element.show(&#39;owner_filter_link&#39;);
+        Element.show(&#39;selected_owner&#39;);
+        observersManager.restore();
+        " onchange="
+            var new_task_form_selector = &#39;task_owner_id&#39;;
+            if ((&#39;owner&#39; == &#39;owner&#39;) &amp;&amp; $(new_task_form_selector)) {
+                if (this.selectedIndex &gt;= 2) {
+                    //-2 is the difference between selected index in the filter combo
+                    //and selected index in the new task form combo
+                    $(new_task_form_selector).selectedIndex = -2 + this.selectedIndex;
+                } else {
+                    $(new_task_form_selector).selectedIndex = 0
+                }
+            }
+            ;taskList.filter({owner_filter: this.value });
+            Element.hide(&#39;owner_filter_selector&#39;);
+            Element.show(&#39;owner_filter_link&#39;);
+            Element.show(&#39;selected_owner&#39;);
+            Element.show(&#39;loading_owner&#39;);
+            $(&#39;selected_owner_text&#39;).innerHTML = this.options[this.selectedIndex].text;
+            $(&#39;owner_filter&#39;).blur();
+            ">
+                      <option value="-1" selected="selected">All</option>
+                      <option value="-2">Not Assigned</option>
+                      <option disabled="true">--------</option>
+                      <option value="63246">harurin</option>
+                    </select>
+                  </div>
+                  <span id="selected_owner" class="filter_status"> <span id="selected_owner_text">All</span> <img alt="Loading_small" id="loading_owner" src="site-image/loading_small.gif" style="display:none"> </span> </th>
+                <th class="status"> <div id="status_filter_link"> <a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="
+            Element.hide(&#39;status_filter_link&#39;);
+            Element.hide(&#39;selected_status&#39;);
+            
+            Element.show(&#39;status_filter_selector&#39;);
+            Field.focus(&#39;status_filter&#39;);
+            observersManager.save();
+            return false;
+        ">Status</a> </div>
+                  <div id="status_filter_selector" style="display:none" class="filter_container">
+                    <select id="status_filter" name="status_filter" autocomplete="off" onkeydown="taskEditors.escObserver(event, this)" onblur="
+        Element.hide(&#39;status_filter_selector&#39;);
+        Element.show(&#39;status_filter_link&#39;);
+        Element.show(&#39;selected_status&#39;);
+        observersManager.restore();
+        " onchange="
+            var new_task_form_selector = &#39;task_owner_id&#39;;
+            if ((&#39;status&#39; == &#39;owner&#39;) &amp;&amp; $(new_task_form_selector)) {
+                if (this.selectedIndex &gt;= 2) {
+                    //-2 is the difference between selected index in the filter combo
+                    //and selected index in the new task form combo
+                    $(new_task_form_selector).selectedIndex = -2 + this.selectedIndex;
+                } else {
+                    $(new_task_form_selector).selectedIndex = 0
+                }
+            }
+            ;taskList.filter({status_filter: this.value });
+            Element.hide(&#39;status_filter_selector&#39;);
+            Element.show(&#39;status_filter_link&#39;);
+            Element.show(&#39;selected_status&#39;);
+            Element.show(&#39;loading_status&#39;);
+            $(&#39;selected_status_text&#39;).innerHTML = this.value;
+            $(&#39;status_filter&#39;).blur();
+            ">
+                      <option value="All" selected="selected">All</option>
+                      <option disabled="true">--------</option>
+                      <option value="Not Started">Not Started</option>
+                      <option value="In Progress">In Progress</option>
+                      <option value="Reopened">Reopened</option>
+                      <option value="Blocked">Blocked</option>
+                      <option value="Completed">Completed</option>
+                      <option value="Verified">Verified</option>
+                      <option value="Duplicate">Duplicate</option>
+                      <option value="Will Not Do">Will Not Do</option>
+                      <option disabled="true">--------</option>
+                      <option value="Closed">Closed</option>
+                      <option value="Not Closed">Not Closed</option>
+                    </select>
+                  </div>
+                  <span id="selected_status" class="filter_status"> <span id="selected_status_text">All</span> <img alt="Loading_small" id="loading_status" src="site-image/loading_small.gif" style="display:none"> </span> </th>
+                <th class="task_priority"> <div id="priority_filter_link"> <a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="
+            Element.hide(&#39;priority_filter_link&#39;);
+            Element.hide(&#39;selected_priority&#39;);
+            
+            Element.show(&#39;priority_filter_selector&#39;);
+            Field.focus(&#39;priority_filter&#39;);
+            observersManager.save();
+            return false;
+        ">Pri.</a> </div>
+                  <div id="priority_filter_selector" style="display:none" class="filter_container">
+                    <select id="priority_filter" name="priority_filter" autocomplete="off" onkeydown="taskEditors.escObserver(event, this)" onblur="
+        Element.hide(&#39;priority_filter_selector&#39;);
+        Element.show(&#39;priority_filter_link&#39;);
+        Element.show(&#39;selected_priority&#39;);
+        observersManager.restore();
+        " onchange="
+            var new_task_form_selector = &#39;task_owner_id&#39;;
+            if ((&#39;priority&#39; == &#39;owner&#39;) &amp;&amp; $(new_task_form_selector)) {
+                if (this.selectedIndex &gt;= 2) {
+                    //-2 is the difference between selected index in the filter combo
+                    //and selected index in the new task form combo
+                    $(new_task_form_selector).selectedIndex = -2 + this.selectedIndex;
+                } else {
+                    $(new_task_form_selector).selectedIndex = 0
+                }
+            }
+            ;taskList.filter({priority_filter: this.value });
+            Element.hide(&#39;priority_filter_selector&#39;);
+            Element.show(&#39;priority_filter_link&#39;);
+            Element.show(&#39;selected_priority&#39;);
+            Element.show(&#39;loading_priority&#39;);
+            $(&#39;selected_priority_text&#39;).innerHTML = this.value;
+            $(&#39;priority_filter&#39;).blur();
+            ">
+                      <option value="All" selected="selected">All</option>
+                      <option value="None">None</option>
+                      <option disabled="true">--------</option>
+                      <option value="P0">P0</option>
+                      <option value="P1">P1</option>
+                      <option value="P2">P2</option>
+                      <option value="P3">P3</option>
+                      <option value="P4">P4</option>
+                    </select>
+                  </div>
+                  <span id="selected_priority" class="filter_status"> <span id="selected_priority_text">All</span> <img alt="Loading_small" id="loading_priority" src="site-image/loading_small.gif" style="display:none"> </span> </th>
+                <th class="task_severity"> <div id="severity_filter_link"> <a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="
+            Element.hide(&#39;severity_filter_link&#39;);
+            Element.hide(&#39;selected_severity&#39;);
+            
+            Element.show(&#39;severity_filter_selector&#39;);
+            Field.focus(&#39;severity_filter&#39;);
+            observersManager.save();
+            return false;
+        ">Sev.</a> </div>
+                  <div id="severity_filter_selector" style="display:none" class="filter_container">
+                    <select id="severity_filter" name="severity_filter" autocomplete="off" onkeydown="taskEditors.escObserver(event, this)" onblur="
+        Element.hide(&#39;severity_filter_selector&#39;);
+        Element.show(&#39;severity_filter_link&#39;);
+        Element.show(&#39;selected_severity&#39;);
+        observersManager.restore();
+        " onchange="
+            var new_task_form_selector = &#39;task_owner_id&#39;;
+            if ((&#39;severity&#39; == &#39;owner&#39;) &amp;&amp; $(new_task_form_selector)) {
+                if (this.selectedIndex &gt;= 2) {
+                    //-2 is the difference between selected index in the filter combo
+                    //and selected index in the new task form combo
+                    $(new_task_form_selector).selectedIndex = -2 + this.selectedIndex;
+                } else {
+                    $(new_task_form_selector).selectedIndex = 0
+                }
+            }
+            ;taskList.filter({severity_filter: this.value });
+            Element.hide(&#39;severity_filter_selector&#39;);
+            Element.show(&#39;severity_filter_link&#39;);
+            Element.show(&#39;selected_severity&#39;);
+            Element.show(&#39;loading_severity&#39;);
+            $(&#39;selected_severity_text&#39;).innerHTML = this.value;
+            $(&#39;severity_filter&#39;).blur();
+            ">
+                      <option value="All" selected="selected">All</option>
+                      <option value="None">None</option>
+                      <option disabled="true">--------</option>
+                      <option value="S1">S1</option>
+                      <option value="S2">S2</option>
+                      <option value="S3">S3</option>
+                      <option value="S4">S4</option>
+                    </select>
+                  </div>
+                  <span id="selected_severity" class="filter_status"> <span id="selected_severity_text">All</span> <img alt="Loading_small" id="loading_severity" src="site-image/loading_small.gif" style="display:none"> </span> </th>
+                <th class="estimate" title="Estimate">Est.</th>
+                <th class="remaining" title="Remaining">Rem.</th>
+              </tr>
+            </thead>
+            <tbody id="tasks">
+              <tr id="task_item_contents_4389018" class="level_0 nohover task_item">
+                <td class="cursor" onclick="taskActions.toggleTaskCheckbox(4389018, event);"><div id="4389018" class="cursor_image sprite-cursor"></div></td>
+                <td id="checkbox_handle_4389018" class="handle" onclick="taskActions.toggleTaskCheckbox(4389018, event)"><input id="checkbox_4389018" type="checkbox" value="1" name="selected" autocomplete="off">
+                  <span style="display:none" id="parent_for_4389018"></span> <span style="display:none" id="project_id_for_4389018">53478</span> <span style="display:none" id="issue_id_for_4389018">3667927</span></td>
+                <td id="popup_container_4389018" class="popup"><div id="drag_4389018" class="draggable sprite-menu"></div></td>
+                <td id="issue_16" class="issue_number"><a href="http://mk2.acunote.com/projects/53478/tasks/16" class="issue_number_link" id="issue_number_for_4389018">16</a></td>
+                <td id="td_desc_4389018"><div id="task_description_4389018" class=" description wrapper">
+                    <div id="task_description_link_4389018"><span class="descr_edit" onclick="taskEditors.showEditor(&#39;description&#39;, 4389018); return false"><span></span><span>Level 1</span> <span class="task_properties" id="task_propertires_4389018"> </span> </span></div>
+                    <div id="task_description_editor_4389018" style="display:none"></div>
+                  </div></td>
+                <td class="owner"><div id="task_owner_4389018" class="wrapper">
+                    <div id="task_owner_id_link_4389018" class="owner_id_"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;owner_id&#39;, 4389018, 0); return false;" class="fullsize plain">-</a></div>
+                    <div id="task_owner_id_editor_4389018" style="display:none"></div>
+                  </div></td>
+                <td class="in_progress status"><div id="task_status_4389018" class="wrapper">
+                    <table id="task_status_bar_4389018" class="task_status_bar">
+                      <tbody>
+                        <tr>
+                          <td style="padding: 0px; border-bottom: none; background-color: #b1f0a2; " width="38%" title="Completed: 3"><div style="height:10px;"></div></td>
+                          <td style="padding: 0px; border-bottom: none; background-color: #70c4ff; " width="38%" title="In Progress: 3"><div style="height:10px;"></div></td>
+                          <td style="padding: 0px; border-bottom: none; background-color: #ffb8b8; " width="25%" title="Not Started: 2"><div style="height:10px;"></div></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div></td>
+                <td class="task_priority"><div id="task_priority_4389018" class="wrapper">
+                    <div id="task_priority_link_4389018"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;priority&#39;, 4389018, &#39;-&#39;); return false;" class="fullsize plain issue_tracking_attributes_link">-</a></div>
+                    <div id="task_priority_editor_4389018" class="editor" style="display:none"></div>
+                  </div></td>
+                <td class="task_severity"><div id="task_severity_4389018" class="wrapper">
+                    <div id="task_severity_link_4389018"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;severity&#39;, 4389018, &#39;-&#39;); return false;" class="fullsize plain nodecor issue_tracking_attributes_link">-</a></div>
+                    <div id="task_severity_editor_4389018" class="editor" style="display:none"></div>
+                  </div></td>
+                <td class="estimate"><div id="task_estimate_4389018" class="wrapper"> 8</div></td>
+                <td class="remaining"><div id="task_remaining_4389018" class="wrapper"> 5</div></td>
+              </tr>
+              <tr id="task_item_contents_4389021" class="level_1 nohover task_item">
+                <td class="cursor" onclick="taskActions.toggleTaskCheckbox(4389021, event);"><div id="4389021" class="cursor_image sprite-cursor"></div></td>
+                <td id="checkbox_handle_4389021" class="handle" onclick="taskActions.toggleTaskCheckbox(4389021, event)"><input id="checkbox_4389021" type="checkbox" value="1" name="selected" autocomplete="off">
+                  <span style="display:none" id="parent_for_4389021">4389018</span> <span style="display:none" id="project_id_for_4389021">53478</span> <span style="display:none" id="issue_id_for_4389021">3667930</span></td>
+                <td id="popup_container_4389021" class="popup"><div id="drag_4389021" class="draggable sprite-menu"></div></td>
+                <td id="issue_19" class="issue_number"><a href="http://mk2.acunote.com/projects/53478/tasks/19" class="issue_number_link" id="issue_number_for_4389021">19</a></td>
+                <td id="td_desc_4389021"><div id="task_description_4389021" class="level_1 description wrapper">
+                    <div id="task_description_link_4389021"><span class="descr_edit" onclick="taskEditors.showEditor(&#39;description&#39;, 4389021); return false"><span></span><span>Level 1-1</span> <span class="task_properties" id="task_propertires_4389021"> </span> </span></div>
+                    <div id="task_description_editor_4389021" style="display:none"></div>
+                  </div></td>
+                <td class="owner"><div id="task_owner_4389021" class="wrapper">
+                    <div id="task_owner_id_link_4389021" class="owner_id_63246"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;owner_id&#39;, 4389021, 1); return false;" class="fullsize plain nodecor">harurin</a></div>
+                    <div id="task_owner_id_editor_4389021" style="display:none"></div>
+                  </div></td>
+                <td class="in_progress status"><div id="task_status_4389021" class="wrapper">
+                    <div id="task_status_link_4389021"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;status&#39;, 4389021, 1); return false;" class="fullsize plain nodecor in_progress">In Progress</a></div>
+                    <div id="task_status_editor_4389021" style="display:none"></div>
+                  </div></td>
+                <td class="task_priority"><div id="task_priority_4389021" class="wrapper">
+                    <div id="task_priority_link_4389021"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;priority&#39;, 4389021, 1); return false;" class="fullsize plain issue_tracking_attributes_link">P0</a></div>
+                    <div id="task_priority_editor_4389021" class="editor" style="display:none"></div>
+                  </div></td>
+                <td class="task_severity"><div id="task_severity_4389021" class="wrapper">
+                    <div id="task_severity_link_4389021"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;severity&#39;, 4389021, &#39;-&#39;); return false;" class="fullsize plain nodecor issue_tracking_attributes_link">-</a></div>
+                    <div id="task_severity_editor_4389021" class="editor" style="display:none"></div>
+                  </div></td>
+                <td class="estimate"><div id="task_estimate_4389021" class="wrapper">
+                    <div id="task_estimate_link_4389021"><a class="fullsize plain nodecor prominent" onclick="taskEditors.showEditor(&#39;estimate&#39;, 4389021); return false" href="http://mk2.acunote.com/projects/53478/sprints/222953/show#">3</a></div>
+                    <div id="task_estimate_editor_4389021" style="display:none"></div>
+                  </div></td>
+                <td class="remaining"><div id="task_remaining_4389021" class="wrapper">
+                    <div id="task_remaining_link_4389021"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;remaining&#39;, 4389021); return false" class="fullsize plain nodecor">3</a></div>
+                    <div id="task_remaining_editor_4389021" style="display:none"></div>
+                  </div></td>
+              </tr>
+              <tr id="task_item_contents_4389022" class="level_1 nohover task_item">
+                <td class="cursor" onclick="taskActions.toggleTaskCheckbox(4389022, event);"><div id="4389022" class="cursor_image sprite-cursor"></div></td>
+                <td id="checkbox_handle_4389022" class="handle" onclick="taskActions.toggleTaskCheckbox(4389022, event)"><input id="checkbox_4389022" type="checkbox" value="1" name="selected" autocomplete="off">
+                  <span style="display:none" id="parent_for_4389022">4389018</span> <span style="display:none" id="project_id_for_4389022">53478</span> <span style="display:none" id="issue_id_for_4389022">3667931</span></td>
+                <td id="popup_container_4389022" class="popup"><div id="drag_4389022" class="draggable sprite-menu"></div></td>
+                <td id="issue_20" class="issue_number"><a href="http://mk2.acunote.com/projects/53478/tasks/20" class="issue_number_link" id="issue_number_for_4389022">20</a></td>
+                <td id="td_desc_4389022"><div id="task_description_4389022" class="level_1 description wrapper">
+                    <div id="task_description_link_4389022"><span class="descr_edit" onclick="taskEditors.showEditor(&#39;description&#39;, 4389022); return false"><span></span><span>Level 1-2</span> <span class="task_properties" id="task_propertires_4389022"> </span> </span></div>
+                    <div id="task_description_editor_4389022" style="display:none"></div>
+                  </div></td>
+                <td class="owner"><div id="task_owner_4389022" class="wrapper">
+                    <div id="task_owner_id_link_4389022" class="owner_id_"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;owner_id&#39;, 4389022, 0); return false;" class="fullsize plain">-</a></div>
+                    <div id="task_owner_id_editor_4389022" style="display:none"></div>
+                  </div></td>
+                <td class="not_started status"><div id="task_status_4389022" class="wrapper">
+                    <div id="task_status_link_4389022"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;status&#39;, 4389022, 0); return false;" class="fullsize plain nodecor not_started">Not Started</a></div>
+                    <div id="task_status_editor_4389022" style="display:none"></div>
+                  </div></td>
+                <td class="task_priority"><div id="task_priority_4389022" class="wrapper">
+                    <div id="task_priority_link_4389022"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;priority&#39;, 4389022, &#39;-&#39;); return false;" class="fullsize plain issue_tracking_attributes_link">-</a></div>
+                    <div id="task_priority_editor_4389022" class="editor" style="display:none"></div>
+                  </div></td>
+                <td class="task_severity"><div id="task_severity_4389022" class="wrapper">
+                    <div id="task_severity_link_4389022"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;severity&#39;, 4389022, 2); return false;" class="fullsize plain nodecor issue_tracking_attributes_link">S2</a></div>
+                    <div id="task_severity_editor_4389022" class="editor" style="display:none"></div>
+                  </div></td>
+                <td class="estimate"><div id="task_estimate_4389022" class="wrapper">
+                    <div id="task_estimate_link_4389022"><a class="fullsize plain nodecor prominent" onclick="taskEditors.showEditor(&#39;estimate&#39;, 4389022); return false" href="http://mk2.acunote.com/projects/53478/sprints/222953/show#">2</a></div>
+                    <div id="task_estimate_editor_4389022" style="display:none"></div>
+                  </div></td>
+                <td class="remaining"><div id="task_remaining_4389022" class="wrapper">
+                    <div id="task_remaining_link_4389022"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;remaining&#39;, 4389022); return false" class="fullsize plain nodecor">2</a></div>
+                    <div id="task_remaining_editor_4389022" style="display:none"></div>
+                  </div></td>
+              </tr>
+              <tr id="task_item_contents_4389019" class="level_1 nohover task_item">
+                <td class="cursor" onclick="taskActions.toggleTaskCheckbox(4389019, event);"><div id="4389019" class="cursor_image sprite-cursor"></div></td>
+                <td id="checkbox_handle_4389019" class="handle" onclick="taskActions.toggleTaskCheckbox(4389019, event)"><input id="checkbox_4389019" type="checkbox" value="1" name="selected" autocomplete="off">
+                  <span style="display:none" id="parent_for_4389019">4389018</span> <span style="display:none" id="project_id_for_4389019">53478</span> <span style="display:none" id="issue_id_for_4389019">3667928</span></td>
+                <td id="popup_container_4389019" class="popup"><div id="drag_4389019" class="draggable sprite-menu"></div></td>
+                <td id="issue_17" class="issue_number"><a href="http://mk2.acunote.com/projects/53478/tasks/17" class="issue_number_link" id="issue_number_for_4389019">17</a></td>
+                <td id="td_desc_4389019"><div id="task_description_4389019" class="level_1 description wrapper">
+                    <div id="task_description_link_4389019"><span class="descr_edit" onclick="taskEditors.showEditor(&#39;description&#39;, 4389019); return false"><span></span><span>Level 2</span> <span class="task_properties" id="task_propertires_4389019"> </span> </span></div>
+                    <div id="task_description_editor_4389019" style="display:none"></div>
+                  </div></td>
+                <td class="owner"><div id="task_owner_4389019" class="wrapper">
+                    <div id="task_owner_id_link_4389019" class="owner_id_"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;owner_id&#39;, 4389019, 0); return false;" class="fullsize plain">-</a></div>
+                    <div id="task_owner_id_editor_4389019" style="display:none"></div>
+                  </div></td>
+                <td class="completed status"><div id="task_status_4389019" class="wrapper">
+                    <table id="task_status_bar_4389019" class="task_status_bar">
+                      <tbody>
+                        <tr>
+                          <td style="padding: 0px; border-bottom: none; background-color: #b1f0a2; " width="100%" title="Completed: 3"><div style="height:10px;"></div></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div></td>
+                <td class="task_priority"><div id="task_priority_4389019" class="wrapper">
+                    <div id="task_priority_link_4389019"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;priority&#39;, 4389019, &#39;-&#39;); return false;" class="fullsize plain issue_tracking_attributes_link">-</a></div>
+                    <div id="task_priority_editor_4389019" class="editor" style="display:none"></div>
+                  </div></td>
+                <td class="task_severity"><div id="task_severity_4389019" class="wrapper">
+                    <div id="task_severity_link_4389019"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;severity&#39;, 4389019, &#39;-&#39;); return false;" class="fullsize plain nodecor issue_tracking_attributes_link">-</a></div>
+                    <div id="task_severity_editor_4389019" class="editor" style="display:none"></div>
+                  </div></td>
+                <td class="estimate"><div id="task_estimate_4389019" class="wrapper"> 3</div></td>
+                <td class="remaining"><div id="task_remaining_4389019" class="wrapper"> 0</div></td>
+              </tr>
+              <tr id="task_item_contents_4389020" class="level_2 nohover task_item">
+                <td class="cursor" onclick="taskActions.toggleTaskCheckbox(4389020, event);"><div id="4389020" class="cursor_image sprite-cursor"></div></td>
+                <td id="checkbox_handle_4389020" class="handle" onclick="taskActions.toggleTaskCheckbox(4389020, event)"><input id="checkbox_4389020" type="checkbox" value="1" name="selected" autocomplete="off">
+                  <span style="display:none" id="parent_for_4389020">4389019</span> <span style="display:none" id="project_id_for_4389020">53478</span> <span style="display:none" id="issue_id_for_4389020">3667929</span></td>
+                <td id="popup_container_4389020" class="popup"><div id="drag_4389020" class="draggable sprite-menu"></div></td>
+                <td id="issue_18" class="issue_number"><a href="http://mk2.acunote.com/projects/53478/tasks/18" class="issue_number_link" id="issue_number_for_4389020">18</a></td>
+                <td id="td_desc_4389020"><div id="task_description_4389020" class="level_2 description wrapper">
+                    <div id="task_description_link_4389020"><span class="descr_edit" onclick="taskEditors.showEditor(&#39;description&#39;, 4389020); return false"><span></span><span>Level 3</span> <span class="task_properties" id="task_propertires_4389020"> </span> </span></div>
+                    <div id="task_description_editor_4389020" style="display:none"></div>
+                  </div></td>
+                <td class="owner"><div id="task_owner_4389020" class="wrapper">
+                    <div id="task_owner_id_link_4389020" class="owner_id_63246"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;owner_id&#39;, 4389020, 1); return false;" class="fullsize plain nodecor">harurin</a></div>
+                    <div id="task_owner_id_editor_4389020" style="display:none"></div>
+                  </div></td>
+                <td class="completed status"><div id="task_status_4389020" class="wrapper">
+                    <div id="task_status_link_4389020"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;status&#39;, 4389020, 4); return false;" class="fullsize plain nodecor completed">Completed</a></div>
+                    <div id="task_status_editor_4389020" style="display:none"></div>
+                  </div></td>
+                <td class="task_priority"><div id="task_priority_4389020" class="wrapper">
+                    <div id="task_priority_link_4389020"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;priority&#39;, 4389020, 3); return false;" class="fullsize plain issue_tracking_attributes_link">P2</a></div>
+                    <div id="task_priority_editor_4389020" class="editor" style="display:none"></div>
+                  </div></td>
+                <td class="task_severity"><div id="task_severity_4389020" class="wrapper">
+                    <div id="task_severity_link_4389020"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;severity&#39;, 4389020, 3); return false;" class="fullsize plain nodecor issue_tracking_attributes_link">S3</a></div>
+                    <div id="task_severity_editor_4389020" class="editor" style="display:none"></div>
+                  </div></td>
+                <td class="estimate"><div id="task_estimate_4389020" class="wrapper">
+                    <div id="task_estimate_link_4389020"><a class="fullsize plain nodecor prominent" onclick="taskEditors.showEditor(&#39;estimate&#39;, 4389020); return false" href="http://mk2.acunote.com/projects/53478/sprints/222953/show#">3</a></div>
+                    <div id="task_estimate_editor_4389020" style="display:none"></div>
+                  </div></td>
+                <td class="remaining"><div id="task_remaining_4389020" class="wrapper">
+                    <div id="task_remaining_link_4389020"><a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="taskEditors.showEditor(&#39;remaining&#39;, 4389020); return false" class="fullsize plain nodecor prominent">0</a></div>
+                    <div id="task_remaining_editor_4389020" style="display:none"></div>
+                  </div></td>
+              </tr>
+              <tr id="task_item_contents_0" class="level_0 nohover task_item">
+                <td class="cursor" onclick="taskActions.toggleTaskCheckbox(0, event);"><div id="0" class="cursor_image sprite-cursor cursor_image_shown"></div></td>
+                <td id="checkbox_handle_0" class="handle" onclick="taskActions.toggleTaskCheckbox(0, event)"><input id="checkbox_0" type="checkbox" value="1" name="selected" autocomplete="off" disabled="&quot;disabled&quot;">
+                  <span style="display:none" id="parent_for_0"></span> <span style="display:none" id="project_id_for_0">53478</span> <span style="display:none" id="issue_id_for_0"></span></td>
+                <td id="popup_container_0" class="popup"><div id="drag_0" class="draggable sprite-menu"></div></td>
+                <td colspan="9" id="td_desc_0"><div id="task_description_0" onclick="newTask.insertAtBottom()"><span>Click here to add a new task</span></div></td>
+              </tr>
+            </tbody>
+            <tfoot id="sprint_totals">
+              <tr>
+                <th class="cursor"> </th>
+                <th class="handle"> </th>
+                <th class="popup"> </th>
+                <th colspan="4"> <input class="small_btn bottom_newtask_btn" id="show_hide_new_task2" onclick="newTask.insertAtBottom();" style="" type="button" value="New Task">
+                </th>
+                <th colspan="2" class="r">Total:</th>
+                <th class="estimate" id="sprint_total_estimate">8</th>
+                <th class="remaining" id="sprint_total_remaining">5</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div id="dynamic_vault" style="display:none;">
+      <select class="dynamic_editor" name="task_dynamic_status_editor" id="task_dynamic_status_editor" onblur="taskEditors.submitElement(this, &#39;status&#39;, this.task_id)" onchange="taskEditors.onChangeObserver(event, this)" onkeydown="taskEditors.keyDownObserver(event, this)">
+        <option value="Not Started">Not Started</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Reopened">Reopened</option>
+        <option value="Blocked">Blocked</option>
+        <option value="Completed">Completed</option>
+        <option value="Verified">Verified</option>
+        <option value="Duplicate">Duplicate</option>
+        <option value="Will Not Do">Will Not Do</option>
+      </select>
+      <select class="dynamic_editor" name="task_dynamic_resolution_editor" id="task_dynamic_resolution_editor" onblur="taskEditors.submitElement(this, &#39;resolution&#39;, this.task_id)" onchange="taskEditors.onChangeObserver(event, this)" onkeydown="taskEditors.keyDownObserver(event, this)">
+        <option value="Not Verified">Not Verified</option>
+        <option value="Assessed">Assessed</option>
+        <option value="Spec Completed">Spec Completed</option>
+        <option value="In Test">In Test</option>
+        <option value="Approved">Approved</option>
+        <option value="Integrated">Integrated</option>
+        <option value="Integration Testing">Integration Testing</option>
+        <option value="Confirmed">Confirmed</option>
+        <option value="Deployed">Deployed</option>
+        <option value="Verified">Verified</option>
+      </select>
+      <select class="dynamic_editor" id="task_dynamic_owner_id_editor" include_dashed_blank="true" name="task_dynamic_owner_id_editor" onblur="taskEditors.submitElement(this, &#39;owner_id&#39;, this.task_id)" onchange="taskEditors.onChangeObserver(event, this)" onkeydown="taskEditors.keyDownObserver(event, this)">
+        <option value="-2">-</option>
+        <option value="63246">harurin</option>
+      </select>
+      <select class="dynamic_editor" name="task_dynamic_priority_editor" id="task_dynamic_priority_editor" onblur="taskEditors.submitElement(this, &#39;priority&#39;, this.task_id)" onchange="taskEditors.onChangeObserver(event, this)" onkeydown="taskEditors.keyDownObserver(event, this)">
+        <option value=""></option>
+        <option value="0">P0</option>
+        <option value="1">P1</option>
+        <option value="2">P2</option>
+        <option value="3">P3</option>
+        <option value="4">P4</option>
+      </select>
+      <select class="dynamic_editor" name="task_dynamic_severity_editor" id="task_dynamic_severity_editor" onblur="taskEditors.submitElement(this, &#39;severity&#39;, this.task_id)" onchange="taskEditors.onChangeObserver(event, this)" onkeydown="taskEditors.keyDownObserver(event, this)">
+        <option value=""></option>
+        <option value="1">S1</option>
+        <option value="2">S2</option>
+        <option value="3">S3</option>
+        <option value="4">S4</option>
+      </select>
+      <textarea class="dynamic_editor" name="task_dynamic_description_editor" id="task_dynamic_description_editor" onblur="taskEditors.submitElement(this, &#39;description&#39;, this.task_id)" onkeydown="taskEditors.escObserver(event, this)"></textarea>
+      <input class="dynamic_editor" type="text" id="task_dynamic_estimate_editor" name="task_dynamic_estimate_editor" size="2" maxlength="6" autocomplete="off" onblur="taskEditors.submitElement(this, &#39;estimate&#39;, this.task_id)" onkeydown="taskEditors.keyDownObserver(event, this)">
+      <input class="dynamic_editor" type="text" id="task_dynamic_remaining_editor" name="task_dynamic_remaining_editor" size="2" maxlength="6" autocomplete="off" onblur="taskEditors.submitElement(this, &#39;remaining&#39;, this.task_id)" onkeydown="taskEditors.keyDownObserver(event, this)">
+      <ul id="itemmenu" class="itemmenu">
+        <li><span id="popup_new_task" onclick="taskActions.createTaskHere(taskActions.popped_task_id)">New Task</span></li>
+        <li><span id="popup_new_task_below" onclick="taskActions.createTaskBelowHere(taskActions.popped_task_id)">New Task Below</span></li>
+        <li><span id="popup_add_comment" onclick="taskActions.showCommentForm(CommentDialog.AddComment, taskActions.popped_task_id)">Add Comment</span></li>
+        <li><span id="popup_add_attachment" onclick="taskActions.showUploadForm(taskActions.popped_task_id)">Add Attachment</span></li>
+        <li><span class="popup_separator">
+          <hr class="separator">
+          </span></li>
+        <li><span id="popup_move_left" onclick="taskActions.moveTask(&#39;left&#39;, taskActions.popped_task_id)"> Move Left</span></li>
+        <li><span id="popup_move_right" onclick="taskActions.moveTask(&#39;right&#39;, taskActions.popped_task_id)"> Move Right</span></li>
+        <li><span id="popup_move_here" onclick="taskActions.moveHere(taskActions.popped_task_id, taskList.selectedTasks(), 222953)"> Move Selected Here</span></li>
+        <li><span class="popup_separator">
+          <hr class="separator">
+          </span></li>
+        <li><span id="popup_delete" onclick="taskActions.deleteTasks(DeleteMode.Confirm, {popped_task_id: taskActions.popped_task_id})"> Delete</span></li>
+      </ul>
+    </div>
+    <div id="closed_statuses" style="display:none"> Completed,Verified,Will Not Do,Duplicate</div>
+    <div class="popup_dialog comment_form_dialog task_list_comment_form" id="comment_form_dialog" style="display: none">
+      <h3 id="comment_form_dialog_header">Add Comment</h3>
+      <form action="http://mk2.acunote.com/comments/create" id="comment_form" method="post" name="comment_form" onsubmit="taskActions.showTaskSpinner($(&#39;task&#39;).value);; new Ajax.Request(&#39;/comments/create&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request){taskActions.hideTaskSpinner($(&#39;task&#39;).value);}, onSuccess:function(request){CommentDialog.reset()}, parameters:Form.serialize(this)}); return false;">
+        <div style="margin:0;padding:0;display:inline">
+          <input name="authenticity_token" type="hidden" value="n4bhXigsI3kd7zeVwfyzgQb5QtHnYxLDxFes2nyOy+U=">
+        </div>
+        <input id="view" name="view" type="hidden" value="tasklist">
+        <input id="issue" name="issue" type="hidden" value="0">
+        <input id="task" name="task" type="hidden" value="0">
+        <textarea class="comment_form_description" cols="45" id="description" name="description" rows="20"></textarea>
+        <div id="feedback_comment_form" class="feedback_area" style="display:none"> Request feedback from:
+          <select exclude_self="true" id="feedback_from_user_id" name="feedback_from_user_id">
+          </select>
+        </div>
+        <div id="send_notification_comment_form" class="checkbox_area"> Send notification to
+          <select id="notify" name="notify" style="width: 100px">
+            <option value=""></option>
+            <option value="Owner">Owner</option>
+            <option value="Creator">Creator</option>
+            <option value="All Involved">All Involved</option>
+          </select>
+        </div>
+      </form>
+      <div class="comment_form_save_button">
+        <input class="small_btn" onclick="CommentDialog.save(); return false;" type="button" value=" Save ">
+      </div>
+      <div class="comment_form_cancel_button">
+        <input class="small_btn" onclick="CommentDialog.cancel(); return false;" type="button" value="Cancel">
+      </div>
+    </div>
+    <div class="popup_dialog" id="apply_tag_dialog" style="display:none">
+      <h3 id="apply_tag_dialog_header">Apply Tag</h3>
+      <div id="apply_tag_list"> <span id="apply_tag_106000">Bug</span> <span>•</span> <span id="apply_tag_105998">Feature</span> <span>•</span> <span id="apply_tag_105999">Usability</span> </div>
+    </div>
+    <div class="popup_dialog" id="remove_tag_dialog" style="display:none">
+      <h3 id="remove_tag_dialog_header">Remove Tag</h3>
+      <div id="remove_tag_list"> </div>
+    </div>
+    <div id="duplicate_dialog" class="popup_dialog" style="display:none">
+      <h3>Set as duplicate of:</h3>
+      <form action="http://mk2.acunote.com/issues/change_relationship?change=add&amp;type=duplicate&amp;view=duplicate_dialog" id="duplicate_dialog_form" method="post" name="duplicate_dialog_form" onsubmit="new Ajax.Request(&#39;/issues/change_relationship?change=add&amp;type=duplicate&amp;view=duplicate_dialog&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request){Spinner.hide()}, onLoading:function(request){Spinner.show()}, parameters:Form.serialize(this)}); return false;">
+        <div style="margin:0;padding:0;display:inline">
+          <input name="authenticity_token" type="hidden" value="n4bhXigsI3kd7zeVwfyzgQb5QtHnYxLDxFes2nyOy+U=">
+        </div>
+        <input autocomplete="off" id="duplicate_related_issue" name="related_issue" type="text">
+        <input id="duplicate_source_id" name="id" type="hidden">
+        <br>
+        <input type="text" tabindex="-1" style="width: 0px;height: 0px;border: none">
+        <input class="small_btn" onclick="DuplicateDialog.save(); return false;" type="button" value="Save">
+        <input class="small_btn" onclick="DuplicateDialog.cancel(); return false;" type="button" value="Cancel">
+      </form>
+    </div>
+    <div id="due_date_dialog" class="popup_dialog" style="display:none">
+      <h3 id="due_date_dialog_header">Set Due Date</h3>
+      <form action="http://mk2.acunote.com/issues/update?field=due_date" id="due_date_dialog_form" method="post" name="due_date_dialog_form" onsubmit="new Ajax.Request(&#39;/issues/update?field=due_date&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request){Spinner.hide()}, onLoading:function(request){Spinner.show()}, parameters:Form.serialize(this)}); return false;">
+        <div style="margin:0;padding:0;display:inline">
+          <input name="authenticity_token" type="hidden" value="n4bhXigsI3kd7zeVwfyzgQb5QtHnYxLDxFes2nyOy+U=">
+        </div>
+        <input id="issue_due_date" name="value" onblur="cal_issue_due_date = Date.parseDate(this.value, date_format); if ((calendar) &amp;&amp; (elementMethods.isRendered(calendar.element))) calendar.hide();" onclick="if ((!elementMethods.isRendered(calendar.element)) &amp;&amp; (this.className != &#39;error&#39;)) { this.select(); calendar.show() };" onfocus="if (this.className != &#39;error&#39;) this.select()" size="30" type="text" value="">
+        <br>
+        <input type="hidden" id="issue_due_date_task" name="task" value="">
+        <input type="hidden" id="issue_due_date_number" name="number" value="">
+        <input type="hidden" id="issue_due_date_old_value" name="old_value" value="">
+        <input type="hidden" id="issue_due_date_view" name="view" value="issue_list">
+        <input type="text" tabindex="-1" class="hidden_text_input">
+        <input id="issue_due_date_save_button" onclick="DueDateDialog.save(); return false;" type="button" value="Save">
+        <input id="issue_due_date_cancel_button" onclick="DueDateDialog.cancel(); return false;" type="button" value="Cancel">
+      </form>
+    </div>
+    <div id="indicator" style="width: 1007px; left: 17px;"></div>
+  </div>
+  <div id="footer">
+    <div class="reduce"> <a href="http://mk2.acunote.com/projects/53478/sprints/222953/show#" onclick="return NewTaskDialog.show()" class="footer_right">Create New Task</a> Copyright © 2017, <a href="http://www.acunote.com/">Pluron, Inc.</a> &nbsp;•&nbsp; <a href="mailto:support@acunote.com" onclick="return FeedbackDialog.show()">Send Us Feedback</a> </div>
+  </div>
+</div>
+<!-- /#the_all --> 
+
+<script type="text/javascript">
+//<![CDATA[
+	taskEditors.statusList = ['Not Started', 'In Progress', 'Reopened', 'Blocked', 'Completed', 'Verified', 'Duplicate', 'Will Not Do'];
+	pageProperties.projectId = 53478;
+
+//]]>
+</script> 
+<script type="text/javascript">
+//<![CDATA[
+
+var applyTagDialog = new AdvancedSelectDialog('apply_tag_dialog', 'apply_tag_', {
+        callback: function(idx) {
+            var items = this.filteredItems();
+            var item = items[idx];
+            if (!item) return;
+            this.hide();
+            taskActions.toolBoxAction('Apply Tag', { tag_id: item.id});
+        }
+    }
+);
+
+var removeTagDialog = new AdvancedSelectDialog('remove_tag_dialog', 'remove_tag_', {
+        init: function() {
+            this.combination = '';
+            this.items = [];
+            var header = $(this.dialogId + '_header');
+            if (header) this.header = header.innerHTML;
+            var list = $(this.prefix + 'list');
+            var selectedTags = taskActions.selectedTags();
+            for(var i=0; i < selectedTags.length; i++) {
+                var item = {
+                    id: selectedTags[i],
+                    name: tags[selectedTags[i]]
+                }
+                this.items.push(item);
+            }
+            if (this.items.length > 0) {
+                this.items = this.items.sortBy(function(item) { return item.name.toLowerCase()});
+                this.updateList();
+            } else {
+                list.innerHTML = 'No tasks were selected.';
+            }
+        },
+        callback: function(idx) {
+            var items = this.filteredItems();
+            var item = items[idx];
+            if (!item) return;
+            this.hide();
+            taskActions.toolBoxAction('Remove Tag', { tag_id: item.id});
+        }
+    }
+);
+
+navDialog.selectFirstItem = function() {
+   var idx = 0;
+   var sprint_selector = $('sprint_selector');
+   if (sprint_selector) {
+        selected_sprint = sprint_selector.options[sprint_selector.selectedIndex].value;
+        var items = navDialog.filteredItems();
+        for(var i=0; i< items.length; i++) {
+            if (items[i].id == selected_sprint) 
+                idx = i;
+        }
+   }
+   this.selectItem(idx);
+}
+
+navDialog.callback = [
+    function(idx) {
+        var projectId = pageProperties.projectId;
+        var items = navDialog.filteredItems();
+        var item = items[idx];
+        if (!item) return;
+        navDialog.hide();
+        redirect('/projects/'+projectId+'/sprints/'+item.id+'/show');
+    },
+    // Even if this functions below looks very similar, don't be so
+    // excited about code duplication. Believe me, you don't want to
+    // reduce code duplications for some anonymous functions living in
+    // array that is a property of an object. Better leave it as is.
+    function(idx) {
+        var items = navDialog.filteredItems();
+        var item = items[idx];
+        if (!item) return;
+        navDialog.hide();
+        taskActions.toolBoxAction('Move Selected', {target_sprint: item.id});
+    },
+    function(idx) {
+        var items = navDialog.filteredItems();
+        var item = items[idx];
+        if (!item) return;
+        navDialog.hide();
+        taskActions.toolBoxAction('Copy Selected', {target_sprint: item.id});
+    }
+];
+var tags = new Array();
+tags[106000] = 'Bug';
+tags[105998] = 'Feature';
+tags[105999] = 'Usability';
+pageProperties.smallBurndownURL = 'site-image/burndown';
+
+Event.observe(window, 'load', function() {
+    if (pageProperties.smallBurndownURL) {
+        var image = $('burndown_image');
+        image.setAttribute('src', pageProperties.smallBurndownURL);
+        image.removeClassName('hidden');
+    };
+});
+document.observe('dom:loaded', function() {
+	taskList.blinkAnchor();;
+	taskMenu = new Menu($('itemmenu'), menuCallbacks.taskMenu);;
+	Event.observe(document, 'click', function(){$('levelmenu').hide()});;
+	Cursor.init.bind(Cursor)();;
+	taskList.initDragDrop(5, 222953);;
+	//Reinit drag'n'drop on fonts size change
+            SizeListener.initialize($('metanav'), function() {
+                taskList.initDragDrop(5, 222953);
+            });;
+	// Listen for keyboard shotcuts
+    // overriding shortcutListener.setObserver allows us to manage it with observers manager
+    shortcutListener.setObserver = function() {
+        Event.observe(document, shortcutListener.eventType(), shortcutListener.keyCollector.bindAsEventListener(shortcutListener)
+        );
+    };
+	shortcutListener.init();;
+	prettyInputs.init();
+});
+//]]>
+</script>
+<div id="shortcut_status" style="display: none;"></div>
+</body>
+</html>
